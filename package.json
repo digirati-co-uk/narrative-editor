@@ -1,0 +1,43 @@
+{
+  "name": "narrative-editor",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@fesk/module-release": "^0.0.2",
+    "babel-eslint": "^8.1.0",
+    "eslint": "^3.10.2",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-flow": "^2.29.1",
+    "eslint-plugin-flowtype": "^2.40.1",
+    "eslint-plugin-prettier": "^2.4.0",
+    "flow-bin": "^0.61.0",
+    "husky": "^0.14.3",
+    "lerna": "^2.11.0",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.2"
+  },
+  "devEngines": {
+    "node": "8.x"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "postinstall": "lerna link",
+    "test": "echo \"No tests yet\";",
+    "build-all": "lerna run build",
+    "release": "fesk-release --increment=patch",
+    "merge": "fesk-merge"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{js,json,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "license": "MIT"
+}
