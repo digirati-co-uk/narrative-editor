@@ -1,0 +1,13 @@
+.editor {
+  &__content {
+    display: flex;
+    flex-direction: row;
+  }
+  &__viewer {
+    flex: 1;
+  }
+
+  &__properties {
+    width: 400px;
+  }
+}
