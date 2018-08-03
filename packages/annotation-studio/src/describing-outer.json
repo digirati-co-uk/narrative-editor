@@ -1,0 +1,110 @@
+{
+  "@id": "/capture-models/generic/describing-outer.json",
+  "dcterms:title": "Create new annotation",
+  "dcterms:type": {
+    "@id": "http://www.digirati.com/ns/madoc#group",
+    "o:label": "madoc:group"
+  },
+  "rdfs:label": "Create new  annotation",
+  "crowds:derivedAnnoBodyFormat": "text/plain",
+  "crowds:derivedAnnoBodyPurpose": {
+    "@id": "http://www.w3.org/ns/oa#tagging",
+    "o:label": "oa:tagging"
+  },
+  "crowds:derivedAnnoBodyType": "text/plain",
+  "crowds:derivedAnnoCombine": "True",
+  "crowds:derivedAnnoExternalize": "False",
+  "crowds:derivedAnnoHumanReadable": "False",
+  "crowds:derivedAnnoMotivatedBy": {
+    "@id": "http://www.w3.org/ns/oa#tagging",
+    "o:label": "oa:tagging"
+  },
+  "crowds:derivedAnnoSerialize": "True",
+  "crowds:uiChoice": "True",
+  "crowds:uiComponent": "resource",
+  "crowds:uiGroup": {
+    "@id": "madoc:form",
+    "o:label": "madoc:form"
+  },
+  "crowds:uiHidden": "False",
+  "crowds:uiMultiple": "False",
+  "dcterms:hasPart": [
+    {
+      "@id": "/capture-models/generic/describing.json",
+      "dcterms:title": "Point of interest",
+      "dcterms:description": "Create region on page and describe the content.",
+      "dcterms:type": {
+        "@id": "http://www.digirati.com/ns/madoc#group",
+        "o:label": "madoc:group"
+      },
+      "crowds:uiSelectorType": {
+        "@id": "madoc:boxdraw",
+        "o:label": "madoc:boxdraw"
+      },
+      "crowds:derivedAnnoCombine": "True",
+      "crowds:derivedAnnoExternalize": "False",
+      "crowds:derivedAnnoHumanReadable": "True",
+      "crowds:derivedAnnoSerialize": "False",
+      "crowds:derivedAnnoMotivatedBy": {
+        "@id": "http://www.w3.org/ns/oa#tagging",
+        "o:label": "oa:tagging"
+      },
+      "crowds:uiChoice": "False",
+      "crowds:uiComponent": "resource",
+      "crowds:uiHidden": "False",
+      "crowds:uiMultiple": "True",
+      "crowds:uiGroup": {
+        "@id": "madoc:form",
+        "o:label": "madoc:form"
+      },
+      "dcterms:hasPart": [
+        {
+          "@id":
+            "https://annotation-studio.netlify.com/fields/describing/title",
+          "dcterms:title": "Title",
+          "dcterms:description": "The title",
+          "crowds:uiInputType": {
+            "@id": "madoc:textinput",
+            "o:label": "madoc:textinput"
+          },
+          "crowds:derivedAnnoBodyFormat": "text/plain",
+          "crowds:derivedAnnoBodyPurpose": {
+            "@id": "tagging",
+            "o:label": "tagging"
+          },
+          "crowds:derivedAnnoBodyType": {
+            "@id": "oa:TextualBody",
+            "o:label": "oa:TextualBody"
+          },
+          "dcterms:conformsTo": {
+            "@id": "dcterms:title",
+            "o:label": "dcterms:title"
+          }
+        },
+        {
+          "@id":
+            "https://annotation-studio.netlify.com/fields/describing/description",
+          "dcterms:title": "Description",
+          "dcterms:description": "Description",
+          "crowds:uiInputType": {
+            "@id": "madoc:htmlfield",
+            "o:label": "madoc:htmlfield"
+          },
+          "crowds:derivedAnnoBodyFormat": "text/html",
+          "crowds:derivedAnnoBodyPurpose": {
+            "@id": "tagging",
+            "o:label": "tagging"
+          },
+          "crowds:derivedAnnoBodyType": {
+            "@id": "oa:TextualBody",
+            "o:label": "oa:TextualBody"
+          },
+          "dcterms:conformsTo": {
+            "@id": "dcterms:description",
+            "o:label": "dcterms:description"
+          }
+        }
+      ]
+    }
+  ]
+}
