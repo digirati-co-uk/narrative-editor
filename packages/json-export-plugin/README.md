@@ -14,3 +14,8 @@ the JSON to show. It could present other optional elements - copy to clipboard.
   }
 />
 ```
+
+# TODO
+
+- [ ] Docs
+- [ ] Tests

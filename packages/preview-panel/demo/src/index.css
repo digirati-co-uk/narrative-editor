@@ -1,0 +1,61 @@
+html,
+body,
+#demo {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+#demo {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-container {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+h1 {
+  margin: 0;
+  padding: 8px;
+  box-sizing: border-box;
+  height: 60px;
+}
+
+
+.preview-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.preview-panel__header {
+  padding: 8px;
+  height: 30px;
+  box-sizing: border-box;
+}
+
+.preview-panel__content {
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.preview-panel__content iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+} 
+
+.preview-panel__button-bar  {
+  height: 40px;
+}
