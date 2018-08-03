@@ -24,9 +24,9 @@
   },
   "devDependencies": {
     "nwb": "0.21.x",
-    "react": "15.5.4",
+    "react": "^15.6.2",
     "react-component-demo": "^0.1.0",
-    "react-dom": "15.5.4",
+    "react-dom": "^15.6.2",
     "react-syntax-highlighter": "^8.0.1"
   },
   "author": "",

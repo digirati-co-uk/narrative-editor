@@ -9,6 +9,7 @@ import {
 } from '@annotation-studio/redux/es/actions/manifest';
 import { provider as CoreProvider } from '@annotation-studio/plugin-core';
 import { provider as ViewerProvider } from '@annotation-studio/plugin-viewer';
+import { provider as DraftsProvider } from '@annotation-studio/plugin-drafts';
 import { provider as ResourceEditorProvider } from '@annotation-studio/plugin-resource-editor';
 import { importResourceTemplate } from '@annotation-studio/bridge';
 import { getResourceById } from '@annotation-studio/redux/es/query/resourceQuery';
@@ -135,6 +136,17 @@ export default class AnnotationStudio extends Component {
               enableIncomplete={true}
               importCaptureModel={importCaptureModel}
               canvas={this.canvas['@id']}
+            />
+            <DraftsProvider
+              store={this.store}
+              plugins={[]}
+              label="All annotations"
+              filterBy="localStorage"
+              emptyState={false}
+              hideIfEmpty="false"
+              thumbnailSize={150}
+              showThumbnail={'true'}
+              description=""
             />
           </Editor.Properties>
         </Editor.Content>
