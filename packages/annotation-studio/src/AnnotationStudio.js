@@ -31,14 +31,15 @@ export default class AnnotationStudio extends Component {
   constructor(props) {
     super(props);
     let locale = locale || DEFAULT_LOCALE;
-    const url = window.location.href;
-    this.savedDraftList = localstorage.get(`annotation-studio/${url}`) || {};
-    this.disableCloseWarningBoolean = true;
-    this.store = createStore(reducers, [], locale);
     this.manifest = this.props.manifestJson;
     this.canvas = this.props.manifestJson.sequences[0].canvases.filter(
       canvas => canvas['@id'] === this.props.canvas
     )[0];
+
+    this.savedDraftList =
+      localstorage.get(`annotation-studio/${window.location.href}`) || {};
+    this.disableCloseWarningBoolean = true;
+    this.store = createStore(reducers, [], locale);
   }
 
   render() {
@@ -91,7 +92,7 @@ export default class AnnotationStudio extends Component {
           manifest={this.manifest['@id']}
           disableCloseWarning={this.disableCloseWarningBoolean}
           savedDraftList={this.savedDraftList}
-          elucidateServer={this.elucidateServer}
+          elucidateServer={'http://localhost:4242/annotation/w3c/'}
           canvas={this.canvas['@id']}
         />
         <Editor.Content>
@@ -118,14 +119,15 @@ export default class AnnotationStudio extends Component {
               enablePublishing={false}
               enableEditing={true}
               enableLocalStorage={true}
+              enableLocalStorageSaving={true}
               disableConfirmation={true}
               // onSave={(a, b, c) => {
               //   console.log(a, b, c);
               // }}
-              // onSaveAsIncomplete={(magic,b,c)=> {
-              //   console.log(magic,b,c);
+              // onSaveAsIncomplete={(magic, b, c) => {
+              //   console.log(magic, b, c);
               // }}
-              // createAnnotation={(annotation)=>{
+              // createAnnotation={annotation => {
               //   console.log('createAnnotation', annotation);
               //   return annotation;
               // }}
@@ -133,19 +135,19 @@ export default class AnnotationStudio extends Component {
               //   console.log('updateAnnotation', annotation);
               //   return annotation;
               // }}
-              enableIncomplete={true}
-              importCaptureModel={importCaptureModel}
+              //enableIncomplete={false}
+              //importCaptureModel={importCaptureModel}
               canvas={this.canvas['@id']}
             />
             <DraftsProvider
               store={this.store}
               plugins={[]}
               label="All annotations"
-              filterBy="localStorage"
+              filterBy="localStorage,elucidate"
               emptyState={false}
-              hideIfEmpty="false"
+              hideIfEmpty={false}
               thumbnailSize={150}
-              showThumbnail={'true'}
+              showThumbnail={true}
               description=""
             />
           </Editor.Properties>
