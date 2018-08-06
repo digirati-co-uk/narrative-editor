@@ -1,0 +1,33 @@
+{
+  "name": "narrative-editor",
+  "version": "1.0.0",
+  "description": "Describe narrative-editor here",
+  "private": true,
+  "scripts": {
+    "start": "fesk-start",
+    "build": "fesk-build",
+    "watch": "fesk-watch",
+    "test": "jest --no-cache",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage",
+    "coverage:watch": "jest --coverage --watch"
+  },
+  "dependencies": {
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2"
+  },
+  "devDependencies": {
+    "@fesk/scripts": "1.0.2",
+    "babel-jest": "^22.1.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-15": "^1.0.6",
+    "fetch-mock": "^6.5.2",
+    "jest": "^22.1.1",
+    "jest-localstorage-mock": "^2.2.0"
+  },
+  "author": "Adam Meszaros<adam.meszaros@digirati.com>",
+  "license": "MIT",
+  "repository": ""
+}
