@@ -2,26 +2,26 @@
 # yarn lockfile v1
 
 
-"@annotation-studio/bridge@^1.0.0-rc.18":
-  version "1.0.0-rc.18"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/bridge/-/bridge-1.0.0-rc.18.tgz#56c18129426a3b2446e2d1bd824a5c4efc27e824"
+"@annotation-studio/bridge@^1.0.0-rc.19":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/bridge/-/bridge-1.0.0-rc.19.tgz#d21f5a0e90c16740b698d5de58915ebc168a6efc"
   dependencies:
     lodash.flatten "^4.4.0"
 
-"@annotation-studio/bundle@^1.0.0-rc.18":
-  version "1.0.0-rc.18"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/bundle/-/bundle-1.0.0-rc.18.tgz#de288a074647049a603d2689f4721cd9408f0fc0"
+"@annotation-studio/bundle@^1.0.0-rc.19":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/bundle/-/bundle-1.0.0-rc.19.tgz#09fa655cb5d401242c603de87c21a09d4968ef01"
   dependencies:
-    "@annotation-studio/bridge" "^1.0.0-rc.18"
-    "@annotation-studio/components" "^1.0.0-rc.18"
-    "@annotation-studio/plugin-core" "^1.0.0-rc.18"
-    "@annotation-studio/plugin-drafts" "^1.0.0-rc.18"
-    "@annotation-studio/plugin-json-preview" "^1.0.0-rc.18"
-    "@annotation-studio/plugin-resource-editor" "^1.0.0-rc.18"
-    "@annotation-studio/plugin-tagging" "^1.0.0-rc.18"
-    "@annotation-studio/plugin-transcriber" "^1.0.0-rc.18"
-    "@annotation-studio/plugin-viewer" "^1.0.0-rc.18"
-    "@annotation-studio/redux" "^1.0.0-rc.18"
+    "@annotation-studio/bridge" "^1.0.0-rc.19"
+    "@annotation-studio/components" "^1.0.0-rc.19"
+    "@annotation-studio/plugin-core" "^1.0.0-rc.19"
+    "@annotation-studio/plugin-drafts" "^1.0.0-rc.19"
+    "@annotation-studio/plugin-json-preview" "^1.0.0-rc.19"
+    "@annotation-studio/plugin-resource-editor" "^1.0.0-rc.19"
+    "@annotation-studio/plugin-tagging" "^1.0.0-rc.19"
+    "@annotation-studio/plugin-transcriber" "^1.0.0-rc.19"
+    "@annotation-studio/plugin-viewer" "^1.0.0-rc.19"
+    "@annotation-studio/redux" "^1.0.0-rc.19"
     "@fesk/bem-js" "^1.0.1"
     moment "^2.20.1"
     react "^15.6.2"
@@ -40,9 +40,9 @@
     store "^2.0.4"
     whatwg-fetch "^2.0.3"
 
-"@annotation-studio/components@^1.0.0-rc.18":
-  version "1.0.0-rc.18"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/components/-/components-1.0.0-rc.18.tgz#235066ccb529cb1b84e28fc4bccc6670d3282a2e"
+"@annotation-studio/components@^1.0.0-rc.19":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/components/-/components-1.0.0-rc.19.tgz#0075d7ca13d8605e613ce75f6902b90f3e9235a7"
   dependencies:
     babel-preset-stage-0 "^6.24.1"
     classnames "^2.2.5"
@@ -53,6 +53,7 @@
     react-draggable-custom "1.4.7"
     react-google-static-map "^0.1.0"
     react-portal "^3.1.0"
+    react-quill "^1.3.1"
     recompose "^0.23.5"
   optionalDependencies:
     moment "^2.20.1"
@@ -61,51 +62,51 @@
     react-google-maps "^6.3.0"
     react-rnd "^4.2.2"
 
-"@annotation-studio/plugin-core@^1.0.0-rc.18":
-  version "1.0.0-rc.18"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-core/-/plugin-core-1.0.0-rc.18.tgz#666ebdde7914c7f263d0a7d889ebb87a1072575a"
+"@annotation-studio/plugin-core@^1.0.0-rc.19":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-core/-/plugin-core-1.0.0-rc.19.tgz#aea910105e20831c7ab8b8310f7007670039b858"
   dependencies:
     create-react-context "^0.2.2"
 
-"@annotation-studio/plugin-drafts@^1.0.0-rc.18":
-  version "1.0.0-rc.18"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-drafts/-/plugin-drafts-1.0.0-rc.18.tgz#391485c8995a448277163f74b84b333644429ba3"
+"@annotation-studio/plugin-drafts@^1.0.0-rc.19":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-drafts/-/plugin-drafts-1.0.0-rc.19.tgz#65d58898c26b773c825830e790cb3586662c6b63"
 
-"@annotation-studio/plugin-json-preview@^1.0.0-rc.18":
-  version "1.0.0-rc.18"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-json-preview/-/plugin-json-preview-1.0.0-rc.18.tgz#0235419659f940e5ac2d6d7b09ff5be2cd6ba5df"
+"@annotation-studio/plugin-json-preview@^1.0.0-rc.19":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-json-preview/-/plugin-json-preview-1.0.0-rc.19.tgz#ddcdb034a58a6f3fbbaabfeb5613e83c595756f6"
   dependencies:
     react-copy-to-clipboard "^5.0.1"
     react-datepicker "^0.41.1"
     store "^2.0.12"
 
-"@annotation-studio/plugin-resource-editor@^1.0.0-rc.18":
-  version "1.0.0-rc.18"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-resource-editor/-/plugin-resource-editor-1.0.0-rc.18.tgz#2cbf8b8f77b7e54fdf24d6e3e505a593ceb5bfd4"
+"@annotation-studio/plugin-resource-editor@^1.0.0-rc.19":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-resource-editor/-/plugin-resource-editor-1.0.0-rc.19.tgz#a64a6a518aacf3ca893ce0978d8a6257520b0509"
   dependencies:
     react-datepicker "^0.41.1"
     store "^2.0.12"
 
-"@annotation-studio/plugin-tagging@^1.0.0-rc.18":
-  version "1.0.0-rc.18"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-tagging/-/plugin-tagging-1.0.0-rc.18.tgz#bf16dd5a0a704d02e4a6f01945cd14cc94cc87d8"
+"@annotation-studio/plugin-tagging@^1.0.0-rc.19":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-tagging/-/plugin-tagging-1.0.0-rc.19.tgz#2ea44dd5bb4d7742fee2956b38cfd11841fc9b51"
 
-"@annotation-studio/plugin-transcriber@^1.0.0-rc.18":
-  version "1.0.0-rc.18"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-transcriber/-/plugin-transcriber-1.0.0-rc.18.tgz#ba1a10c4912ab2124dc2724d1dae1299ce07787e"
+"@annotation-studio/plugin-transcriber@^1.0.0-rc.19":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-transcriber/-/plugin-transcriber-1.0.0-rc.19.tgz#2ecba2f3cda9656b652fa4c748bfd74338019e45"
   dependencies:
     react-datepicker "^0.41.1"
 
-"@annotation-studio/plugin-viewer@^1.0.0-rc.18":
-  version "1.0.0-rc.18"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-viewer/-/plugin-viewer-1.0.0-rc.18.tgz#3dfa11f100163961b1d75f671a5491e538cd1e7e"
+"@annotation-studio/plugin-viewer@^1.0.0-rc.19":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-viewer/-/plugin-viewer-1.0.0-rc.19.tgz#8d3ea2a9b4b7369e81987b896d2d6b09a3ac34be"
   dependencies:
     react-measure "^1.4.7"
     react-rnd "^4.2.2"
 
-"@annotation-studio/redux@^1.0.0-rc.18":
-  version "1.0.0-rc.18"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/redux/-/redux-1.0.0-rc.18.tgz#afe6ce8e1e3816ddce311218ffc6051fd2160403"
+"@annotation-studio/redux@^1.0.0-rc.19":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/redux/-/redux-1.0.0-rc.19.tgz#af526682ad21c9d4a705404545635935c62c619d"
   dependencies:
     blueimp-md5 "^2.7.0"
     immutability-helper "^2.1.2"
@@ -218,6 +219,18 @@
   resolved "https://registry.yarnpkg.com/@fesk/react-bem/-/react-bem-1.0.2.tgz#83670304a8e66021b12b66b1a3e663ba8842dba5"
   dependencies:
     create-react-context "^0.2.1"
+
+"@types/quill@*":
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/@types/quill/-/quill-1.3.7.tgz#8fcf89632f79b2b04c12c6c38a4a495c7f198705"
+  dependencies:
+    parchment "^1.1.2"
+
+"@types/react@*":
+  version "16.4.7"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.7.tgz#f33f6d759a7e1833befa15224d68942d178a5a3f"
+  dependencies:
+    csstype "^2.2.0"
 
 JSONStream@^1.0.3, JSONStream@^1.0.4:
   version "1.3.3"
@@ -2174,6 +2187,10 @@ clone@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
 
+clone@^2.1.1:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
+
 cmd-shim@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/cmd-shim/-/cmd-shim-2.0.2.tgz#6fcbda99483a8fd15d7d30a196ca69d688a2efdb"
@@ -2829,6 +2846,10 @@ csso@~2.3.1:
   dependencies:
     clap "^1.0.9"
     source-map "^0.5.3"
+
+csstype@^2.2.0:
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.5.6.tgz#2ae1db2319642d8b80a668d2d025c6196071e788"
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
@@ -3592,6 +3613,10 @@ event-emitter@~0.3.5:
     d "1"
     es5-ext "~0.10.14"
 
+eventemitter3@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-2.0.3.tgz#b5e1079b59fb5e1ba2771c0a993be060a58c99ba"
+
 eventemitter3@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.0.tgz#090b4d6cdbd645ed10bf750d4b5407942d7ba163"
@@ -3756,7 +3781,7 @@ extend-shallow@^3.0.0, extend-shallow@^3.0.2:
     assign-symbols "^1.0.0"
     is-extendable "^1.0.1"
 
-extend@3, extend@^3.0.0, extend@~3.0.0, extend@~3.0.1:
+extend@3, extend@^3.0.0, extend@^3.0.1, extend@^3.0.2, extend@~3.0.0, extend@~3.0.1:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
 
@@ -3821,7 +3846,7 @@ fast-deep-equal@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
 
-fast-diff@^1.1.1:
+fast-diff@1.1.2, fast-diff@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.1.2.tgz#4b62c42b8e03de3f848460b639079920695d0154"
 
@@ -7135,6 +7160,10 @@ param-case@2.1.x:
   dependencies:
     no-case "^2.2.0"
 
+parchment@^1.1.2, parchment@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/parchment/-/parchment-1.1.4.tgz#aeded7ab938fe921d4c34bc339ce1168bc2ffde5"
+
 parents@^1.0.0, parents@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/parents/-/parents-1.0.1.tgz#fedd4d2bf193a77745fe71e371d73c3307d9c751"
@@ -7851,6 +7880,25 @@ quick-lru@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-1.1.0.tgz#4360b17c61136ad38078397ff11416e186dcfbb8"
 
+quill-delta@^3.6.2:
+  version "3.6.3"
+  resolved "https://registry.yarnpkg.com/quill-delta/-/quill-delta-3.6.3.tgz#b19fd2b89412301c60e1ff213d8d860eac0f1032"
+  dependencies:
+    deep-equal "^1.0.1"
+    extend "^3.0.2"
+    fast-diff "1.1.2"
+
+quill@^1.2.6:
+  version "1.3.6"
+  resolved "https://registry.yarnpkg.com/quill/-/quill-1.3.6.tgz#99f4de1fee85925a0d7d4163b6d8328f23317a4d"
+  dependencies:
+    clone "^2.1.1"
+    deep-equal "^1.0.1"
+    eventemitter3 "^2.0.3"
+    extend "^3.0.1"
+    parchment "^1.1.4"
+    quill-delta "^3.6.2"
+
 randomatic@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/randomatic/-/randomatic-3.0.0.tgz#d35490030eb4f7578de292ce6dfb04a91a128923"
@@ -7945,6 +7993,10 @@ react-dlcs-panel@^0.1.6:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/react-dlcs-panel/-/react-dlcs-panel-0.1.8.tgz#567782d23b98265e0b4b5eed34cd517355fa9d3b"
 
+react-dom-factories@^1.0.0:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-dom-factories/-/react-dom-factories-1.0.2.tgz#eb7705c4db36fb501b3aa38ff759616aa0ff96e0"
+
 react-dom@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.2.tgz#41cfadf693b757faf2708443a1d1fd5a02bef730"
@@ -8032,6 +8084,18 @@ react-proxy@^1.1.7:
   dependencies:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
+
+react-quill@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/react-quill/-/react-quill-1.3.1.tgz#9fd2003f20a0f3bb6c9e55631add7658f5f967a4"
+  dependencies:
+    "@types/quill" "*"
+    "@types/react" "*"
+    create-react-class "^15.6.0"
+    lodash "^4.17.4"
+    prop-types "^15.5.10"
+    quill "^1.2.6"
+    react-dom-factories "^1.0.0"
 
 react-redux@^5.0.1, react-redux@^5.0.3:
   version "5.0.7"
