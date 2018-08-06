@@ -1,5 +1,5 @@
 {
-  "name": "rest-export-plugin",
+  "name": "@narrative-editor/rest-export-plugin",
   "version": "1.0.0",
   "description": "rest-export-plugin React component",
   "main": "lib/index.js",

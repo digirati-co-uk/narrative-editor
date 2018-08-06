@@ -1,5 +1,5 @@
 {
-  "name": "json-export-plugin",
+  "name": "@narrative-editor/json-export-plugin",
   "version": "1.0.0",
   "description": "json-export-plugin React component",
   "main": "lib/index.js",

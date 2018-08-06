@@ -1,5 +1,5 @@
 {
-  "name": "narrative-editor",
+  "name": "@narrative-editor/narrative-editor-app",
   "version": "1.0.0",
   "description": "Describe narrative-editor here",
   "private": true,
