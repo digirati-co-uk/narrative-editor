@@ -28,7 +28,8 @@
     "test": "echo \"No tests yet\";",
     "build-all": "lerna run build",
     "release": "fesk-release --increment=patch",
-    "merge": "fesk-merge"
+    "merge": "fesk-merge",
+    "start": "fesk-setup"
   },
   "lint-staged": {
     "*.js": [
