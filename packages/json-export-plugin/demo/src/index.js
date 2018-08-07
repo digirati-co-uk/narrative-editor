@@ -4,7 +4,7 @@ import ComponentDemo from 'react-component-demo';
 import SyntaxHighlighter from 'react-syntax-highlighter/prism';
 import { rainbow } from 'react-syntax-highlighter/styles/hljs';
 
-import { JSONExport } from '../../src/index';
+import { JSONExport } from '../../src';
 
 class Demo extends Component {
   render() {
