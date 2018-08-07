@@ -1,6 +1,6 @@
 {
   "name": "@narrative-editor/annotation-studio",
-  "version": "0.9.0",
+  "version": "0.1.0-next.91e2c642",
   "description": "annotation-studio React component",
   "main": "lib/index.js",
   "module": "es/index.js",
