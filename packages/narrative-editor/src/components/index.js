@@ -1,3 +1,3 @@
-import App from './app/App';
+import ImportScreen from './importScreen/ImportScreen';
 
-export { App };
+export { ImportScreen };

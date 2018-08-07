@@ -1,0 +1,106 @@
+@mixin texish-input() {
+  appearance: none;
+  margin-bottom: 16px;
+  background: white;
+  border: 2px solid #c3c3c3;
+  outline: none;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 0;
+  &:focus {
+    border-color: $active-colour;
+  }
+}
+
+@mixin buttonish() {
+  background: $active-colour;
+  border-color: $active-colour;
+  padding: 8px 16px;
+  color: white;
+  outline: none;
+  font-family: 'Roboto Mono', monospace;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+$active-colour: rgb(89, 191, 236);
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  font-family: 'Crimson Text', serif;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type='text'],
+input[type='url'],
+input[type='file'],
+input[type='number'],
+select,
+textarea {
+  @include texish-input();
+}
+
+input[type='submit'],
+button,
+.btn {
+  @include buttonish();
+}
+input[type='submit'][disabled],
+button:disabled,
+.btn--disabled {
+  background: grey;
+  border-color: grey;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  &__title {
+    font-family: 'Julius Sans One', sans-serif;
+    padding: 16px;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+  }
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background: #f9f9f9;
+  }
+  &__back {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+  &__primary-action {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+}

@@ -1,0 +1,33 @@
+.start-screen {
+  &__options {
+    width: 100%;
+    max-width: 1200px;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+  }
+  &__option {
+    border: 2px solid #c3c3c3;
+    margin: 16px;
+    padding: 16px;
+    flex: 1;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    input,
+    select {
+      width: 100%;
+    }
+  }
+  &__title {
+    letter-spacing: 1px;
+    margin: 0 0 16px;
+  }
+  &__actions {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
