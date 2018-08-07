@@ -1,6 +1,6 @@
 {
   "name": "@narrative-editor/preview-panel",
-  "version": "0.1.0-next.91e2c642",
+  "version": "0.0.1",
   "description": "preview-panel React component",
   "main": "lib/index.js",
   "module": "es/index.js",
