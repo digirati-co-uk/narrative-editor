@@ -68,10 +68,10 @@ export default class ImportScreen extends React.Component {
           iiifImageUriVerified: true,
           iiifImage: res,
           selectedImage: {
-            '@id': `${res['@id']}/full/full/0/default.jpg`,
-            '@type': 'dctypes:Image',
+            id: `${res['@id']}/full/full/0/default.jpg`,
+            type: 'Image',
             service: {
-              '@id': res['@id'],
+              id: res['@id'],
               profile: res.profile[0],
               protocol: 'http://iiif.io/api/image',
               // height: res.height, //this is not needed

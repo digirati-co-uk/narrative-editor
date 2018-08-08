@@ -1,3 +1,5 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = {
   type: 'react-component',
   npm: {
@@ -10,16 +12,21 @@ module.exports = {
     },
   },
   webpack: {
-    copy: {
-      options: {
-        debug: true,
-      },
-      patterns: [
-        {
-          from: 'src/describing-outer.json',
-          to: 'es/',
-          toType: 'file',
-        },
+    extra: {
+      // Unfortunately this only deals with the umd
+      plugins: [
+        new CopyWebpackPlugin(
+          [
+            {
+              from: 'src/describing-outer.json',
+              to: '@narrative-editor/describing-outer.json',
+              toType: 'file',
+            },
+          ],
+          {
+            debug: true,
+          }
+        ),
       ],
     },
   },

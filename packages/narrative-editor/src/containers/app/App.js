@@ -21,12 +21,15 @@ class App extends React.Component {
   };
 
   createNewManifestFromImage = iiifImageJson => {
+    const imageId =
+      iiifImageJson.service['@id'] || iiifImageJson.service['@id'];
+    console.log('imageId', imageId);
     return {
       label: {
         en: ['Unnamed manifest'],
       },
       type: 'Manifest',
-      id: '${this.TEMPORARY_MANIFEST_URI}/manifest',
+      id: `${this.TEMPORARY_MANIFEST_URI}/manifest`,
       items: [
         {
           label: {
@@ -35,25 +38,25 @@ class App extends React.Component {
           height: iiifImageJson.height,
           width: iiifImageJson.width,
           type: 'Canvas',
-          id: '${this.TEMPORARY_MANIFEST_URI}/canvas/c1',
+          id: `${this.TEMPORARY_MANIFEST_URI}/canvas/c1`,
           items: [
             {
               type: 'AnnotationPage',
               items: [
                 {
-                  id: '${this.TEMPORARY_MANIFEST_URI}/annot/c1-1',
+                  id: `${this.TEMPORARY_MANIFEST_URI}/annot/c1-1`,
                   type: 'Annotation',
                   motivation: 'painting',
                   label: {
                     en: ['Image Annotation 1'],
                   },
                   body: {
-                    id: iiifImageJson['@id'] + '/full/!400,400/0/default.jpg',
+                    id: `${imageId}/full/!400,400/0/default.jpg`,
                     type: 'Image',
                     format: 'image/jpg',
                     service: [
                       {
-                        id: iiifImageJson['@id'],
+                        id: imageId,
                         type: 'ImageService3',
                         profile: 'level2',
                       },
@@ -61,10 +64,10 @@ class App extends React.Component {
                     height: iiifImageJson.height,
                     width: iiifImageJson.width,
                   },
-                  target: '${this.TEMPORARY_MANIFEST_URI}/canvas/c1',
+                  target: `${this.TEMPORARY_MANIFEST_URI}/canvas/c1`,
                 },
               ],
-              id: '${this.TEMPORARY_MANIFEST_URI}/list/c1-ap1',
+              id: `${this.TEMPORARY_MANIFEST_URI}/list/c1-ap1`,
             },
           ],
         },
@@ -78,7 +81,10 @@ class App extends React.Component {
 
   render() {
     return this.state.manifestJson ? (
-      <AnnotationStudio manifestJson={this.state.manifestJson} />
+      <AnnotationStudio
+        manifestJson={this.state.manifestJson}
+        canvas={`${this.TEMPORARY_MANIFEST_URI}/canvas/c1`}
+      />
     ) : (
       <ImportScreen onImageSelectedCallback={this.newImageReceived} />
     );

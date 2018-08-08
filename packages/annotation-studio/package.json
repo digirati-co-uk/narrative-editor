@@ -6,12 +6,14 @@
   "module": "es/index.js",
   "files": [
     "css",
+    "scss",
+    "json",
     "es",
     "lib",
     "umd"
   ],
   "scripts": {
-    "build": "nwb build-react-component",
+    "build": "nwb build-react-component && cp src/*.{json,scss} es/ && cp src/*.{json,scss} lib/",
     "clean": "nwb clean-module && nwb clean-demo",
     "start": "nwb serve-react-demo",
     "test": "nwb test-react",

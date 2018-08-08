@@ -31,9 +31,9 @@ export default class AnnotationStudio extends Component {
   constructor(props) {
     super(props);
     let locale = locale || DEFAULT_LOCALE;
-    this.manifest = this.props.manifestJson;
-    this.canvas = this.props.manifestJson.sequences[0].canvases.filter(
-      canvas => canvas['@id'] === this.props.canvas
+    this.manifest = props.manifestJson;
+    this.canvas = props.manifestJson.items.filter(
+      canvas => canvas.id === this.props.canvas
     )[0];
 
     this.savedDraftList =
@@ -48,9 +48,9 @@ export default class AnnotationStudio extends Component {
     let resourceTemplates =
       'https://nlw-omeka.digtest.co.uk/s/site-one/annotation-studio/open/resource/3898';
     dispatch(importResourceTemplate(resourceTemplate, 'canvas'));
-    dispatch(addManifest(this.manifest['@id'], this.manifest));
-    dispatch(selectManifest(this.manifest['@id']));
-    dispatch(selectCanvas(this.canvas['@id']));
+    dispatch(addManifest(this.manifest.id, this.manifest));
+    dispatch(selectManifest(this.manifest.id));
+    dispatch(selectCanvas(this.canvas.id));
 
     const resourceCache = {};
     //resource[resourceTemplates] = resource;
@@ -89,18 +89,18 @@ export default class AnnotationStudio extends Component {
       <Editor>
         <CoreProvider
           store={this.store}
-          manifest={this.manifest['@id']}
+          manifest={this.manifest}
           disableCloseWarning={this.disableCloseWarningBoolean}
           savedDraftList={this.savedDraftList}
           elucidateServer={'http://localhost:4242/annotation/w3c/'}
-          canvas={this.canvas['@id']}
+          canvas={this.canvas.id}
         />
         <Editor.Content>
           <Editor.Viewer>
             <ViewerProvider
               selectedViewer="OpenSeadragonViewer"
               image={{
-                src: this.canvas.images[0].resource['@id'],
+                src: this.canvas.items[0].items[0].body.id,
                 width: parseInt(this.canvas.width, 10),
                 height: parseInt(this.canvas.height, 10),
               }}
@@ -115,7 +115,7 @@ export default class AnnotationStudio extends Component {
               plugins={[]}
               target="canvas"
               tree={'/capture-models/generic/describing-outer.json'}
-              manifest={this.manifest['@id']}
+              manifest={this.manifest}
               enablePublishing={false}
               enableEditing={true}
               enableLocalStorage={true}
@@ -137,7 +137,7 @@ export default class AnnotationStudio extends Component {
               // }}
               //enableIncomplete={false}
               //importCaptureModel={importCaptureModel}
-              canvas={this.canvas['@id']}
+              canvas={this.canvas.id}
             />
             <DraftsProvider
               store={this.store}
