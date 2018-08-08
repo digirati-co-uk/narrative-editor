@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "react": "^15.6.2",
-    "react-dom": "^15.6.2"
+    "react-dom": "^15.6.2",
+    "@narrative-editor/annotation-studio": "^0.0.1"
   },
   "devDependencies": {
     "@fesk/scripts": "1.0.2",

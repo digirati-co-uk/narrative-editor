@@ -2,6 +2,7 @@ import './App.scss';
 
 import React from 'react';
 import { ImportScreen } from '../../components';
+import { AnnotationStudio } from '@narrative-editor/annotation-studio';
 
 class App extends React.Component {
   constructor(props) {
@@ -77,7 +78,7 @@ class App extends React.Component {
 
   render() {
     return this.state.manifestJson ? (
-      <div>Annotation Studio</div>
+      <AnnotationStudio manifestJson={this.state.manifestJson} />
     ) : (
       <ImportScreen onImageSelectedCallback={this.newImageReceived} />
     );
