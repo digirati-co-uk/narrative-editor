@@ -7,6 +7,8 @@ import {
   selectCanvas,
   selectManifest,
 } from '@annotation-studio/redux/es/actions/manifest';
+import { pluginKit } from '@annotation-studio/components';
+import ComboButton from '@annotation-studio/components/es/components/inputs/ComboButton';
 import { provider as CoreProvider } from '@annotation-studio/plugin-core';
 import { provider as ViewerProvider } from '@annotation-studio/plugin-viewer';
 import { provider as DraftsProvider } from '@annotation-studio/plugin-drafts';
@@ -40,6 +42,15 @@ export default class AnnotationStudio extends Component {
       localstorage.get(`annotation-studio/${window.location.href}`) || {};
     this.disableCloseWarningBoolean = true;
     this.store = createStore(reducers, [], locale);
+    pluginKit.registerPlugin('save-in-progress', {
+      PUBLISH_BUTTON: pluginProps => {
+        return (
+          <ComboButton onClick={pluginProps.onSaveAsInProgress}>
+            Save
+          </ComboButton>
+        );
+      },
+    });
   }
 
   render() {
@@ -92,7 +103,7 @@ export default class AnnotationStudio extends Component {
           manifest={this.manifest}
           disableCloseWarning={this.disableCloseWarningBoolean}
           savedDraftList={this.savedDraftList}
-          elucidateServer={'http://localhost:4242/annotation/w3c/'}
+          //elucidateServer={'http://localhost:4242/annotation/w3c/'}
           canvas={this.canvas.id}
         />
         <Editor.Content>
@@ -112,15 +123,21 @@ export default class AnnotationStudio extends Component {
           <Editor.Properties>
             <ResourceEditorProvider
               store={this.store}
-              plugins={[]}
+              plugins={['save-in-progress']}
               target="canvas"
               tree={'/capture-models/generic/describing-outer.json'}
               manifest={this.manifest}
-              enablePublishing={false}
-              enableEditing={true}
+              //enablePublishing={true}
+              //enableEditing={true}
               enableLocalStorage={true}
               enableLocalStorageSaving={true}
-              disableConfirmation={true}
+              //disableConfirmation={true}
+              createAnnotation={(a, b, c) => {
+                console.log(a, b, c);
+              }}
+              updateAnnotation={(a, b, c) => {
+                console.log(a, b, c);
+              }}
               // onSave={(a, b, c) => {
               //   console.log(a, b, c);
               // }}
@@ -135,7 +152,11 @@ export default class AnnotationStudio extends Component {
               //   console.log('updateAnnotation', annotation);
               //   return annotation;
               // }}
-              //enableIncomplete={false}
+              // deleteAnnotation={(annotation)=>{
+              //   console.log('deleteAnnotation', annotation);
+              //   return annotation;
+              // }}
+              enableIncomplete={false}
               //importCaptureModel={importCaptureModel}
               canvas={this.canvas.id}
             />
@@ -143,7 +164,7 @@ export default class AnnotationStudio extends Component {
               store={this.store}
               plugins={[]}
               label="All annotations"
-              filterBy="localStorage,elucidate"
+              filterBy="localStorage"
               emptyState={false}
               hideIfEmpty={false}
               thumbnailSize={150}
