@@ -45,7 +45,12 @@ export default class AnnotationStudio extends Component {
     pluginKit.registerPlugin('save-in-progress', {
       PUBLISH_BUTTON: pluginProps => {
         return (
-          <ComboButton onClick={pluginProps.onSaveAsInProgress}>
+          <ComboButton
+            onClick={ev => {
+              pluginProps.onSaveAsInProgress(ev);
+              console.log('saving braw', ev);
+            }}
+          >
             Save
           </ComboButton>
         );
