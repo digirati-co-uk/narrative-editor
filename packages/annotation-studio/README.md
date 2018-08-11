@@ -28,3 +28,33 @@ This will also include plugins for annotation studio:
 - Export manifest
 
 They could be their own modules, or part of the same.
+
+## Dev notes:
+
+- Annotation Studio Component can be used as a regular `React` component:
+
+```js
+<AnnotationStudio
+  manifestId=""
+  manifestJson={{ /* ... */ }}
+  canvas="http://.."
+  onCreateAnnotation={(annotation, index) => (/* ... */)}
+  onDeleteAnnotation={(annotation, index) => (/* ... */)}
+  onUpdateAnnotation={(annotation, index) => (/* ... */)}
+  onUpdateAnnotationOrder={newOrder => {/* ... */}}
+/>
+```
+
+This case it directly mutates the passed manifest json.
+
+Or as a Redux component: in which case the presley.js store provides all the necessary parameters
+<PresleyJSProvider>
+<AnotationStudio />
+<PresleYJSProvider>
+
+The Redux version can immediately used with other components like:
+<PresleyJSProvider>
+<AnotationStudio />
+<MetadataEditor />
+<RangeEditor />
+<PresleYJSProvider>

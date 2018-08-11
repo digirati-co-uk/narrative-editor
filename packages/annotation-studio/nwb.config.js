@@ -11,23 +11,4 @@ module.exports = {
       },
     },
   },
-  webpack: {
-    extra: {
-      // Unfortunately this only deals with the umd
-      plugins: [
-        new CopyWebpackPlugin(
-          [
-            {
-              from: 'src/describing-outer.json',
-              to: '@narrative-editor/describing-outer.json',
-              toType: 'file',
-            },
-          ],
-          {
-            debug: true,
-          }
-        ),
-      ],
-    },
-  },
 };

@@ -1,18 +1,3 @@
-// Default styles for annotation studio
-.annotation-studio-editor {
-  &__content {
-    display: flex;
-    flex-direction: row;
-  }
-  &__viewer {
-    flex: 1;
-  }
-
-  &__properties {
-    width: 400px;
-  }
-}
-
 // full height panel
 .full-height-panel {
   display: flex;
