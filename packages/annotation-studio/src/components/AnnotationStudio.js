@@ -25,17 +25,16 @@ export default class AnnotationStudio extends Component {
     };
   }
 
-  onCreateAnnotation = annotation => {
-    console.log(annotation);
+  onCreateAnnotation = draft => {
+    if (this.props.onCreateAnnotation) {
+      this.props.onCreateAnnotation(
+        draft,
+        this.canvas.annotations[0].items.length + 1
+      );
+    }
     this.setState({
       isEditing: false,
     });
-    if (this.props.onCreateAnnotation) {
-      this.props.onCreateAnnotation(
-        annotation,
-        this.canvas.items[0].items.length
-      );
-    }
   };
   onDeleteAnnotation = (annotation, index) => {
     console.log(annotation, index);
@@ -43,7 +42,7 @@ export default class AnnotationStudio extends Component {
       this.props.onDeleteAnnotation(annotation, index);
     } else {
       //TODO: we don't want this.
-      this.canvas.annotations[0].items.splice(foundAt, 1);
+      this.canvas.annotations[0].items.splice(index, 1);
     }
   };
   onUpdateAnnotation = annotation => {
@@ -86,9 +85,7 @@ export default class AnnotationStudio extends Component {
             canvas={this.canvas.id}
             captureModel={this.props.captureModel}
             onCreateAnnotation={this.onCreateAnnotation}
-            onDeleteAnnotation={this.onDeleteAnnotation}
             onUpdateAnnotation={this.onUpdateAnnotation}
-            onUpdateAnnotationOrder={this.onUpdateAnnotationOrder}
             locale={this.locale}
           />
         ) : (
