@@ -1,0 +1,83 @@
+{
+  "@id": "/capture-models/generic/describing.json",
+  "dcterms:title": "Linking annotation",
+  "dcterms:description": "Create region on page that links to external resource.",
+  "dcterms:type": {
+    "@id": "http://www.digirati.com/ns/madoc#group",
+    "o:label": "madoc:group"
+  },
+
+  "crowds:uiSelectorType": {
+    "@id": "madoc:boxdraw",
+    "o:label": "madoc:boxdraw"
+  },
+
+  "crowds:derivedAnnoCombine": "True",
+  "crowds:derivedAnnoExternalize": "False",
+  "crowds:derivedAnnoHumanReadable": "True",
+  "crowds:derivedAnnoSerialize": "False",
+  "crowds:derivedAnnoMotivatedBy": {
+    "@id": "http://www.w3.org/ns/oa#tagging",
+    "o:label": "oa:tagging"
+  },
+  "crowds:derivedAnnoBodyLabelParts": {
+    "@id": "dcterms:title",
+    "o:label": "dcterms:title"
+  },
+
+  "crowds:uiChoice": "False",
+  "crowds:uiComponent": "resource",
+  "crowds:uiHidden": "False",
+  "crowds:uiMultiple": "True",
+  "crowds:uiGroup": {
+    "@id": "madoc:form",
+    "o:label": "madoc:form"
+  },
+
+  "dcterms:hasPart": [
+    {
+      "@id": "https://annotation-studio.netlify.com/fields/describing/title",
+      "dcterms:title": "Title",
+      "dcterms:description": "The title",
+      "crowds:uiInputType": {
+        "@id": "madoc:textbox",
+        "o:label": "madoc:textbox"
+      },
+      "crowds:derivedAnnoBodyFormat": "text/plain",
+      "crowds:derivedAnnoBodyPurpose": {
+        "@id": "tagging",
+        "o:label": "tagging"
+      },
+      "crowds:derivedAnnoBodyType": {
+        "@id": "oa:TextualBody",
+        "o:label": "oa:TextualBody"
+      },
+      "dcterms:conformsTo": {
+        "@id": "dcterms:title",
+        "o:label": "dcterms:title"
+      }
+    },
+    {
+      "@id": "https://annotation-studio.netlify.com/fields/describing/description",
+      "dcterms:title": "Description",
+      "dcterms:description": "Description",
+      "crowds:uiInputType": {
+        "@id": "madoc:htmlfield",
+        "o:label": "madoc:htmlfield"
+      },
+      "crowds:derivedAnnoBodyFormat": "text/html",
+      "crowds:derivedAnnoBodyPurpose": {
+        "@id": "tagging",
+        "o:label": "tagging"
+      },
+      "crowds:derivedAnnoBodyType": {
+        "@id": "oa:TextualBody",
+        "o:label": "oa:TextualBody"
+      },
+      "dcterms:conformsTo": {
+        "@id": "dcterms:description",
+        "o:label": "dcterms:description"
+      }
+    }
+  ]
+}
