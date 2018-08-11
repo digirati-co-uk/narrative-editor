@@ -13,7 +13,7 @@
     "umd"
   ],
   "scripts": {
-    "build": "nwb build-react-component && cp ./src/**/*.{json,scss} es/ 2>/dev/null || : && cp ./src/**/*.{json,scss} lib/ 2>/dev/null || :",
+    "build": "nwb build-react-component --copy-files",
     "clean": "nwb clean-module && nwb clean-demo",
     "start": "nwb serve-react-demo",
     "test": "nwb test-react",
