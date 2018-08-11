@@ -63,9 +63,18 @@ export default class AnnotationStudio extends Component {
   };
 
   onSelectAnnotation = annotation => {
-    this.setState({
-      selectedAnnotation: annotation,
-    });
+    if (
+      !this.state.selectedAnnotation ||
+      this.state.selectedAnnotation.id !== annotation.id
+    ) {
+      this.setState({
+        selectedAnnotation: annotation,
+      });
+    } else {
+      this.setState({
+        selectedAnnotation: null,
+      });
+    }
   };
 
   render() {
