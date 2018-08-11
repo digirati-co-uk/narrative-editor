@@ -28,8 +28,8 @@ export class AnnotationList extends React.Component {
     display: 'block',
     position: 'relative',
     // change background colour if dragging
-    outline: isDragging ? 'rgb(89, 191, 236)' : 'white',
-    // outline: isSelected ? '2px solid rgb(89, 191, 236)' : '0',
+    background: isDragging ? 'rgb(89, 191, 236)' : 'white',
+    outline: isSelected ? '2px solid rgb(89, 191, 236)' : '0',
     // styles we need to apply on draggables
     ...draggableStyle,
   });
@@ -41,29 +41,36 @@ export class AnnotationList extends React.Component {
     minHeight: '100%',
   });
 
-  selectItem = item => {
+  selectItem = annotation => {
     let self = this;
     return () => {
-      self.onSelectCallback(item);
+      self.onSelectCallback(annotation);
     };
   };
 
   selectedItem = () => {
-    return this.props.selectedItem;
+    return this.props.selectedAnnotation
+      ? this.props.selectedAnnotation.id
+      : null;
   };
 
-  deleteItem = () => {
+  deleteItem = annotation => {
     let self = this;
     return ev => {
       ev.stopPropagation();
 
       let foundAt = self.props.annotationList.items
         .map(x => x.id)
-        .indexOf(itemId);
+        .indexOf(annotation.id);
       if (foundAt !== -1) {
-        self.props.annotationList.items.splice(foundAt, 1);
-        self.onDeleteCallback(foundAt);
+        if (self.onDeleteCallback) {
+          self.onDeleteCallback(annotation, foundAt);
+        }
+        // else {
+        // TODO: we don't wan't this.
+        // self.props.annotationList.items.splice(foundAt, 1);
         //self.forceUpdate();
+        // }
       }
     };
   };
@@ -126,10 +133,18 @@ export class AnnotationList extends React.Component {
                               __html: item.body.value,
                             }}
                           />
-                          <i
+                          <button
                             className="fa fa-times-circle"
-                            onClick={self.deleteItem(item.id)}
-                          />
+                            onClick={self.deleteItem(item)}
+                          >
+                            edit
+                          </button>
+                          <button
+                            className="fa fa-times-circle"
+                            onClick={self.deleteItem(item)}
+                          >
+                            delete
+                          </button>
                         </div>
                       )}
                     </Draggable>

@@ -14,6 +14,8 @@ class Demo extends Component {
   };
   onDeleteAnnotation = (annotation, index) => {
     console.log(annotation, index);
+    TEST_MANIFEST.items[0].annotations[0].items.splice(index, 1);
+    this.forceUpdate();
   };
   onUpdateAnnotation = (annotation, index) => {
     console.log(annotation, index);

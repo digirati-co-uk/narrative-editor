@@ -18,9 +18,11 @@ class CanvasPanelPreview extends React.Component {
     super(props);
   }
 
-  onClickAnnotation = ev => {
+  onClickAnnotation = (annotation, position, ev) => {
     ev.preventDefault();
-    console.log('onClickAnnotation', ev);
+    if (this.props.onSelectAnnotation) {
+      this.props.onSelectAnnotation(annotation);
+    }
   };
 
   render() {
@@ -80,9 +82,15 @@ class CanvasPanelPreview extends React.Component {
                         width={on.selector.width}
                         annotation={annotation}
                         style={{
-                          outline: '2px solid white',
+                          outline:
+                            self.props.selectedAnnotation &&
+                            self.props.selectedAnnotation.id === annotation.id
+                              ? '2px solid rgb(89, 191, 236)'
+                              : '2px solid white',
+                          pointerEvents: 'all',
+                          cursor: 'pointer',
                         }}
-                        onClick={self.onClickAnnotation}
+                        onClick={self.onClickAnnotation.bind(self)}
                         // growthStyle={growthStyle}
                         // bemModifiers={bemModifiers}
                       />
