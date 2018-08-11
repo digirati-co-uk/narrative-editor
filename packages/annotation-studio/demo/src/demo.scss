@@ -1,0 +1,61 @@
+@mixin texish-input() {
+  appearance: none;
+  margin-bottom: 16px;
+  background: white;
+  border: 2px solid #c3c3c3;
+  outline: none;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 0;
+  &:focus {
+    border-color: $active-colour;
+  }
+}
+
+@mixin buttonish() {
+  background: $active-colour;
+  border-color: $active-colour;
+  padding: 8px 16px;
+  color: white;
+  outline: none;
+  font-family: 'Roboto Mono', monospace;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+$active-colour: rgb(89, 191, 236);
+
+.annotation-studio-editor {
+  input[type='text'],
+  input[type='url'],
+  input[type='file'],
+  input[type='number'],
+  select,
+  textarea {
+    @include texish-input();
+  }
+
+  input[type='submit'],
+  button,
+  .btn,
+  .combo-button__cta {
+    @include buttonish();
+  }
+  input[type='submit'][disabled],
+  button:disabled,
+  .btn--disabled {
+    background: grey;
+    border-color: grey;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+.annotation-list {
+  .annotatedzoom-annotation-detail__label {
+    font-size: 16px;
+    margin: 0;
+  }
+  .annotatedzoom-annotation-detail__content {
+    display: none;
+  }
+}

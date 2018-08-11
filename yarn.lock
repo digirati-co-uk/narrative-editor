@@ -878,6 +878,23 @@
   dependencies:
     classnames "^2.2.0"
 
+"@canvas-panel/core@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@canvas-panel/core/-/core-0.0.9.tgz#9efd394c7c716e7c3179197e57a5e05ad7b0e8c5"
+  dependencies:
+    "@fesk/bem-js" "^1.0.0"
+    "@iiif/manifold" "^1.2.19"
+    "@stephenwf-forks/manifesto.js" "^2.2.10"
+    core-js "^2.5.3"
+    create-react-context "^0.2.0"
+    openseadragon "^2.3.1"
+    react "^16.3.2"
+    react-dom "^16.3.2"
+    react-draggable "^3.0.5"
+    react-measure "^2.0.2"
+    screenfull "^3.3.2"
+    whatwg-fetch "^2.0.3"
+
 "@fesk/babel-config@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@fesk/babel-config/-/babel-config-1.0.2.tgz#92f3d503bd9b79ac4de5ad7bda6eeb51d1c9f5cc"
@@ -888,7 +905,7 @@
     babel-plugin-module-resolver "^3.1.1"
     babel-preset-react-app "^4.0.0-next.b2fd8db8"
 
-"@fesk/bem-js@^1.0.1":
+"@fesk/bem-js@^1.0.0", "@fesk/bem-js@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@fesk/bem-js/-/bem-js-1.0.1.tgz#ac7c74351e34835274aef0506146709d3046cef1"
 
@@ -1049,6 +1066,12 @@
     uglifyjs-webpack-plugin "^1.2.5"
     webpack-config "^7.5.0"
 
+"@iiif/manifold@^1.2.19":
+  version "1.2.29"
+  resolved "https://registry.yarnpkg.com/@iiif/manifold/-/manifold-1.2.29.tgz#f3e68434747dd78e798ddc1fbbe32bd9e41863aa"
+  dependencies:
+    "@types/jquery" "^2.0.40"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -1069,6 +1092,18 @@
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
+
+"@stephenwf-forks/manifesto.js@^2.2.10", "@stephenwf-forks/manifesto.js@^2.2.25":
+  version "2.2.25"
+  resolved "https://registry.yarnpkg.com/@stephenwf-forks/manifesto.js/-/manifesto.js-2.2.25.tgz#69a7251479648c4078dc439c33dcbb2384916567"
+  dependencies:
+    exjs BSick7/exjs#0.5.0
+    http-status-codes edsilv/http-status-codes#v0.0.7
+    request "^2.83.0"
+
+"@types/jquery@^2.0.40":
+  version "2.0.49"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-2.0.49.tgz#95bd7064caebf65bde10429dff491a1aea05b67d"
 
 "@types/node@*":
   version "10.5.6"
@@ -4237,7 +4272,7 @@ core-js@^1.0.0:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
 
-core-js@^2.2.0, core-js@^2.4.0, core-js@^2.4.1, core-js@^2.5.0:
+core-js@^2.2.0, core-js@^2.4.0, core-js@^2.4.1, core-js@^2.5.0, core-js@^2.5.3:
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.7.tgz#f972608ff0cead68b841a16a932d0b183791814e"
 
@@ -4324,7 +4359,7 @@ create-react-class@^15.5.x, create-react-class@^15.6.0:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-create-react-context@^0.2.1, create-react-context@^0.2.2:
+create-react-context@^0.2.0, create-react-context@^0.2.1, create-react-context@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/create-react-context/-/create-react-context-0.2.2.tgz#9836542f9aaa22868cd7d4a6f82667df38019dca"
   dependencies:
@@ -5587,6 +5622,10 @@ exit@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/exit/-/exit-0.1.2.tgz#0632638f8d877cc82107d30a0fff1a17cba1cd0c"
 
+exjs@BSick7/exjs#0.5.0:
+  version "0.5.0"
+  resolved "https://codeload.github.com/BSick7/exjs/tar.gz/98195810790c0e61cb5beb510da4b756528f92f2"
+
 expand-braces@^0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/expand-braces/-/expand-braces-0.1.2.tgz#488b1d1d2451cb3d3a6b192cfc030f44c5855fea"
@@ -5837,7 +5876,7 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-fbjs@^0.8.0, fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.9:
+fbjs@^0.8.0, fbjs@^0.8.1, fbjs@^0.8.16, fbjs@^0.8.4, fbjs@^0.8.9:
   version "0.8.17"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   dependencies:
@@ -7114,6 +7153,10 @@ http-signature@~1.2.0:
     assert-plus "^1.0.0"
     jsprim "^1.2.2"
     sshpk "^1.7.0"
+
+http-status-codes@edsilv/http-status-codes#v0.0.7:
+  version "0.0.7"
+  resolved "https://codeload.github.com/edsilv/http-status-codes/tar.gz/af3a8ab9970b1f291a79b03c7382dc16aebee749"
 
 httpntlm@1.6.1:
   version "1.6.1"
@@ -9318,6 +9361,10 @@ mem@^1.1.0:
   dependencies:
     mimic-fn "^1.0.0"
 
+memoize-one@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-3.1.1.tgz#ef609811e3bc28970eac2884eece64d167830d17"
+
 memory-fs@^0.4.0, memory-fs@^0.4.1, memory-fs@~0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/memory-fs/-/memory-fs-0.4.1.tgz#3a9a20b8462523e447cfbc7e8bb80ed667bfc552"
@@ -10536,7 +10583,7 @@ onetime@^2.0.0:
   dependencies:
     mimic-fn "^1.0.0"
 
-openseadragon@^2.2.1:
+openseadragon@^2.2.1, openseadragon@^2.3.1:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/openseadragon/-/openseadragon-2.4.0.tgz#d0b28b37a953602c82432a0dbd8a3779dadf756f"
 
@@ -11640,7 +11687,11 @@ quill@^1.2.6:
     parchment "^1.1.4"
     quill-delta "^3.6.2"
 
-raf@^3.4.0:
+raf-schd@^2.1.1:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/raf-schd/-/raf-schd-2.1.2.tgz#ec622b5167f2912089f054dc03ebd5bcf33c8f62"
+
+raf@^3.1.0, raf@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/raf/-/raf-3.4.0.tgz#a28876881b4bc2ca9117d4138163ddb80f781575"
   dependencies:
@@ -11723,6 +11774,21 @@ react-addons-shallow-compare@^15.6.2:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
+react-beautiful-dnd@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/react-beautiful-dnd/-/react-beautiful-dnd-6.0.2.tgz#2e2deec247cc92727fb290ba08cee4db70b0b439"
+  dependencies:
+    babel-runtime "^6.26.0"
+    invariant "^2.2.2"
+    memoize-one "^3.1.1"
+    prop-types "^15.6.0"
+    raf-schd "^2.1.1"
+    react-motion "^0.5.2"
+    react-redux "^5.0.6"
+    redux "^3.7.2"
+    redux-thunk "^2.2.0"
+    reselect "^3.0.1"
+
 react-component-demo@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/react-component-demo/-/react-component-demo-0.1.0.tgz#9f751a3c8596f9db75a2740b583bd238bc64d52e"
@@ -11771,11 +11837,27 @@ react-dom@^15.6.2:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
+react-dom@^16.3.2:
+  version "16.4.2"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.4.2.tgz#4afed569689f2c561d2b8da0b819669c38a0bda4"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
+
 react-draggable-custom@1.4.7:
   version "1.4.7"
   resolved "https://registry.yarnpkg.com/react-draggable-custom/-/react-draggable-custom-1.4.7.tgz#052a98856d7dcec84dd93fa21c4ec5f8c0ed3d2d"
   dependencies:
     classnames "^2.2.0"
+
+react-draggable@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/react-draggable/-/react-draggable-3.0.5.tgz#c031e0ed4313531f9409d6cd84c8ebcec0ddfe2d"
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.6.0"
 
 react-geosuggest@^2.3.4:
   version "2.8.0"
@@ -11831,6 +11913,22 @@ react-measure@^1.4.7:
     prop-types "^15.5.4"
     resize-observer-polyfill "^1.4.1"
 
+react-measure@^2.0.2:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-measure/-/react-measure-2.1.0.tgz#e9a4645066d6fed54cf0ce44aa7a28da6dd7a9f7"
+  dependencies:
+    get-node-dimensions "^1.2.0"
+    prop-types "^15.5.10"
+    resize-observer-polyfill "^1.4.2"
+
+react-motion@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/react-motion/-/react-motion-0.5.2.tgz#0dd3a69e411316567927917c6626551ba0607316"
+  dependencies:
+    performance-now "^0.2.0"
+    prop-types "^15.5.8"
+    raf "^3.1.0"
+
 react-onclickoutside@^5.9.0:
   version "5.11.1"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-5.11.1.tgz#00314e52567cf55faba94cabbacd119619070623"
@@ -11866,7 +11964,7 @@ react-quill@^1.3.1:
     quill "^1.2.6"
     react-dom-factories "^1.0.0"
 
-react-redux@^5.0.1, react-redux@^5.0.3:
+react-redux@^5.0.1, react-redux@^5.0.3, react-redux@^5.0.6:
   version "5.0.7"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
   dependencies:
@@ -11927,6 +12025,15 @@ react@^15.6.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "^15.5.10"
+
+react@^16.3.2:
+  version "16.4.2"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.4.2.tgz#2cd90154e3a9d9dd8da2991149fdca3c260e129f"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
 
 read-chunk@^2.1.0:
   version "2.1.0"
@@ -12190,7 +12297,7 @@ redux@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/redux/-/redux-2.0.0.tgz#38923965e539496d5466f226f0a58c2238ec2a62"
 
-redux@^3.6.0:
+redux@^3.6.0, redux@^3.7.2:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/redux/-/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
   dependencies:
@@ -12408,7 +12515,7 @@ request@2.75.x:
     tough-cookie "~2.3.0"
     tunnel-agent "~0.4.1"
 
-request@2.87.0, request@^2.0.0, request@^2.74.0, request@^2.78.0, request@^2.81.0, request@^2.87.0:
+request@2.87.0, request@^2.0.0, request@^2.74.0, request@^2.78.0, request@^2.81.0, request@^2.83.0, request@^2.87.0:
   version "2.87.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.87.0.tgz#32f00235cd08d482b4d0d68db93a829c0ed5756e"
   dependencies:
@@ -12504,7 +12611,7 @@ reselect@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/reselect/-/reselect-3.0.1.tgz#efdaa98ea7451324d092b2b2163a6a1d7a9a2147"
 
-resize-observer-polyfill@^1.4.1:
+resize-observer-polyfill@^1.4.1, resize-observer-polyfill@^1.4.2:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.0.tgz#660ff1d9712a2382baa2cad450a4716209f9ca69"
 
@@ -12753,6 +12860,10 @@ schema-utils@^0.4.0, schema-utils@^0.4.2, schema-utils@^0.4.3, schema-utils@^0.4
 scoped-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/scoped-regex/-/scoped-regex-1.0.0.tgz#a346bb1acd4207ae70bd7c0c7ca9e566b6baddb8"
+
+screenfull@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/screenfull/-/screenfull-3.3.2.tgz#a6adf3b3f5556da812725385880600f5b39fbf25"
 
 scriptjs@^2.5.8:
   version "2.5.8"
