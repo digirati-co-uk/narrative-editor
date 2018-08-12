@@ -22,6 +22,7 @@ export default class AnnotationStudio extends Component {
     this.state = {
       isEditing: false,
       selectedAnnotation: null,
+      annotationToEdit: null,
     };
   }
 
@@ -36,8 +37,8 @@ export default class AnnotationStudio extends Component {
       isEditing: false,
     });
   };
+
   onDeleteAnnotation = (annotation, index) => {
-    console.log(annotation, index);
     if (this.props.onDeleteAnnotation) {
       this.props.onDeleteAnnotation(annotation, index);
     } else {
@@ -45,8 +46,8 @@ export default class AnnotationStudio extends Component {
       this.canvas.annotations[0].items.splice(index, 1);
     }
   };
+
   onUpdateAnnotation = annotation => {
-    console.log(annotation);
     this.setState({
       isEditing: false,
     });
@@ -54,6 +55,7 @@ export default class AnnotationStudio extends Component {
       this.props.onUpdateAnnotation(annotation, index);
     }
   };
+
   onUpdateAnnotationOrder = newOrder => {
     console.log(newOrder);
     if (this.props.onUpdateAnnotationOrder) {
@@ -61,19 +63,26 @@ export default class AnnotationStudio extends Component {
     }
   };
 
-  onSelectAnnotation = annotation => {
-    if (
-      !this.state.selectedAnnotation ||
-      this.state.selectedAnnotation.id !== annotation.id
-    ) {
-      this.setState({
-        selectedAnnotation: annotation,
-      });
-    } else {
-      this.setState({
-        selectedAnnotation: null,
-      });
-    }
+  onSelectAnnotation = annotationClicked => {
+    const { selectedAnnotation } = this.state;
+    const annotation =
+      !selectedAnnotation || selectedAnnotation.id !== annotationClicked.id
+        ? annotationClicked
+        : null;
+    this.setState({
+      selectedAnnotation: annotation,
+    });
+  };
+
+  addNewOnClick = () => {
+    this.startEditing();
+  };
+
+  startEditing = annotation => {
+    this.setState({
+      isEditing: true,
+      annotationToEdit: annotation || null,
+    });
   };
 
   render() {
@@ -87,6 +96,7 @@ export default class AnnotationStudio extends Component {
             onCreateAnnotation={this.onCreateAnnotation}
             onUpdateAnnotation={this.onUpdateAnnotation}
             locale={this.locale}
+            annotation={this.state.annotationToEdit}
           />
         ) : (
           <Editor.Content>
@@ -101,15 +111,7 @@ export default class AnnotationStudio extends Component {
             <Editor.Properties>
               <FullHeightPanel>
                 <FullHeightPanel.ButtonBar>
-                  <button
-                    onClick={() => {
-                      this.setState({
-                        isEditing: true,
-                      });
-                    }}
-                  >
-                    Add New
-                  </button>
+                  <button onClick={this.addNewOnClick}>Add New</button>
                 </FullHeightPanel.ButtonBar>
                 <FullHeightPanel.Content>
                   <AnnotationList

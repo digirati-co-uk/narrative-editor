@@ -1,6 +1,8 @@
 import React from 'react';
 import { Droppable, Draggable, DragDropContext } from 'react-beautiful-dnd';
 
+import './AnnotationList.scss';
+
 const emptyFn = () => {};
 const grid = 8;
 
@@ -18,15 +20,10 @@ export class AnnotationList extends React.Component {
     // TODO: use dispatch instead
     this.onSelectCallback = this.props.onSelectCallback || emptyFn;
     this.onDeleteCallback = this.props.onDeleteCallback || emptyFn;
+    this.onEditCallback = this.props.onEditCallback || emptyFn;
   }
 
   getItemStyle = (isDragging, draggableStyle, isSelected) => ({
-    // some basic styles to make the items look a bit nicer
-    userSelect: 'none',
-    padding: `${grid / 2}px ${grid}px`,
-    margin: `0 0 ${grid}px 0`,
-    display: 'block',
-    position: 'relative',
     // change background colour if dragging
     background: isDragging ? 'rgb(89, 191, 236)' : 'white',
     outline: isSelected ? '2px solid rgb(89, 191, 236)' : '0',
@@ -36,25 +33,29 @@ export class AnnotationList extends React.Component {
 
   getListStyle = isDraggingOver => ({
     background: isDraggingOver ? 'white' : 'white',
-    padding: grid,
-    width: `calc(20vw - ${grid * 2}px)`,
-    minHeight: '100%',
   });
 
-  selectItem = annotation => {
+  selectedAnnotation = () => {
+    return this.props.selectedAnnotation
+      ? this.props.selectedAnnotation.id
+      : null;
+  };
+
+  select = annotation => {
     let self = this;
     return () => {
       self.onSelectCallback(annotation);
     };
   };
 
-  selectedItem = () => {
-    return this.props.selectedAnnotation
-      ? this.props.selectedAnnotation.id
-      : null;
+  edit = annotation => {
+    let self = this;
+    return () => {
+      self.onEditCallback(annotation);
+    };
   };
 
-  deleteItem = annotation => {
+  delete = annotation => {
     let self = this;
     return ev => {
       ev.stopPropagation();
@@ -77,7 +78,6 @@ export class AnnotationList extends React.Component {
 
   onDragEnd = result => {
     if (!result.destination) {
-      console.log('no dest');
       return;
     }
 
@@ -85,7 +85,6 @@ export class AnnotationList extends React.Component {
       result.source.droppableId === 'annotationlist' &&
       result.destination.droppableId === 'annotationlist'
     ) {
-      console.log('anno list to anno list');
       this.props.annotationList.items = reorder(
         this.props.annotationList.items,
         result.source.index,
@@ -98,6 +97,8 @@ export class AnnotationList extends React.Component {
   render() {
     let items = this.props.annotationList.items;
     const self = this;
+    // NOTE: unfortunately fesk react-bem cannot be used because it creates wrappers which
+    // doesn't work together with the drag and drop.
     return (
       <div className="annotation-list">
         <DragDropContext onDragEnd={this.onDragEnd}>
@@ -106,13 +107,14 @@ export class AnnotationList extends React.Component {
               <div
                 ref={droppableProvided.innerRef}
                 style={self.getListStyle(droppableSnapshot.isDraggingOver)}
+                className="annotation-list__dropzone"
               >
                 {droppableProvided.placeholder}
-                {items.map((item, index) => {
+                {items.map((annotation, index) => {
                   return (
                     <Draggable
-                      key={item.id}
-                      draggableId={item.id}
+                      key={annotation.id}
+                      draggableId={annotation.id}
                       index={index}
                     >
                       {(provided, snapshot) => (
@@ -123,28 +125,34 @@ export class AnnotationList extends React.Component {
                           style={self.getItemStyle(
                             snapshot.isDragging,
                             provided.draggableProps.style,
-                            self.selectedItem() === item.id
+                            self.selectedItem() === annotation.id
                           )}
-                          className="deletable"
-                          onClick={self.selectItem(item)}
+                          className="annotation-list__item"
+                          onClick={self.select(annotation)}
                         >
                           <div
+                            style={{
+                              display:
+                                self.selectedAnnotation() === annotation.id
+                                  ? ''
+                                  : 'none',
+                            }}
+                            className="annotation-list__item-actions"
+                          >
+                            <button onClick={self.edit(annotation)}>
+                              edit
+                            </button>
+                            <button onClick={self.delete(annotation)}>
+                              delete
+                            </button>
+                          </div>
+                          <div
                             dangerouslySetInnerHTML={{
-                              __html: item.body.value,
+                              __html: this.props.previewRenderer
+                                ? this.props.previewRenderer(annotation)
+                                : annotation.body.value,
                             }}
                           />
-                          <button
-                            className="fa fa-times-circle"
-                            onClick={self.deleteItem(item)}
-                          >
-                            edit
-                          </button>
-                          <button
-                            className="fa fa-times-circle"
-                            onClick={self.deleteItem(item)}
-                          >
-                            delete
-                          </button>
                         </div>
                       )}
                     </Draggable>
