@@ -8,42 +8,54 @@ import './demo.scss';
 
 const TEST_MANIFEST = oceanLiners;
 
+const convertDraftToAnnotation = (draft, id, canvasId) => {
+  const title =
+    draft.input[
+      'https://annotation-studio.netlify.com/fields/describing/title'
+    ] || '';
+  const description =
+    draft.input[
+      'https://annotation-studio.netlify.com/fields/describing/description'
+    ] || '';
+  const credit =
+    draft.input[
+      'https://annotation-studio.netlify.com/fields/describing/credits'
+    ] || '';
+  const { x, y, width, height } = draft.selector;
+  const annotation = {
+    id: id,
+    type: 'Annotation',
+    motivation: 'describing',
+    body: {
+      type: 'TextualBody',
+      value: `<h2 class="annotatedzoom-annotation-detail__label">${title}</h2>
+<div class="annotatedzoom-annotation-detail__content">
+${description}
+<p class="annotatedzoom-annotation-detail__credit">${credit}</p>
+</div>`,
+      format: 'text/html',
+    },
+    target: {
+      id: `${canvasId}#xywh=${~~x},${~~y},${~~width},${~~height}`,
+      type: 'Canvas',
+    },
+  };
+  return annotation;
+};
+
+// const covertAnnotationToFields = (annotation) => {
+//   const draftProps = {
+//     input: annotation
+//   }
+// };
+
 class Demo extends Component {
   onCreateAnnotation = (draft, index) => {
-    // TDOO: do it wit as builtins
-    const title =
-      draft.input[
-        'https://annotation-studio.netlify.com/fields/describing/title'
-      ];
-    const description =
-      draft.input[
-        'https://annotation-studio.netlify.com/fields/describing/description'
-      ];
-    const credit = '';
-    const annotation = {
-      id:
-        TEST_MANIFEST.id.replace('/manifest.json', '') +
-        '/annopage/p1/a' +
-        index,
-      type: 'Annotation',
-      motivation: 'describing',
-      body: {
-        type: 'TextualBody',
-        value: `
-<h2 class=\"annotatedzoom-annotation-detail__label\">${title}</h2>
-<div class=\"annotatedzoom-annotation-detail__content\">
-  ${description}
-  <p class=\"annotatedzoom-annotation-detail__credit\">${credit}</p>
-</div>`,
-        format: 'text/html',
-      },
-      target: {
-        id: `https://iiif.vam.ac.uk/collections/O1023003/canvas/c0#xywh=${~~draft
-          .selector.x},${~~draft.selector.y},${~~draft.selector.width},${~~draft
-          .selector.height}`,
-        type: 'Canvas',
-      },
-    };
+    const annotation = convertDraftToAnnotation(
+      draft,
+      TEST_MANIFEST.items[0].annotations[0].id + '/' + index,
+      TEST_MANIFEST.items[0].id
+    );
     TEST_MANIFEST.items[0].annotations[0].items.push(annotation);
     this.forceUpdate();
   };
