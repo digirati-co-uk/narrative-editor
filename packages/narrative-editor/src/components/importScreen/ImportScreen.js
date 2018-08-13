@@ -131,7 +131,7 @@ export default class ImportScreen extends React.Component {
     let isEditDisabled = this.isEditDisabledEdit();
     return (
       <div className="screen start-screen">
-        <h1 className="screen__title">Canvas Builder - Import Asset</h1>
+        <h1 className="screen__title">Narrative Editor - Import Asset</h1>
         <div className="screen__content">
           <div className="start-screen__options">
             <div className="start-screen__option">
