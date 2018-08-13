@@ -3,6 +3,8 @@ import './App.scss';
 import React from 'react';
 import { ImportScreen } from '../../components';
 import { AnnotationStudio } from '@narrative-editor/annotation-studio';
+import captureModel from '../../data/capturemodels/describing.json';
+import { convertDraftToAnnotation, covertAnnotationToFields } from './helpers';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,11 +21,10 @@ class App extends React.Component {
       manifestJson: this.createNewManifestFromImage(iiifImageJson),
     });
   };
-
+  // preslely.js
   createNewManifestFromImage = iiifImageJson => {
     const imageId =
       iiifImageJson.service['@id'] || iiifImageJson.service['@id'];
-    console.log('imageId', imageId);
     return {
       label: {
         en: ['Unnamed manifest'],
@@ -70,6 +71,13 @@ class App extends React.Component {
               id: `${this.TEMPORARY_MANIFEST_URI}/list/c1-ap1`,
             },
           ],
+          annotations: [
+            {
+              type: 'AnnotationPage',
+              id: `${this.TEMPORARY_MANIFEST_URI}/annopage/p1`,
+              items: [],
+            },
+          ],
         },
       ],
       '@context': [
@@ -79,11 +87,53 @@ class App extends React.Component {
     };
   };
 
+  onCreateAnnotation = (draft, index) => {
+    const annotation = convertDraftToAnnotation(
+      draft,
+      this.state.manifestJson.items[0].annotations[0].id + '/' + index,
+      this.state.manifestJson.items[0].id
+    );
+    this.state.manifestJson.items[0].annotations[0].items.push(annotation);
+    this.forceUpdate();
+  };
+  onDeleteAnnotation = (annotation, index) => {
+    this.state.manifestJson.items[0].annotations[0].items.splice(index, 1);
+    this.forceUpdate();
+  };
+  onUpdateAnnotation = (draft, index) => {
+    const annotation = convertDraftToAnnotation(
+      draft,
+      draft.id,
+      this.state.manifestJson.items[0].id
+    );
+    this.state.manifestJson.items[0].annotations[0].items[index] = annotation;
+    this.forceUpdate();
+  };
+  onUpdateAnnotationOrder = newOrder => {
+    console.log(newOrder);
+  };
+  previewRenderer = annotation => {
+    let draft = covertAnnotationToFields(annotation);
+    return draft.input[
+      'https://annotation-studio.netlify.com/fields/describing/title'
+    ];
+  };
+
+  // end presley.js
+
   render() {
     return this.state.manifestJson ? (
       <AnnotationStudio
+        manifestId={this.TEMPORARY_MANIFEST_URI + '/manifest'}
         manifestJson={this.state.manifestJson}
         canvas={`${this.TEMPORARY_MANIFEST_URI}/canvas/c1`}
+        captureModel={captureModel}
+        onCreateAnnotation={this.onCreateAnnotation}
+        onDeleteAnnotation={this.onDeleteAnnotation}
+        onUpdateAnnotation={this.onUpdateAnnotation}
+        onUpdateAnnotationOrder={this.onUpdateAnnotationOrder}
+        previewRenderer={this.previewRenderer}
+        customDraftConverter={covertAnnotationToFields}
       />
     ) : (
       <ImportScreen onImageSelectedCallback={this.newImageReceived} />
