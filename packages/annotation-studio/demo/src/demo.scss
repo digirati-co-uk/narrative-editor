@@ -49,6 +49,11 @@ $active-colour: rgb(89, 191, 236);
     cursor: not-allowed;
     pointer-events: none;
   }
+  .osd-viewer__control {
+    background: $active-colour;
+    border-color: $active-colour;
+    color: white;
+  }
 }
 .annotation-list {
   .annotatedzoom-annotation-detail__label {

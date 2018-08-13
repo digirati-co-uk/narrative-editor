@@ -15,6 +15,9 @@ import { provider as ResourceEditorProvider } from '@annotation-studio/plugin-re
 import { importResourceTemplate } from '@annotation-studio/bridge';
 import { actions } from '@annotation-studio/redux';
 
+import { getDraftFromCaptureModel } from '@annotation-studio/bridge';
+import { getResourceById } from '@annotation-studio/redux/es/query/resourceQuery';
+
 import Editor from '../bem/Editor';
 
 // TODO: make it as default state param or part of the presley.js
@@ -39,19 +42,22 @@ export default class AnnotationStudioEditor extends Component {
         return (
           <button
             onClick={ev => {
+              const {
+                captureModel,
+                onUpdateAnnotation,
+                onCreateAnnotation,
+                annotation,
+              } = self.props;
               const state = self.store.getState();
-              const draftId =
-                state.drafts.currentDrafts[self.props.captureModel['@id']];
+              const draftId = state.drafts.currentDrafts[captureModel['@id']];
               const draft = state.drafts.list[draftId];
               self.store.dispatch(actions.drafts.discardCurrentDraft(draftId));
               pluginProps.onSaveAsInProgress(ev);
-              console.log(self.store.getState());
-              if (self.props.onCreateAnnotation) {
-                self.props.onCreateAnnotation(draft);
+              if (annotation && onUpdateAnnotation) {
+                onUpdateAnnotation(draft);
+              } else if (onCreateAnnotation) {
+                onCreateAnnotation(draft);
               }
-              // this.setState({
-              //   isEditing: false,
-              // });
             }}
             style={{
               float: 'right',
@@ -64,6 +70,44 @@ export default class AnnotationStudioEditor extends Component {
     });
   };
 
+  createDraft = (resourceTemplateId, inputs, id, selector) => {
+    const { dispatch } = this.store;
+    const state = this.store.getState();
+    const { resources, motivation, selectors } = getDraftFromCaptureModel(
+      getResourceById(state, resourceTemplateId)
+    );
+    const draftDefaults = {};
+    const scope = resourceTemplateId;
+    const input = Object.assign({}, inputs);
+    dispatch(actions.drafts.discardCurrentDraft());
+    dispatch(
+      actions.drafts.createDirectDraft(
+        scope,
+        id,
+        input,
+        resourceTemplateId,
+        selectors,
+        motivation,
+        [],
+        null,
+        null
+      )
+    );
+    // And select it straight away.
+    dispatch(actions.drafts.selectDraft(scope, id));
+    const defaults = { ...selector, type: 'madoc:boxdraw', name: null };
+    // dispatch(actions.selectors.chooseSelector('madoc:boxdraw', {
+    //   draft: id,
+    //   name: null,
+    //   scope: scope,
+    //   template: resourceTemplateId,
+    // }, defaults));
+    // Choose the selector attached to the draft.
+    dispatch(
+      actions.drafts.chooseDraftSelector(scope, id, /*defaults*/ null, null)
+    );
+  };
+
   render() {
     const { dispatch } = this.store;
     let annotationSudioStore = this.store;
@@ -72,7 +116,19 @@ export default class AnnotationStudioEditor extends Component {
     dispatch(actions.manifest.addManifest(this.manifest.id, this.manifest));
     dispatch(actions.manifest.selectManifest(this.manifest.id));
     dispatch(actions.manifest.selectCanvas(this.canvas.id));
-
+    if (this.props.annotation) {
+      if (this.props.customDraftConverter) {
+        let draftFields = this.props.customDraftConverter(
+          this.props.annotation
+        );
+        this.createDraft(
+          this.props.captureModel['@id'],
+          draftFields.input,
+          draftFields.id,
+          draftFields.selector
+        );
+      }
+    }
     return (
       <Editor.Content>
         <CoreProvider

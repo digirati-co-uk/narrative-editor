@@ -43,11 +43,40 @@ ${description}
   return annotation;
 };
 
-// const covertAnnotationToFields = (annotation) => {
-//   const draftProps = {
-//     input: annotation
-//   }
-// };
+const ANNOTATION_VALUE_REGEXP = /(?:<h2 class="annotatedzoom-annotation-detail__label">([\s\S]*)<\/h2>[^<]*)(?:<div class="annotatedzoom-annotation-detail__content">([\s\S]*?)(?:<p class="annotatedzoom-annotation-detail__credit">([\s\S]*)<\/p>[^<]*)?<\/div>[^<]*)/;
+
+const covertAnnotationToFields = annotation => {
+  const targetParts = (typeof annotation.target === 'string'
+    ? annotation.target
+    : annotation.target.id
+  ).split('#');
+  const [target, hash] = targetParts;
+  const hashParams = hash.split('&').reduce((acc, keyValue) => {
+    let [key, value] = keyValue.split('=');
+    acc[key] = value;
+    return acc;
+  }, {});
+  let [x, y, width, height] = (hashParams.xywh || '0,0,100,100').split(',');
+  let [all, title, description, credit] = annotation.body.value.match(
+    ANNOTATION_VALUE_REGEXP
+  ) || ['', '', '', ''];
+  const draftProps = {
+    id: annotation.id,
+    target: target,
+    input: {
+      'https://annotation-studio.netlify.com/fields/describing/title': title,
+      'https://annotation-studio.netlify.com/fields/describing/description': description,
+      'https://annotation-studio.netlify.com/fields/describing/credits': credit,
+    },
+    selector: {
+      x: ~~x,
+      y: ~~y,
+      width: ~~width,
+      height: ~~height,
+    },
+  };
+  return draftProps;
+};
 
 class Demo extends Component {
   onCreateAnnotation = (draft, index) => {
@@ -60,15 +89,26 @@ class Demo extends Component {
     this.forceUpdate();
   };
   onDeleteAnnotation = (annotation, index) => {
-    console.log(annotation, index);
     TEST_MANIFEST.items[0].annotations[0].items.splice(index, 1);
     this.forceUpdate();
   };
-  onUpdateAnnotation = (annotation, index) => {
-    console.log(annotation, index);
+  onUpdateAnnotation = (draft, index) => {
+    const annotation = convertDraftToAnnotation(
+      draft,
+      draft.id,
+      TEST_MANIFEST.items[0].id
+    );
+    TEST_MANIFEST.items[0].annotations[0].items[index] = annotation;
+    this.forceUpdate();
   };
   onUpdateAnnotationOrder = newOrder => {
     console.log(newOrder);
+  };
+  previewRenderer = annotation => {
+    let draft = covertAnnotationToFields(annotation);
+    return draft.input[
+      'https://annotation-studio.netlify.com/fields/describing/title'
+    ];
   };
   render() {
     return (
@@ -83,6 +123,8 @@ class Demo extends Component {
           onDeleteAnnotation={this.onDeleteAnnotation}
           onUpdateAnnotation={this.onUpdateAnnotation}
           onUpdateAnnotationOrder={this.onUpdateAnnotationOrder}
+          previewRenderer={this.previewRenderer}
+          customDraftConverter={covertAnnotationToFields}
         />
       </div>
     );

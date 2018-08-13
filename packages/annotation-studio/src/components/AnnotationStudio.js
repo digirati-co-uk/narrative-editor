@@ -52,12 +52,14 @@ export default class AnnotationStudio extends Component {
       isEditing: false,
     });
     if (this.props.onUpdateAnnotation) {
+      const index = this.canvas.annotations[0].items
+        .map(item => item.id)
+        .indexOf(annotation.id);
       this.props.onUpdateAnnotation(annotation, index);
     }
   };
 
   onUpdateAnnotationOrder = newOrder => {
-    console.log(newOrder);
     if (this.props.onUpdateAnnotationOrder) {
       this.props.onUpdateAnnotationOrder(annotation, index);
     }
@@ -97,6 +99,7 @@ export default class AnnotationStudio extends Component {
             onUpdateAnnotation={this.onUpdateAnnotation}
             locale={this.locale}
             annotation={this.state.annotationToEdit}
+            customDraftConverter={this.props.customDraftConverter}
           />
         ) : (
           <Editor.Content>
@@ -119,6 +122,8 @@ export default class AnnotationStudio extends Component {
                     annotationList={this.canvas.annotations[0]}
                     onDeleteCallback={this.onDeleteAnnotation}
                     onSelectCallback={this.onSelectAnnotation}
+                    onStartEditingCallback={this.startEditing}
+                    previewRenderer={this.props.previewRenderer}
                   />
                 </FullHeightPanel.Content>
               </FullHeightPanel>

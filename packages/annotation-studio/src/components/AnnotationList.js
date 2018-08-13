@@ -20,7 +20,7 @@ export class AnnotationList extends React.Component {
     // TODO: use dispatch instead
     this.onSelectCallback = this.props.onSelectCallback || emptyFn;
     this.onDeleteCallback = this.props.onDeleteCallback || emptyFn;
-    this.onEditCallback = this.props.onEditCallback || emptyFn;
+    this.onStartEditingCallback = this.props.onStartEditingCallback || emptyFn;
   }
 
   getItemStyle = (isDragging, draggableStyle, isSelected) => ({
@@ -51,7 +51,7 @@ export class AnnotationList extends React.Component {
   edit = annotation => {
     let self = this;
     return () => {
-      self.onEditCallback(annotation);
+      self.onStartEditingCallback(annotation);
     };
   };
 
@@ -125,7 +125,7 @@ export class AnnotationList extends React.Component {
                           style={self.getItemStyle(
                             snapshot.isDragging,
                             provided.draggableProps.style,
-                            self.selectedItem() === annotation.id
+                            self.selectedAnnotation() === annotation.id
                           )}
                           className="annotation-list__item"
                           onClick={self.select(annotation)}
