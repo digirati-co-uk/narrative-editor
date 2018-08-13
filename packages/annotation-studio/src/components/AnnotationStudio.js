@@ -60,12 +60,6 @@ export default class AnnotationStudio extends Component {
     }
   };
 
-  onUpdateAnnotationOrder = newOrder => {
-    if (this.props.onUpdateAnnotationOrder) {
-      this.props.onUpdateAnnotationOrder(annotation, index);
-    }
-  };
-
   onSelectAnnotation = annotationClicked => {
     const { selectedAnnotation } = this.state;
     const annotation =
@@ -124,6 +118,7 @@ export default class AnnotationStudio extends Component {
                     onDeleteCallback={this.onDeleteAnnotation}
                     onSelectCallback={this.onSelectAnnotation}
                     onStartEditingCallback={this.startEditing}
+                    onUpdateAnnotationOrder={this.props.onUpdateAnnotationOrder}
                     previewRenderer={this.props.previewRenderer}
                   />
                 </FullHeightPanel.Content>

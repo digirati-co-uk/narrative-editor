@@ -104,7 +104,8 @@ class Demo extends Component {
     this.forceUpdate();
   };
   onUpdateAnnotationOrder = newOrder => {
-    console.log(newOrder);
+    TEST_MANIFEST.items[0].annotations[0].items = newOrder;
+    this.forceUpdate();
   };
   previewRenderer = annotation => {
     let draft = covertAnnotationToFields(annotation);

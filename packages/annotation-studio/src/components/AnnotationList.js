@@ -20,6 +20,7 @@ export class AnnotationList extends React.Component {
     // TODO: use dispatch instead
     this.onSelectCallback = this.props.onSelectCallback || emptyFn;
     this.onDeleteCallback = this.props.onDeleteCallback || emptyFn;
+    this.onDeleteCallback = this.props.onDeleteCallback || emptyFn;
     this.onStartEditingCallback = this.props.onStartEditingCallback || emptyFn;
   }
 
@@ -83,14 +84,16 @@ export class AnnotationList extends React.Component {
 
     if (
       result.source.droppableId === 'annotationlist' &&
-      result.destination.droppableId === 'annotationlist'
+      result.destination.droppableId === 'annotationlist' &&
+      this.props.onUpdateAnnotationOrder
     ) {
-      this.props.annotationList.items = reorder(
-        this.props.annotationList.items,
-        result.source.index,
-        result.destination.index
+      this.props.onUpdateAnnotationOrder(
+        reorder(
+          JSON.parse(JSON.stringify(this.props.annotationList.items)),
+          result.source.index,
+          result.destination.index
+        )
       );
-      this.forceUpdate();
     }
   };
 
