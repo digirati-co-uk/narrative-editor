@@ -68,7 +68,4 @@ const covertAnnotationToFields = annotation => {
   return draftProps;
 };
 
-export default {
-  convertDraftToAnnotation,
-  covertAnnotationToFields,
-};
+export { convertDraftToAnnotation, covertAnnotationToFields };
