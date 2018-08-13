@@ -69,6 +69,8 @@ const covertAnnotationToFields = annotation => {
       'https://annotation-studio.netlify.com/fields/describing/credits': credit,
     },
     selector: {
+      type: 'madoc:boxdraw',
+      name: null,
       x: ~~x,
       y: ~~y,
       width: ~~width,

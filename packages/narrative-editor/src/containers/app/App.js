@@ -123,18 +123,23 @@ class App extends React.Component {
 
   render() {
     return this.state.manifestJson ? (
-      <AnnotationStudio
-        manifestId={this.TEMPORARY_MANIFEST_URI + '/manifest'}
-        manifestJson={this.state.manifestJson}
-        canvas={`${this.TEMPORARY_MANIFEST_URI}/canvas/c1`}
-        captureModel={captureModel}
-        onCreateAnnotation={this.onCreateAnnotation}
-        onDeleteAnnotation={this.onDeleteAnnotation}
-        onUpdateAnnotation={this.onUpdateAnnotation}
-        onUpdateAnnotationOrder={this.onUpdateAnnotationOrder}
-        previewRenderer={this.previewRenderer}
-        customDraftConverter={covertAnnotationToFields}
-      />
+      <div className="screen start-screen">
+        <h1 className="screen__title">Narrative Editor</h1>
+        <div className="screen__content">
+          <AnnotationStudio
+            manifestId={this.TEMPORARY_MANIFEST_URI + '/manifest'}
+            manifestJson={this.state.manifestJson}
+            canvas={`${this.TEMPORARY_MANIFEST_URI}/canvas/c1`}
+            captureModel={captureModel}
+            onCreateAnnotation={this.onCreateAnnotation}
+            onDeleteAnnotation={this.onDeleteAnnotation}
+            onUpdateAnnotation={this.onUpdateAnnotation}
+            onUpdateAnnotationOrder={this.onUpdateAnnotationOrder}
+            previewRenderer={this.previewRenderer}
+            customDraftConverter={covertAnnotationToFields}
+          />
+        </div>
+      </div>
     ) : (
       <ImportScreen onImageSelectedCallback={this.newImageReceived} />
     );

@@ -41,10 +41,11 @@ export default class AnnotationStudio extends Component {
   onDeleteAnnotation = (annotation, index) => {
     if (this.props.onDeleteAnnotation) {
       this.props.onDeleteAnnotation(annotation, index);
-    } else {
-      //TODO: we don't want this.
-      this.canvas.annotations[0].items.splice(index, 1);
     }
+    // } else {
+    //   //TODO: we don't want this.
+    //   this.canvas.annotations[0].items.splice(index, 1);
+    // }
   };
 
   onUpdateAnnotation = annotation => {

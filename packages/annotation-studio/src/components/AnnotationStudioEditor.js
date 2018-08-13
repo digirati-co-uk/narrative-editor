@@ -81,31 +81,19 @@ export default class AnnotationStudioEditor extends Component {
     const input = Object.assign({}, inputs);
     dispatch(actions.drafts.discardCurrentDraft());
     dispatch(
-      actions.drafts.createDirectDraft(
-        scope,
+      actions.drafts.importDraft(id, {
         id,
-        input,
-        resourceTemplateId,
-        selectors,
-        motivation,
-        [],
-        null,
-        null
-      )
+        input: input,
+        selectors: selectors,
+        template: resourceTemplateId,
+        motivation: motivation,
+        isPublishing: false,
+        isPreviewing: false,
+        selector: { ...selector, type: 'madoc:boxdraw', name: null },
+      })
     );
     // And select it straight away.
     dispatch(actions.drafts.selectDraft(scope, id));
-    const defaults = { ...selector, type: 'madoc:boxdraw', name: null };
-    // dispatch(actions.selectors.chooseSelector('madoc:boxdraw', {
-    //   draft: id,
-    //   name: null,
-    //   scope: scope,
-    //   template: resourceTemplateId,
-    // }, defaults));
-    // Choose the selector attached to the draft.
-    dispatch(
-      actions.drafts.chooseDraftSelector(scope, id, /*defaults*/ null, null)
-    );
   };
 
   render() {
