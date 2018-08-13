@@ -51,13 +51,16 @@ export default class AnnotationStudioEditor extends Component {
               const state = self.store.getState();
               const draftId = state.drafts.currentDrafts[captureModel['@id']];
               const draft = state.drafts.list[draftId];
-              self.store.dispatch(actions.drafts.discardCurrentDraft(draftId));
-              pluginProps.onSaveAsInProgress(ev);
+              self.store.dispatch(
+                actions.drafts.removeSelectorFromCurrentDraft(draft.template)
+              );
+              self.store.dispatch(actions.drafts.discardCurrentDraft());
               if (annotation && onUpdateAnnotation) {
                 onUpdateAnnotation(draft);
               } else if (onCreateAnnotation) {
                 onCreateAnnotation(draft);
               }
+              //pluginProps.onSaveAsInProgress(ev);
             }}
             style={{
               float: 'right',
@@ -101,6 +104,7 @@ export default class AnnotationStudioEditor extends Component {
     let annotationSudioStore = this.store;
 
     dispatch(importResourceTemplate(this.props.captureModel, 'canvas'));
+    dispatch(actions.drafts.discardCurrentDraft());
     dispatch(actions.manifest.addManifest(this.manifest.id, this.manifest));
     dispatch(actions.manifest.selectManifest(this.manifest.id));
     dispatch(actions.manifest.selectCanvas(this.canvas.id));
