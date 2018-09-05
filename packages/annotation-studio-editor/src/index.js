@@ -6,6 +6,20 @@ import { provider as Viewer } from '@annotation-studio/plugin-viewer';
 import { provider as ResourceEditor } from '@annotation-studio/plugin-resource-editor';
 import { provider as JsonPreview } from '@annotation-studio/plugin-json-preview';
 import { provider as Drafts } from '@annotation-studio/plugin-drafts';
+import { draftCreationHelper } from '@annotation-studio/plugin-core/es/core.utils';
+import { actions } from '@annotation-studio/redux/lib/index';
+
+const domain = 'http://ec2-54-194-185-179.eu-west-1.compute.amazonaws.com:8100';
+const draft = draftCreationHelper({
+  input: {
+    [domain + '/api/items/75']: 'test',
+    [domain + '/api/items/74']: null,
+  },
+  captureModel: domain + '/api/item_sets/76',
+  tree: domain + '/api/item_sets/77',
+});
+
+const draftId = Object.keys(draft[domain + '/api/item_sets/76'])[0];
 
 const draftToLoad = {
   id: '5087871e-4864-4eef-a21c-3e2fca885bc3',
@@ -64,6 +78,9 @@ class App extends React.Component {
   loadStore = store => {
     this.store = store;
     this.setState({ storeLoaded: true });
+    store.dispatch(
+      actions.drafts.selectDraft(domain + '/api/item_sets/77', draftId)
+    );
   };
 
   render() {
@@ -76,8 +93,7 @@ class App extends React.Component {
           manifest={manifest}
           canvas={canvas}
           target="canvas"
-          elucidateServer="http://localhost/"
-          savedDraftList={[[draftToLoad]]}
+          savedDraftList={draft}
         />
         {storeLoaded ? (
           <div

@@ -12,16 +12,17 @@
     "@fesk/scripts": "^1.1.1"
   },
   "dependencies": {
-    "@annotation-studio/bridge": "1.0.0-rc.20",
-    "@annotation-studio/bundle": "1.0.0-rc.20",
-    "@annotation-studio/components": "1.0.0-rc.20",
-    "@annotation-studio/plugin-core": "1.0.0-rc.20",
-    "@annotation-studio/plugin-json-preview": "1.0.0-rc.20",
-    "@annotation-studio/plugin-resource-editor": "1.0.0-rc.20",
-    "@annotation-studio/plugin-viewer": "1.0.0-rc.20",
-    "@annotation-studio/redux": "1.0.0-rc.20",
-    "react-measure": "1.4.7",
+    "@annotation-studio/bridge": "1.0.0-pr.c8d2b479",
+    "@annotation-studio/components": "1.0.0-pr.c8d2b479",
+    "@annotation-studio/plugin-core": "1.0.0-pr.c8d2b479",
+    "@annotation-studio/plugin-json-preview": "1.0.0-pr.c8d2b479",
+    "@annotation-studio/plugin-resource-editor": "1.0.0-pr.c8d2b479",
+    "@annotation-studio/plugin-viewer": "1.0.0-pr.c8d2b479",
+    "@annotation-studio/redux": "1.0.0-pr.c8d2b479",
     "react": "^15.6.2",
-    "react-dom": "^15.6.2"
+    "react-dom": "^15.6.2",
+    "react-intl": "^2.4.0",
+    "react-intl-redux": "^0.7.0",
+    "react-measure": "1.4.7"
   }
 }

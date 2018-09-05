@@ -2,47 +2,15 @@
 # yarn lockfile v1
 
 
-"@annotation-studio/bridge@1.0.0-rc.20":
-  version "1.0.0-rc.20"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/bridge/-/bridge-1.0.0-rc.20.tgz#83305c8eae768295082f232b2078385ca7426115"
+"@annotation-studio/bridge@1.0.0-pr.c8d2b479":
+  version "1.0.0-pr.c8d2b479"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/bridge/-/bridge-1.0.0-pr.c8d2b479.tgz#42148b497f39142f291d15993c5f27a31c758b01"
   dependencies:
     lodash.flatten "^4.4.0"
 
-"@annotation-studio/bundle@1.0.0-rc.20":
-  version "1.0.0-rc.20"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/bundle/-/bundle-1.0.0-rc.20.tgz#9af39d040645cb0fd6d2a1178d00e540acc50f09"
-  dependencies:
-    "@annotation-studio/bridge" "1.0.0-rc.20"
-    "@annotation-studio/components" "1.0.0-rc.20"
-    "@annotation-studio/plugin-core" "1.0.0-rc.20"
-    "@annotation-studio/plugin-drafts" "1.0.0-rc.20"
-    "@annotation-studio/plugin-json-preview" "1.0.0-rc.20"
-    "@annotation-studio/plugin-resource-editor" "1.0.0-rc.20"
-    "@annotation-studio/plugin-tagging" "1.0.0-rc.20"
-    "@annotation-studio/plugin-transcriber" "1.0.0-rc.20"
-    "@annotation-studio/plugin-viewer" "1.0.0-rc.20"
-    "@annotation-studio/redux" "1.0.0-rc.20"
-    "@fesk/bem-js" "^1.0.1"
-    moment "^2.20.1"
-    react "^15.6.2"
-    react-datepicker "^0.41.1"
-    react-dom "^15.6.2"
-    react-geosuggest "^2.3.4"
-    react-google-maps "^6.3.0"
-    react-intl "^2.2.2"
-    react-intl-redux "^0.7.0"
-    react-measure "^1.4.7"
-    react-redux "^5.0.1"
-    react-rnd "^4.2.2"
-    recompose "^0.23.5"
-    redux "^2.0.0"
-    sass-loader "^6.0.7"
-    store "^2.0.4"
-    whatwg-fetch "^2.0.3"
-
-"@annotation-studio/components@1.0.0-rc.20":
-  version "1.0.0-rc.20"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/components/-/components-1.0.0-rc.20.tgz#8d99b3fff4f49f671c94198981b1c6ea4f5869a5"
+"@annotation-studio/components@1.0.0-pr.c8d2b479":
+  version "1.0.0-pr.c8d2b479"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/components/-/components-1.0.0-pr.c8d2b479.tgz#082da2e73bbd067aee29d7439012c3ea63bb2436"
   dependencies:
     babel-preset-stage-0 "^6.24.1"
     classnames "^2.2.5"
@@ -62,51 +30,41 @@
     react-google-maps "^6.3.0"
     react-rnd "^4.2.2"
 
-"@annotation-studio/plugin-core@1.0.0-rc.20":
-  version "1.0.0-rc.20"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-core/-/plugin-core-1.0.0-rc.20.tgz#f1bbfe5c69a6643d6bb2051f9faaa07f304f4702"
+"@annotation-studio/plugin-core@1.0.0-pr.c8d2b479":
+  version "1.0.0-pr.c8d2b479"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-core/-/plugin-core-1.0.0-pr.c8d2b479.tgz#72d4f28c35fb560d54f0ee050f9aff0395e43877"
   dependencies:
     create-react-context "^0.2.2"
 
-"@annotation-studio/plugin-drafts@1.0.0-rc.20":
-  version "1.0.0-rc.20"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-drafts/-/plugin-drafts-1.0.0-rc.20.tgz#6e9b0e828fe61ce4488423fd15bf674f204bbc33"
+"@annotation-studio/plugin-drafts@1.0.0-pr.c8d2b479":
+  version "1.0.0-pr.c8d2b479"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-drafts/-/plugin-drafts-1.0.0-pr.c8d2b479.tgz#e63af9d9c29bb5836bf2f55c8e8bfe868745975c"
 
-"@annotation-studio/plugin-json-preview@1.0.0-rc.20":
-  version "1.0.0-rc.20"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-json-preview/-/plugin-json-preview-1.0.0-rc.20.tgz#5518f3be0a604ce57cc4d399cb9b1a4edc034f16"
+"@annotation-studio/plugin-json-preview@1.0.0-pr.c8d2b479":
+  version "1.0.0-pr.c8d2b479"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-json-preview/-/plugin-json-preview-1.0.0-pr.c8d2b479.tgz#c1532e701a74c1708faf3fb53917cf6a8a52b4d1"
   dependencies:
     react-copy-to-clipboard "^5.0.1"
     react-datepicker "^0.41.1"
     store "^2.0.12"
 
-"@annotation-studio/plugin-resource-editor@1.0.0-rc.20":
-  version "1.0.0-rc.20"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-resource-editor/-/plugin-resource-editor-1.0.0-rc.20.tgz#c219c394f48e680f8826c61dccc52eed7260e1dc"
+"@annotation-studio/plugin-resource-editor@1.0.0-pr.c8d2b479":
+  version "1.0.0-pr.c8d2b479"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-resource-editor/-/plugin-resource-editor-1.0.0-pr.c8d2b479.tgz#43354d3ddcdec81547c0bc1665d4786cef86aa6a"
   dependencies:
     react-datepicker "^0.41.1"
     store "^2.0.12"
 
-"@annotation-studio/plugin-tagging@1.0.0-rc.20":
-  version "1.0.0-rc.20"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-tagging/-/plugin-tagging-1.0.0-rc.20.tgz#a65537aa976b924db446095b0932f4492fb9d28d"
-
-"@annotation-studio/plugin-transcriber@1.0.0-rc.20":
-  version "1.0.0-rc.20"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-transcriber/-/plugin-transcriber-1.0.0-rc.20.tgz#09bad7099b021af74d4ee511fda58247d79fb010"
-  dependencies:
-    react-datepicker "^0.41.1"
-
-"@annotation-studio/plugin-viewer@1.0.0-rc.20":
-  version "1.0.0-rc.20"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-viewer/-/plugin-viewer-1.0.0-rc.20.tgz#a9e42bb0464ffbd3806b2b351dda8f5c74ba2ea4"
+"@annotation-studio/plugin-viewer@1.0.0-pr.c8d2b479":
+  version "1.0.0-pr.c8d2b479"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-viewer/-/plugin-viewer-1.0.0-pr.c8d2b479.tgz#bab931f2d3854904b4a1592e850f3330d44f8b20"
   dependencies:
     react-measure "^1.4.7"
     react-rnd "^4.2.2"
 
-"@annotation-studio/redux@1.0.0-rc.20":
-  version "1.0.0-rc.20"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/redux/-/redux-1.0.0-rc.20.tgz#f60ca68a7bc4a950b62a66e730c75e7faf7a28e3"
+"@annotation-studio/redux@1.0.0-pr.c8d2b479":
+  version "1.0.0-pr.c8d2b479"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/redux/-/redux-1.0.0-pr.c8d2b479.tgz#59f616898c56a39b155c8e1494d7bce44bfb9ab8"
   dependencies:
     blueimp-md5 "^2.7.0"
     immutability-helper "^2.1.2"
@@ -973,7 +931,7 @@
     babel-plugin-module-resolver "^3.1.1"
     babel-preset-react-app "^4.0.0-next.b2fd8db8"
 
-"@fesk/bem-js@^1.0.0", "@fesk/bem-js@^1.0.1":
+"@fesk/bem-js@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@fesk/bem-js/-/bem-js-1.0.1.tgz#ac7c74351e34835274aef0506146709d3046cef1"
 
@@ -12864,7 +12822,7 @@ react-intl-redux@^0.7.0:
   dependencies:
     prop-types "^15.6.0"
 
-react-intl@^2.2.2:
+react-intl@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-2.4.0.tgz#66c14dc9df9a73b2fbbfbd6021726e80a613eb15"
   dependencies:
@@ -13808,16 +13766,6 @@ sass-loader@7.1.0, sass-loader@^7.0.1:
     neo-async "^2.5.0"
     pify "^3.0.0"
     semver "^5.5.0"
-
-sass-loader@^6.0.7:
-  version "6.0.7"
-  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-6.0.7.tgz#dd2fdb3e7eeff4a53f35ba6ac408715488353d00"
-  dependencies:
-    clone-deep "^2.0.1"
-    loader-utils "^1.0.1"
-    lodash.tail "^4.1.1"
-    neo-async "^2.5.0"
-    pify "^3.0.0"
 
 sax@^1.2.4, sax@~1.2.1, sax@~1.2.4:
   version "1.2.4"
