@@ -1,6 +1,6 @@
 {
-  "name": "annotation-studio-editor",
-  "version": "1.0.0",
+  "name": "@narrative-editor/annotation-studio-editor",
+  "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {

@@ -13,12 +13,21 @@
     "coverage:watch": "jest --coverage --watch"
   },
   "dependencies": {
+    "@narrative-editor/annotation-studio": "0.1.0",
+    "@narrative-editor/annotation-studio-editor": "0.1.0",
+    "@narrative-editor/presley": "0.1.0",
+    "@reach/router": "^1.1.1",
+    "add": "^2.0.6",
+    "hash-source": "^1.0.1",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
-    "@narrative-editor/annotation-studio": "0.1.0"
+    "react-redux": "^5.0.7",
+    "uuid": "^3.3.2",
+    "yarn": "^1.9.4"
   },
   "devDependencies": {
     "@fesk/scripts": "1.0.2",
+    "@types/jest": "^23.3.1",
     "babel-jest": "^22.1.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",

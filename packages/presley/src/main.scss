@@ -1,0 +1,20 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body,
+html {
+  font-family: sans-serif;
+}
+.container {
+  max-width: 500px;
+  margin: 100px auto;
+  h1 {
+    color: #005cc5;
+  }
+  code {
+    border: 1px solid #ddd;
+    background: #eee;
+  }
+}

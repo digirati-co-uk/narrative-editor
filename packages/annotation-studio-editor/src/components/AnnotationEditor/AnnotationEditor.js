@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import { provider as Core } from '@annotation-studio/plugin-core';
 import { provider as Viewer } from '@annotation-studio/plugin-viewer';
 import { provider as ResourceEditor } from '@annotation-studio/plugin-resource-editor';
-import { provider as JsonPreview } from '@annotation-studio/plugin-json-preview';
+import { pluginKit } from '@annotation-studio/components';
 import EditorLayout from '../EditorLayout/EditorLayout';
+import { createAnnotationFromCaptureModelAndDraft } from '@annotation-studio/redux/es/lib/annotation/mapping';
+import { getCurrentResource } from '@annotation-studio/redux/es/query/resourceQuery';
 
 class AnnotationEditor extends Component {
   static defaultProps = {
@@ -37,6 +39,37 @@ class AnnotationEditor extends Component {
     this.importDraft(this.props);
   }
 
+  componentDidMount() {
+    pluginKit.registerPlugin('annotation-export-plugin', {
+      PUBLISH_BUTTON: ({ draft }) => {
+        return <button onClick={this.saveAnnotation(draft)}>Save</button>;
+      },
+    });
+  }
+
+  saveAnnotation = draft => () => {
+    const annotation = this.makeAnnotation(draft);
+    this.props.onCreateAnnotation({
+      ...this.state,
+      draft,
+      annotation: {
+        ...annotation,
+        body: annotation.body ? annotation.body.toJSON() : null,
+        target: annotation.target ? annotation.target.toJSON() : null,
+      },
+    });
+  };
+
+  makeAnnotation(currentDraft) {
+    const { tree } = this.state;
+    const { canvas } = this.props;
+    return createAnnotationFromCaptureModelAndDraft({
+      target: canvas,
+      captureModel: getCurrentResource(tree, this.store.getState()),
+      draft: currentDraft,
+    });
+  }
+
   componentWillReceiveProps(nextProps) {
     if (
       nextProps.input !== this.props.input ||
@@ -57,13 +90,15 @@ class AnnotationEditor extends Component {
     captureModel,
   }) {
     const id = nestedCaptureModelId || captureModelId || captureModel;
+    const tree = captureModelId || captureModel;
     const draft = draftCreationHelper({
       id: draftId,
       input,
       captureModel: id,
-      tree: captureModelId || captureModel,
+      tree,
     });
     this.setState({
+      tree,
       captureModelId: captureModel,
       draftId: draftId || Object.keys(draft[id])[0],
       draft,
@@ -81,6 +116,7 @@ class AnnotationEditor extends Component {
 
     return (
       <Core
+        key={draftId}
         onLoadStore={this.loadStore}
         manifest={manifest}
         canvas={canvas}
@@ -93,6 +129,8 @@ class AnnotationEditor extends Component {
               <Viewer
                 store={store}
                 fullHeight={true}
+                toggleable={false}
+                showControls={true}
                 selectedViewer="OpenSeadragonViewer"
                 manifest={manifest}
                 canvas={canvas}
@@ -102,10 +140,10 @@ class AnnotationEditor extends Component {
               <ResourceEditor
                 draftId={draftId}
                 captureModelId={captureModelId}
-                plugins={['json-preview-plugin']}
+                hideClose={true}
+                plugins={['annotation-export-plugin']}
                 store={store}
               />
-              <JsonPreview store={store} />
             </EditorLayout.Properties>
           </EditorLayout>
         )}
