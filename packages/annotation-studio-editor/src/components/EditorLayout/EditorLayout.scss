@@ -1,0 +1,14 @@
+// Default styles for annotation studio
+.annotation-studio-editor-layout {
+  display: flex;
+  flex-direction: row;
+
+  &__viewer {
+    flex: 1;
+  }
+
+  &__properties {
+    padding: 20px;
+    width: 400px;
+  }
+}
