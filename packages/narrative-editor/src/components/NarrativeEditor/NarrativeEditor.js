@@ -10,6 +10,7 @@ import PreviewPage from '../PreviewPage/PreviewPage';
 import ImportScreen from '../importScreen/ImportScreen';
 import { tileSource, canvas, metadata } from '@narrative-editor/presley';
 import uuid from 'uuid/v1';
+import './NarrativeEditor.scss';
 
 const history = createHistory(createHashSource());
 

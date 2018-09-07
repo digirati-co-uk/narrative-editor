@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
+import './Homepage.scss';
+import BEM from '@fesk/bem-js';
 
+const $b = BEM.block('homepage');
 class Homepage extends Component {
-  componentWillMount() {
-    console.log(this.props.currentResource);
-  }
-
   render() {
     return (
-      <div>
-        <header>
-          <h1>Narrative editor</h1>
-          <ul>
-            <li>
+      <div className={$b}>
+        <header className={$b.element('header')}>
+          <h1 className={$b.element('title')}>Narrative editor</h1>
+          <ul className={$b.element('navigation')}>
+            <li className={$b.element('navigation-item')}>
               <Link to="/">Overview</Link>
             </li>
-            <li>
+            <li className={$b.element('navigation-item')}>
               <Link to="/preview">Preview</Link>
             </li>
-            <li>
+            <li className={$b.element('navigation-item')}>
               <Link to="/export">Export</Link>
             </li>
           </ul>
         </header>
-        <main>{this.props.children}</main>
+        <main style={{ overflow: 'hidden' }}>{this.props.children}</main>
       </div>
     );
   }

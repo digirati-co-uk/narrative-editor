@@ -1,0 +1,20 @@
+.canvas-list {
+  background: #eeeeee;
+  padding: 10px;
+  &__list {
+    margin: 0;
+    padding: 0;
+  }
+  &__item {
+    margin: 0;
+    list-style: none;
+    background: #fff;
+    border-radius: 3px;
+    border: 2px solid #ddd;
+    padding: 10px;
+
+    &--current {
+      border: 2px solid #0074d9;
+    }
+  }
+}
