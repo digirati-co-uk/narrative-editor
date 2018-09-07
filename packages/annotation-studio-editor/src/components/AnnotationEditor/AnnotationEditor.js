@@ -32,6 +32,10 @@ class AnnotationEditor extends Component {
     captureModelJson: null,
     // Raw JSON for manifest, instead of loading. IDs must still match.
     manifestJson: null,
+
+    // ** Draft props **
+    motivation: null,
+    selector: null,
   };
 
   state = {
@@ -92,6 +96,8 @@ class AnnotationEditor extends Component {
     nestedCaptureModelId,
     captureModelId,
     captureModel,
+    motivation,
+    selector,
   }) {
     const id = nestedCaptureModelId || captureModelId || captureModel;
     const tree = captureModelId || captureModel;
@@ -100,6 +106,8 @@ class AnnotationEditor extends Component {
       input,
       captureModel: id,
       tree,
+      motivation,
+      selector,
     });
     this.setState({
       tree,

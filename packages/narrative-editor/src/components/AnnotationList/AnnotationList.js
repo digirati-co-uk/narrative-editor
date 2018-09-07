@@ -2,18 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BEM from '@fesk/bem-js';
 import './AnnotationList.scss';
+import { annotations } from '@narrative-editor/presley';
+import uuid from 'uuid/v1';
+import { Link } from '@reach/router';
 
 const $b = BEM.block('annotation-list');
 class AnnotationList extends Component {
   render() {
-    const { annotations } = this.props;
+    const { annotationList, addAnnotation } = this.props;
     return (
       <div className={$b}>
-        {annotations.length ? (
+        {annotationList.length ? (
           <ul className={$b.element('list')}>
-            {annotations.map(annotation => (
+            {annotationList.map(annotation => (
               <li key={annotation.id} className={$b.element('item')}>
-                {annotation.label}
+                <Link to={`/edit-annotation/${btoa(annotation.id)}`}>
+                  {annotation.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -22,13 +27,28 @@ class AnnotationList extends Component {
             No annotations added yet
           </div>
         )}
+        <button
+          onClick={() => {
+            const id = uuid();
+            addAnnotation(id, { id, label: 'Untitled annotation' });
+          }}
+        >
+          Add annotation
+        </button>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  annotations: state.annotations.order.map(id => state.annotations.list[id]),
+  annotationList: state.annotations.order.map(id => state.annotations.list[id]),
 });
 
-export default connect(mapStateToProps)(AnnotationList);
+const mapDispatchToProps = {
+  addAnnotation: annotations.addAnnotation,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AnnotationList);
