@@ -28,6 +28,10 @@ class AnnotationEditor extends Component {
     captureModelId: null,
     // Nested capture model ID, if its a choice.
     nestedCaptureModelId: null,
+    // Raw JSON for capture model, instead of loading. IDs must still match.
+    captureModelJson: null,
+    // Raw JSON for manifest, instead of loading. IDs must still match.
+    manifestJson: null,
   };
 
   state = {
@@ -112,13 +116,14 @@ class AnnotationEditor extends Component {
 
   render() {
     const { draft, draftId, captureModelId } = this.state;
-    const { manifest, canvas } = this.props;
+    const { manifest, canvas, captureModelJson, manifestJson } = this.props;
 
     return (
       <Core
         key={draftId}
         onLoadStore={this.loadStore}
         manifest={manifest}
+        manifestJson={manifestJson}
         canvas={canvas}
         target="canvas"
         savedDraftList={draft}
@@ -140,6 +145,7 @@ class AnnotationEditor extends Component {
               <ResourceEditor
                 draftId={draftId}
                 captureModelId={captureModelId}
+                captureModelJson={captureModelJson}
                 hideClose={true}
                 plugins={['annotation-export-plugin']}
                 store={store}

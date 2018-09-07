@@ -26,15 +26,16 @@ const filerP2Id = ({ ...obj }) => {
   return obj;
 };
 
-export const presentation3Manifest = (state, props) => {
+export const presentation3Manifest = (state, props = {}) => {
   const idPrefix =
-    props.idPrefix || 'https://digirati.com/narrative-editor/1.0';
+    props.idPrefix || 'https://digirati.com/narrative-editor/1.0/';
 
   const currentCanvas = canvasSelector.currentCanvas(state);
   const tileSource = tileSourceSelector.currentTileSource(state);
 
   return {
-    id: `${idPrefix}/manifest1`,
+    '@context': ['http://iiif.io/api/presentation/3/context.json'],
+    id: `${idPrefix}manifest1`,
     type: 'Manifest',
     label: t(getLabel(state)),
     summary: t(getSummary(state)),
@@ -67,10 +68,12 @@ export const presentation3Manifest = (state, props) => {
                   ...tileSource,
                   id: tileSource['@id'] || tileSource.id,
                   type: 'Image',
-                  service: filerP2Id({
-                    ...tileSource.service,
-                    id: tileSource.service['@id'] || tileSource.service.id,
-                  }),
+                  service: [
+                    filerP2Id({
+                      ...tileSource.service,
+                      id: tileSource.service['@id'] || tileSource.service.id,
+                    }),
+                  ],
                 }),
                 motivation: 'painting',
                 type: 'Annotation',
