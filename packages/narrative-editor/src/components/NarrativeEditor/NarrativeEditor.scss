@@ -17,3 +17,42 @@ body {
   display: flex;
   font-family: sans-serif;
 }
+.narrative-editor {
+  padding-top: 50px;
+  &__header {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    position: fixed;
+    background: lightslategrey;
+    padding: 0 20px;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  &__title {
+    font-size: 1em;
+    line-height: 50px;
+    font-weight: 300;
+    letter-spacing: 0.4px;
+    margin: 0;
+  }
+  &__navigation {
+    list-style: none;
+  }
+  &__navigation-item {
+    display: inline;
+    margin-right: 30px;
+    font-size: 0.8em;
+    a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+
+      &[aria-current] {
+        color: #fff;
+      }
+    }
+  }
+}

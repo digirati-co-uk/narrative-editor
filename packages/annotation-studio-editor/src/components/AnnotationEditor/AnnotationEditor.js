@@ -98,7 +98,11 @@ class AnnotationEditor extends Component {
     captureModel,
     motivation,
     selector,
+    ...props
   }) {
+    const realSelector = selector || {
+      type: 'madoc:boxdraw',
+    };
     const id = nestedCaptureModelId || captureModelId || captureModel;
     const tree = captureModelId || captureModel;
     const draft = draftCreationHelper({
@@ -107,7 +111,7 @@ class AnnotationEditor extends Component {
       captureModel: id,
       tree,
       motivation,
-      selector,
+      selector: realSelector,
     });
     this.setState({
       tree,

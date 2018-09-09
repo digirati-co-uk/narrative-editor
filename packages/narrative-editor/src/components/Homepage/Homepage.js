@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { Link } from '@reach/router';
 import './Homepage.scss';
 import BEM from '@fesk/bem-js';
+import { navigate, Router } from '@reach/router';
+import EditAnnotationPage from '../EditAnnotationPage/EditAnnotationPage';
+import OverviewPage from '../OverviewPage/OverviewPage';
+import ExportPage from '../ExportPage/ExportPage';
+import PreviewPage from '../PreviewPage/PreviewPage';
 
 const $b = BEM.block('homepage');
 class Homepage extends Component {

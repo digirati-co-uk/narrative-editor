@@ -2,15 +2,15 @@
 # yarn lockfile v1
 
 
-"@annotation-studio/bridge@1.0.0-pr.5a5ed300":
-  version "1.0.0-pr.5a5ed300"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/bridge/-/bridge-1.0.0-pr.5a5ed300.tgz#0da74bf600e7e18322c17d156642d707cb24319e"
+"@annotation-studio/bridge@1.0.0-pr.7445e434":
+  version "1.0.0-pr.7445e434"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/bridge/-/bridge-1.0.0-pr.7445e434.tgz#52dfd2b9be02685d7a15407324de74b03511098a"
   dependencies:
     lodash.flatten "^4.4.0"
 
-"@annotation-studio/components@1.0.0-pr.5a5ed300":
-  version "1.0.0-pr.5a5ed300"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/components/-/components-1.0.0-pr.5a5ed300.tgz#5c7c3791b5eb974c454df4ae4bf5976b551fe3f1"
+"@annotation-studio/components@1.0.0-pr.7445e434":
+  version "1.0.0-pr.7445e434"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/components/-/components-1.0.0-pr.7445e434.tgz#ab3c5cfdef28712900bd2ac6e24942f81833e136"
   dependencies:
     babel-preset-stage-0 "^6.24.1"
     classnames "^2.2.5"
@@ -31,41 +31,41 @@
     react-google-maps "^9.4.5"
     react-rnd "^9.0.2"
 
-"@annotation-studio/plugin-core@1.0.0-pr.5a5ed300":
-  version "1.0.0-pr.5a5ed300"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-core/-/plugin-core-1.0.0-pr.5a5ed300.tgz#b45f375ca658b31260e1772fad61bf6bda289943"
+"@annotation-studio/plugin-core@1.0.0-pr.7445e434":
+  version "1.0.0-pr.7445e434"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-core/-/plugin-core-1.0.0-pr.7445e434.tgz#367603b525625c4a59b9f139b28b3bc64f88df4b"
   dependencies:
     create-react-context "^0.2.2"
 
-"@annotation-studio/plugin-drafts@1.0.0-pr.5a5ed300":
-  version "1.0.0-pr.5a5ed300"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-drafts/-/plugin-drafts-1.0.0-pr.5a5ed300.tgz#b49dae5a5578e14eaeeb0454d596f837f70787ea"
+"@annotation-studio/plugin-drafts@1.0.0-pr.7445e434":
+  version "1.0.0-pr.7445e434"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-drafts/-/plugin-drafts-1.0.0-pr.7445e434.tgz#94130d8a655302f47d33c0013e07882d698096bd"
 
-"@annotation-studio/plugin-json-preview@1.0.0-pr.5a5ed300":
-  version "1.0.0-pr.5a5ed300"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-json-preview/-/plugin-json-preview-1.0.0-pr.5a5ed300.tgz#33ad646c1a53e07441a592256ccabe898eac0806"
+"@annotation-studio/plugin-json-preview@1.0.0-pr.7445e434":
+  version "1.0.0-pr.7445e434"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-json-preview/-/plugin-json-preview-1.0.0-pr.7445e434.tgz#e75c6bed780caee83038a4c291f933520747ba7f"
   dependencies:
     react-copy-to-clipboard "^5.0.1"
     react-datepicker "^1.4.1"
     store "^2.0.12"
 
-"@annotation-studio/plugin-resource-editor@1.0.0-pr.5a5ed300":
-  version "1.0.0-pr.5a5ed300"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-resource-editor/-/plugin-resource-editor-1.0.0-pr.5a5ed300.tgz#b4c306824af3809c926f34015b6f22c990435e39"
+"@annotation-studio/plugin-resource-editor@1.0.0-pr.7445e434":
+  version "1.0.0-pr.7445e434"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-resource-editor/-/plugin-resource-editor-1.0.0-pr.7445e434.tgz#8c0b9f845dffc50f9bf2b8923748be2e84e4bd39"
   dependencies:
     react-datepicker "^1.4.1"
     store "^2.0.12"
 
-"@annotation-studio/plugin-viewer@1.0.0-pr.5a5ed300":
-  version "1.0.0-pr.5a5ed300"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-viewer/-/plugin-viewer-1.0.0-pr.5a5ed300.tgz#930e0b2c361089caa27e89dccce0b9e7e8d49817"
+"@annotation-studio/plugin-viewer@1.0.0-pr.7445e434":
+  version "1.0.0-pr.7445e434"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/plugin-viewer/-/plugin-viewer-1.0.0-pr.7445e434.tgz#fe42805a341c9021b2a7ee9af3130adbf56a8eb4"
   dependencies:
     react-measure "^1.4.7"
     react-rnd "^9.0.2"
 
-"@annotation-studio/redux@1.0.0-pr.5a5ed300":
-  version "1.0.0-pr.5a5ed300"
-  resolved "https://registry.yarnpkg.com/@annotation-studio/redux/-/redux-1.0.0-pr.5a5ed300.tgz#aba96f99d97bd2851065e9105a5f6a7d4328fd07"
+"@annotation-studio/redux@1.0.0-pr.7445e434":
+  version "1.0.0-pr.7445e434"
+  resolved "https://registry.yarnpkg.com/@annotation-studio/redux/-/redux-1.0.0-pr.7445e434.tgz#aca60e2465082a337bee82800a1f3b7974ce7739"
   dependencies:
     blueimp-md5 "^2.7.0"
     immutability-helper "^2.1.2"

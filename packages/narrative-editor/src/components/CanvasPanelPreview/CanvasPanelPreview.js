@@ -33,6 +33,7 @@ class CanvasPanelPreview extends Component {
               <OpenSeadragonViewer
                 getRef={getRef}
                 maxHeight={maxHeight}
+                osdOptions={{ immediateRender: false, showNavigator: false }}
                 {...props}
               />
             ) : (

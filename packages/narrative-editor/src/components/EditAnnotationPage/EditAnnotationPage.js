@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import AnnotationEditor from '@narrative-editor/annotation-studio-editor';
 import { presentation3Manifest } from '@narrative-editor/presley/src/selectors/manifest';
 import pointOfInterest from '../../../public/point-of-interest';
+import { parseSelectorTarget } from '@annotation-studio/bridge/es/helpers';
+import { updateAnnotation } from '../../../../presley/src/spaces/annotations';
 
 class EditAnnotationPage extends Component {
-  state = { isEditing: false };
+  state = { annotationId: null };
 
   componentWillMount() {
     this.setState({ annotationId: atob(this.props.annotationId) });
@@ -19,9 +21,8 @@ class EditAnnotationPage extends Component {
 
   render() {
     const { manifestJson, annotation } = this.props;
-    const { annotationId, isEditing } = this.state;
+    const { annotationId } = this.state;
 
-    console.log(annotation, annotationId);
     return (
       <div>
         <AnnotationEditor
@@ -31,6 +32,7 @@ class EditAnnotationPage extends Component {
           currentCanvas={manifestJson.items[0].id}
           captureModel={pointOfInterest['@id']}
           captureModelJson={pointOfInterest}
+          selector={annotation ? parseSelectorTarget(annotation.target) : null}
           input={
             annotation
               ? {
@@ -43,8 +45,20 @@ class EditAnnotationPage extends Component {
               : {}
           }
           // selector={{ x: 1000, y: 1000, width: 300, height: 300 }}
-          onCreateAnnotation={a => {
-            console.log(a);
+          onCreateAnnotation={resp => {
+            const p3Annotation = {
+              ...resp.annotation,
+              id: annotationId,
+              type: 'Annotation',
+              body: resp.annotation.body
+                ? {
+                    id: resp.annotation.body['@id'],
+                    ...(resp.annotation.body || {}),
+                  }
+                : null,
+            };
+            this.props.updateAnnotation(annotationId, p3Annotation);
+            this.props.onUpdateAnnotation();
           }}
         />
       </div>
@@ -58,4 +72,11 @@ const mapStateToProps = (state, props) => ({
   manifestJson: presentation3Manifest(state),
 });
 
-export default connect(mapStateToProps)(EditAnnotationPage);
+const mapDispatchToProps = {
+  updateAnnotation: updateAnnotation,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EditAnnotationPage);
