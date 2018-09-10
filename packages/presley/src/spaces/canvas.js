@@ -2,6 +2,7 @@
 import { createActions, handleActions } from 'redux-actions';
 import { reorderArray } from '../utility';
 import update from 'immutability-helper';
+import uuid from 'uuid/v1';
 
 const CREATE_CANVAS = 'CREATE_CANVAS';
 const REMOVE_CANVAS = 'REMOVE_CANVAS';
@@ -51,7 +52,12 @@ const {
   [UPDATE_CANVAS_ORDER]: (from, to) => ({ from, to }),
   [CANVAS_UPDATE_LABEL]: (id, label) => ({ id, label }),
   [CANVAS_UPDATE_SUMMARY]: (id, summary) => ({ id, summary }),
-  [CANVAS_ADD_METADATA_PAIR]: (id, label, value) => ({ id, label, value }),
+  [CANVAS_ADD_METADATA_PAIR]: (id, label, value) => ({
+    id,
+    _id: uuid(),
+    label,
+    value,
+  }),
   [CANVAS_REMOVE_METADATA_PAIR]: (id, index) => ({ id, index }),
   [CANVAS_UPDATE_METADATA_PAIR]: (id, index, label, value) => ({
     id,
@@ -116,11 +122,11 @@ const reducer = handleActions(
         },
       }),
 
-    [canvasAddMetadataPair]: (state, { payload: { id, label, value } }) =>
+    [canvasAddMetadataPair]: (state, { payload: { _id, id, label, value } }) =>
       update(state, {
         list: {
           [id]: {
-            metadata: { $push: [{ label, value }] },
+            metadata: { $push: [{ id: _id, label, value }] },
           },
         },
       }),
@@ -135,7 +141,7 @@ const reducer = handleActions(
             metadata: metadata =>
               metadata.map(
                 (mValue, mIndex) =>
-                  index === mIndex ? { label, value } : mValue
+                  index === mIndex ? { id: mValue.id, label, value } : mValue
               ),
           },
         },

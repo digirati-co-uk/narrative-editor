@@ -1,4 +1,5 @@
 .overview-page {
+  position: relative;
   display: flex;
   width: 100%;
 
@@ -8,11 +9,13 @@
   }
 
   &__metadata {
+    position: relative;
     width: 400px;
     padding: 0 10px;
   }
 
   &__annotations {
+    position: relative;
     width: 400px;
     padding: 0 10px;
   }

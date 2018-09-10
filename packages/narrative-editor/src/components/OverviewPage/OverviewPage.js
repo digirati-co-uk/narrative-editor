@@ -36,7 +36,7 @@ class OverviewPage extends Component {
             Edit some basic information to describe your resource. This may be
             picked up and used in viewers along with your narrative.
           </p>
-          <MetadataEditor />
+          <MetadataEditor scroll={true} />
         </div>
       </div>
     );

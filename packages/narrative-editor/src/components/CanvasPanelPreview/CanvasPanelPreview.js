@@ -8,7 +8,12 @@ import {
   FullPageViewport,
 } from '@canvas-panel/core';
 import { presentation3Manifest } from '../../../../presley/src/selectors/manifest';
-import { currentCanvasId } from '../../../../presley/src/selectors/canvas';
+import AnnotationProvider from '@canvas-panel/core/es/manifesto/AnnotationProvider/AnnotationProvider';
+import CanvasRepresentation from '@canvas-panel/core/es/components/CanvasRepresentation/CanvasRepresentation';
+import Annotation from '@canvas-panel/core/es/components/Annotation/Annotation';
+import AnnotationListProvider from '@canvas-panel/core/es/manifesto/AnnotationListProvider/AnnotationListProvider';
+import Viewport from '@canvas-panel/core/es/viewers/Viewport/Viewport';
+import OpenSeadragonViewport from '@canvas-panel/core/es/viewers/OpenSeadragonViewport/OpenSeadragonViewport';
 
 class CanvasPanelPreview extends Component {
   state = { error: null };
@@ -19,7 +24,7 @@ class CanvasPanelPreview extends Component {
 
   render() {
     const { error } = this.state;
-    const { canvas, maxHeight, getRef, ...props } = this.props;
+    const { maxHeight = '100vh', getRef, ...props } = this.props;
 
     if (error) {
       return 'Something went wrong';
@@ -29,22 +34,49 @@ class CanvasPanelPreview extends Component {
       <Manifest jsonLd={this.props.manifest}>
         <CanvasProvider startCanvas={this.props.manifest.items[0].id}>
           <SingleTileSource>
-            {maxHeight ? (
-              <OpenSeadragonViewer
-                getRef={getRef}
-                maxHeight={maxHeight}
-                osdOptions={{ immediateRender: false, showNavigator: false }}
-                {...props}
-              />
-            ) : (
-              <FullPageViewport
-                position="absolute"
-                interactive={true}
-                getRef={getRef}
-              >
-                <OpenSeadragonViewer viewportController={true} {...props} />
-              </FullPageViewport>
-            )}
+            <Viewport maxHeight={600}>
+              {maxHeight ? (
+                <OpenSeadragonViewport
+                  viewportController={true}
+                  getRef={getRef}
+                  osdOptions={{ immediateRender: false, showNavigator: false }}
+                  {...props}
+                />
+              ) : (
+                <FullPageViewport
+                  position="absolute"
+                  interactive={true}
+                  getRef={getRef}
+                >
+                  <OpenSeadragonViewer viewportController={true} {...props} />
+                </FullPageViewport>
+              )}
+              <AnnotationListProvider ratio={0.1}>
+                {alpProps => (
+                  <AnnotationProvider {...alpProps}>
+                    {({ annotations, ...apProps }) => (
+                      <CanvasRepresentation {...apProps}>
+                        {annotations.map(({ annotation, on }, key) => (
+                          <Annotation
+                            key={key}
+                            x={on.selector.x}
+                            y={on.selector.y}
+                            height={on.selector.height}
+                            width={on.selector.width}
+                            annotation={annotation}
+                            style={{
+                              outline: '2px solid white',
+                              pointerEvents: 'all',
+                              cursor: 'pointer',
+                            }}
+                          />
+                        ))}
+                      </CanvasRepresentation>
+                    )}
+                  </AnnotationProvider>
+                )}
+              </AnnotationListProvider>
+            </Viewport>
           </SingleTileSource>
         </CanvasProvider>
       </Manifest>

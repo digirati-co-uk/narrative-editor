@@ -24,6 +24,8 @@
     "react": "^16.5.0",
     "react-beautiful-dnd": "9.0.2",
     "react-dom": "^16.5.0",
+    "react-perfect-scrollbar": "^1.2.0",
+    "react-pose": "^3.3.0",
     "react-redux": "^5.0.7",
     "redux-persist": "^5.10.0",
     "uuid": "^3.3.2",

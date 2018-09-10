@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import * as canvasSelector from './canvas';
 import * as tileSourceSelector from './tileSource';
+import * as annotationsSelector from './annotations';
 
 export const getRoot = state => state.metadata;
 export const getLabel = createSelector(getRoot, metadata => metadata.label);
@@ -26,6 +27,8 @@ const filerP2Id = ({ ...obj }) => {
   return obj;
 };
 
+const getId = obj => obj['@id'] || obj.id;
+
 export const presentation3Manifest = (state, props = {}) => {
   const idPrefix =
     props.idPrefix || 'https://digirati.com/narrative-editor/1.0/';
@@ -46,7 +49,7 @@ export const presentation3Manifest = (state, props = {}) => {
     })),
     items: [
       {
-        id: idPrefix + currentCanvas.id,
+        id: idPrefix + getId(currentCanvas),
         type: 'Canvas',
         label: t(canvasSelector.getLabel(state)),
         summary: t(canvasSelector.getSummary(state)),
@@ -57,27 +60,36 @@ export const presentation3Manifest = (state, props = {}) => {
         })),
         height: tileSource.height,
         width: tileSource.width,
+        annotations: [
+          {
+            id: idPrefix + getId(currentCanvas) + '/annoPage2',
+            type: 'AnnotationPage',
+            items: annotationsSelector.getAnnotations(state),
+          },
+        ],
         items: [
           {
-            id: idPrefix + currentCanvas.id + '/annoPage1',
+            id: idPrefix + getId(currentCanvas) + '/annoPage1',
             type: 'AnnotationPage',
             items: [
               filerP2Id({
-                id: idPrefix + currentCanvas.id + '/anno1',
+                id: idPrefix + getId(currentCanvas) + '/anno1',
                 body: filerP2Id({
                   ...tileSource,
-                  id: tileSource['@id'] || tileSource.id,
+                  id: getId(tileSource),
                   type: 'Image',
-                  service: [
-                    filerP2Id({
-                      ...tileSource.service,
-                      id: tileSource.service['@id'] || tileSource.service.id,
-                    }),
-                  ],
+                  service: tileSource.service
+                    ? [
+                        filerP2Id({
+                          ...tileSource.service,
+                          id: getId(tileSource.service),
+                        }),
+                      ]
+                    : null,
                 }),
                 motivation: 'painting',
                 type: 'Annotation',
-                target: idPrefix + currentCanvas.id,
+                target: idPrefix + getId(currentCanvas),
               }),
             ],
           },

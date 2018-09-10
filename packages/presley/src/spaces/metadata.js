@@ -1,6 +1,7 @@
 import { createActions, handleActions } from 'redux-actions';
 import update from 'immutability-helper';
 import { reorderArray } from '../utility';
+import uuid from 'uuid/v1';
 
 // Constants
 const UPDATE_LABEL = 'UPDATE_LABEL';
@@ -29,7 +30,7 @@ const {
 } = createActions({
   [UPDATE_LABEL]: label => ({ label }),
   [UPDATE_SUMMARY]: summary => ({ summary }),
-  [ADD_METADATA_PAIR]: (label, value) => ({ label, value }),
+  [ADD_METADATA_PAIR]: (label, value) => ({ id: uuid(), label, value }),
   [REMOVE_METADATA_PAIR]: index => ({ index }),
   [UPDATE_METADATA_PAIR]: (index, label, value) => ({ index, label, value }),
   [REORDER_METADATA_PAIR]: (from, to) => ({ from, to }),
@@ -46,16 +47,17 @@ const reducer = handleActions(
         summary: { $set: summary },
       }),
 
-    [addMetadataPair]: (state, { payload: { label, value } }) =>
+    [addMetadataPair]: (state, { payload: { id, label, value } }) =>
       update(state, {
-        metadata: { $push: [{ label, value }] },
+        metadata: { $push: [{ id, label, value }] },
       }),
 
     [updateMetadataPair]: (state, { payload: { index, label, value } }) =>
       update(state, {
         metadata: metadata =>
           metadata.map(
-            (mValue, mIndex) => (index === mIndex ? { label, value } : mValue)
+            (mValue, mIndex) =>
+              index === mIndex ? { id: mValue.id, label, value } : mValue
           ),
       }),
 
