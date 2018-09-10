@@ -5,6 +5,7 @@ import './AnnotationList.scss';
 import { annotations } from '@narrative-editor/presley';
 import uuid from 'uuid/v1';
 import { Link } from '@reach/router';
+import AnnotationThumbnail from '../AnnotationThumbnail/AnnotationThumbnail';
 
 const $b = BEM.block('annotation-list');
 class AnnotationList extends Component {
@@ -13,27 +14,44 @@ class AnnotationList extends Component {
     return (
       <div className={$b}>
         {annotationList.length ? (
-          <ul className={$b.element('list')}>
+          <div className={$b.element('list')}>
             {annotationList.map(annotation => (
-              <li key={annotation.id} className={$b.element('item')}>
-                <Link to={`/edit-annotation/${btoa(annotation.id)}`}>
-                  {annotation.label}
-                </Link>
-              </li>
+              <div key={annotation.id} className={$b.element('item')}>
+                <div className={$b.element('thumbnail')}>
+                  <AnnotationThumbnail id={annotation.id} />
+                </div>
+                <div className={$b.element('detail')}>
+                  <Link
+                    className={$b.element('label')}
+                    to={`/edit-annotation/${btoa(annotation.id)}`}
+                  >
+                    {annotation.label}
+                  </Link>
+                  <div
+                    className={$b.element('body')}
+                    dangerouslySetInnerHTML={{
+                      __html: annotation.body
+                        ? annotation.body.value || ''
+                        : '',
+                    }}
+                  />
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         ) : (
           <div className={$b.element('empty-space')}>
             No annotations added yet
           </div>
         )}
         <button
+          className={$b.element('add-button')}
           onClick={() => {
             const id = uuid();
             addAnnotation(id, { id, label: 'Untitled annotation' });
           }}
         >
-          Add annotation
+          + Add annotation
         </button>
       </div>
     );

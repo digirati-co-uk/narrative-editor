@@ -1,18 +1,37 @@
 .annotation-list {
   background: #eeeeee;
   padding: 10px;
+
   &__list {
     margin: 0;
     padding: 0;
   }
+  &__thumbnail {
+    width: 65px;
+  }
+  &__detail {
+    padding-left: 10px;
+    flex: 1;
+  }
+
+  &__label {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  &__body {
+    font-size: 11px;
+  }
+
   &__item {
-    margin: 0;
+    display: flex;
+    flex-direction: row;
     list-style: none;
     background: #fff;
     border-radius: 3px;
     border: 2px solid #ddd;
     padding: 10px;
-    margin-bottom: 10px;
+    margin: 0 0 10px;
 
     a {
       color: inherit;
@@ -23,10 +42,20 @@
       border: 2px solid #0074d9;
     }
   }
+
   &__empty-space {
     color: #999;
     font-size: 0.85em;
     padding: 20px 0;
     text-align: center;
+  }
+
+  &__add-button {
+    width: 100%;
+    background: #0074d9;
+    color: #fff;
+    border-radius: 2px;
+    border: none;
+    padding: 10px;
   }
 }

@@ -10,3 +10,11 @@ export const getWidth = createSelector(
   currentTileSource,
   tileSource => tileSource.width
 );
+
+export const getImageService = createSelector(
+  currentTileSource,
+  tileSource =>
+    tileSource.service && tileSource.service['@id']
+      ? tileSource.service['@id']
+      : null
+);

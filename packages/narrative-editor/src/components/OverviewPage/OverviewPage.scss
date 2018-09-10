@@ -1,23 +1,33 @@
 .overview-page {
   position: relative;
   display: flex;
-  width: 100%;
+  height: calc(100vh - 50px);
+  flex-direction: row;
 
   &__viewer {
+    display: flex;
     flex: 1;
     position: relative;
   }
 
   &__metadata {
     position: relative;
+    height: 100%;
+    overflow-y: auto;
     width: 400px;
+    flex: 0 0 400px;
     padding: 0 10px;
+    padding-bottom: 20px;
   }
 
   &__annotations {
+    height: 100%;
+    overflow-y: auto;
     position: relative;
     width: 400px;
+    flex: 0 0 400px;
     padding: 0 10px;
+    padding-bottom: 20px;
   }
 
   &__title {

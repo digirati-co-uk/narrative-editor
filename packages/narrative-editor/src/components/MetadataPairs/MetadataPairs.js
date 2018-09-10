@@ -31,7 +31,7 @@ class MetadataPairs extends Component {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <PoseGroup>
-          <Droppable droppableId={id}>
+          <Droppable key={1} droppableId={id}>
             {(provided, snapshot) => (
               <div
                 ref={provided.innerRef}
