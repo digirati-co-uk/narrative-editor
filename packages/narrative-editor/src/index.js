@@ -23,3 +23,5 @@ render(
   </Provider>,
   document.querySelector('#app')
 );
+
+require('./AnnotationStudio.scss');

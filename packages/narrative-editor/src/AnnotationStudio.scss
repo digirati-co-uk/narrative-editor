@@ -1,0 +1,18 @@
+@import './annotaiton-studio-scss/RegionChanger';
+@import './annotaiton-studio-scss/TextBox';
+@import './annotaiton-studio-scss/Metadata';
+
+.help-tooltip__label {
+  display: none;
+}
+
+.full-form__action-btn,
+.full-form__back-btn ~ button {
+  float: right;
+  background: #0074d9;
+  color: #fff;
+  border-radius: 2px;
+  border: none;
+  padding: 10px;
+  margin-right: 10px;
+}

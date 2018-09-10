@@ -1,0 +1,15 @@
+.metadata {
+  margin-left: 10px;
+  &__title {
+    font-weight: 300;
+    font-size: 1.4em;
+    line-height: 1.9em;
+    margin: 10px 0 0;
+  }
+
+  &__description {
+    color: #999;
+    font-size: 0.8em;
+    margin-bottom: 25px;
+  }
+}
