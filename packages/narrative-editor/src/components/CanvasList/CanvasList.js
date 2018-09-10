@@ -75,9 +75,12 @@ class CanvasList extends Component {
                 pose={open ? 'open' : 'closed'}
               >
                 <div
+                  onDoubleClick={e => {
+                    e.preventDefault();
+                  }}
                   className={$b.element('sticky-header').modifiers({ open })}
                 >
-                  {canvas.label}
+                  <span className={$b.element('label')}>{canvas.label}</span>
                   <p className={$b.element('summary')}>
                     {canvas.summary || 'no summary added'}
                   </p>

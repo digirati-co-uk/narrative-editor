@@ -26,6 +26,11 @@
       margin-bottom: 10px;
     }
   }
+  &__label,
+  &__summary {
+    pointer-events: none;
+    user-select: none;
+  }
   &__item {
     font-size: 15px;
     margin: 0;
