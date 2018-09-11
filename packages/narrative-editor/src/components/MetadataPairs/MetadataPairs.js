@@ -16,7 +16,9 @@ class MetadataPairs extends Component {
   }
 
   onDragEnd = ({ source, destination }) => {
-    this.props.reorderMetadataPair(source.index, destination.index);
+    if (destination) {
+      this.props.reorderMetadataPair(source.index, destination.index);
+    }
   };
 
   render() {
