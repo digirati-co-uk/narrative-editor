@@ -68,7 +68,7 @@ class CanvasList extends Component {
 
     return (
       <ReorderableList className={$b} items={canvases}>
-        {(canvas, props) => (
+        {(canvas, props, { isDragging }) => (
           <div {...props}>
             <ListItem
               key={`${canvas.id}-list-item`}
@@ -76,6 +76,7 @@ class CanvasList extends Component {
               data-key={canvas.id}
               className={$b.element('item').modifiers({
                 isCurrent: canvas.id === currentCanvas,
+                isDragging,
               })}
               pose={open ? 'open' : 'closed'}
             >

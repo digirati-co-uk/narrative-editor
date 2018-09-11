@@ -8,10 +8,11 @@ import './AnnotationThumbnail.scss';
 
 const $b = BEM.block('annotation-thumbnail');
 class AnnotationThumbnail extends Component {
-  state = { imageService: null, selector: null };
+  state = { imageService: null, selector: null, bigly: false };
 
   componentWillMount() {
     if (this.props.imageService) {
+      console.log(this.props.imageService);
       fetch(`${this.props.imageService}/info.json`)
         .then(r => r.json())
         .then(resp => {
@@ -35,6 +36,7 @@ class AnnotationThumbnail extends Component {
   }
 
   render() {
+    const { bigly } = this.state;
     const image = this.getImage();
 
     if (!image) {
@@ -42,8 +44,11 @@ class AnnotationThumbnail extends Component {
     }
 
     return (
-      <div className={$b}>
-        <img src={image} />
+      <div className={$b.modifiers({ bigly })}>
+        <img
+          onClick={() => this.setState(s => ({ bigly: !s.bigly }))}
+          src={image}
+        />
       </div>
     );
   }

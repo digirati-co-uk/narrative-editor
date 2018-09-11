@@ -14,7 +14,7 @@ export const getWidth = createSelector(
 export const getImageService = createSelector(
   currentTileSource,
   tileSource =>
-    tileSource.service && tileSource.service['@id']
-      ? tileSource.service['@id']
+    tileSource.service && (tileSource.service['@id'] || tileSource.service.id)
+      ? tileSource.service['@id'] || tileSource.service.id
       : null
 );

@@ -41,6 +41,11 @@
     padding: 10px 15px 15px;
     overflow-y: auto;
 
+    &--isDragging {
+      border: 2px solid #0074d9;
+      box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.1);
+    }
+
     //&--current {
     //  border: 2px solid #0074d9;
     //}
