@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import {
   createHistory,
   Router,
+  Location,
   LocationProvider,
   Link,
-  navigate,
 } from '@reach/router';
 import { connect } from 'react-redux';
-import Homepage from '../Homepage/Homepage';
 import EditAnnotationPage from '../EditAnnotationPage/EditAnnotationPage';
 import OverviewPage from '../OverviewPage/OverviewPage';
 import ExportPage from '../ExportPage/ExportPage';
@@ -18,9 +17,25 @@ import { tileSource, canvas, metadata } from '@narrative-editor/presley';
 import uuid from 'uuid/v1';
 import './NarrativeEditor.scss';
 import BEM from '@fesk/bem-js/lib/index';
+import posed, { PoseGroup } from 'react-pose';
 
 const hashSource = createHashSource();
 const history = createHistory(hashSource);
+const RouteContainer = posed.div({
+  enter: { opacity: 1, delay: 100 },
+  exit: { opacity: 0, y: '50px', transition: { duration: 100 } },
+});
+const PosedRouter = ({ children }) => (
+  <Location>
+    {({ location }) => (
+      <PoseGroup>
+        <RouteContainer key={location.pathname}>
+          <Router location={location}>{children}</Router>
+        </RouteContainer>
+      </PoseGroup>
+    )}
+  </Location>
+);
 
 const $b = BEM.block('narrative-editor');
 class NarrativeEditor extends Component {
@@ -45,7 +60,7 @@ class NarrativeEditor extends Component {
     }
     return (
       <LocationProvider history={history}>
-        <div className={$b}>
+        <div className={$b.modifier('dark')}>
           <header className={$b.element('header')}>
             <h1 className={$b.element('title')}>Narrative editor</h1>
             <ul className={$b.element('navigation')}>
@@ -61,7 +76,7 @@ class NarrativeEditor extends Component {
             </ul>
           </header>
           <main style={{ overflow: 'hidden' }}>
-            <Router>
+            <PosedRouter>
               <OverviewPage path="/" />
               <EditAnnotationPage
                 path="edit-annotation/:annotationId"
@@ -71,7 +86,7 @@ class NarrativeEditor extends Component {
               />
               <ExportPage path="export" />
               <PreviewPage path="preview" />
-            </Router>
+            </PosedRouter>
           </main>
         </div>
       </LocationProvider>

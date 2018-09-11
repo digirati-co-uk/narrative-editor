@@ -19,18 +19,35 @@ body {
 }
 .narrative-editor {
   padding-top: 50px;
+
+  &--dark {
+    .narrative-editor {
+      &__header {
+        color: #fff;
+        background: #2e3133;
+      }
+
+      &__navigation-item a {
+        color: rgba(255, 255, 255, 0.6);
+        border-bottom-color: #2e3133;
+      }
+    }
+  }
+
   &__header {
-    color: #fff;
+    color: #4285f4;
     display: flex;
     flex-direction: row;
     height: 50px;
     position: fixed;
-    background: lightslategrey;
+    background: #fff;
     padding: 0 20px;
     justify-content: space-between;
     top: 0;
     left: 0;
     right: 0;
+    //border-bottom: 1px solid rgba(0,0,0,.1);
+    box-shadow: 1px 0 1px 0px rgba(0, 0, 0, 0.4);
   }
   &__title {
     font-size: 1em;
@@ -47,11 +64,16 @@ body {
     margin-right: 30px;
     font-size: 0.8em;
     a {
-      color: rgba(255, 255, 255, 0.7);
+      display: inline-block;
+      line-height: 20px;
+      color: #000;
       text-decoration: none;
+      border-bottom: 3px solid #fff;
+      transition: border-bottom 0.3s, color 0.3s;
 
       &[aria-current] {
-        color: #fff;
+        color: #4285f4;
+        border-bottom: 2px solid #4285f4;
       }
     }
   }
