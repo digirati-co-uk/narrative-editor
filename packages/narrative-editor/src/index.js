@@ -3,11 +3,11 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import presley from '@narrative-editor/presley';
 import { PersistGate } from 'redux-persist/integration/react';
-import './index.css';
+import './index.scss';
 
 // import App from './containers/app/App';
 import NarrativeEditor from './components/NarrativeEditor/NarrativeEditor';
-import './index.css';
+import './index.scss';
 
 const { store, persistor } = presley();
 

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BEM from '@fesk/bem-js';
 import './CanvasList.scss';
-import posed, { PoseGroup } from 'react-pose';
+import posed from 'react-pose';
 import MetadataEditor from '../MetadataEditor/MetadataEditor.canvas';
+import ReorderableList from '../ReorderableList/ReorderableList';
 
 const Close = posed.button({
   open: {
@@ -40,6 +41,7 @@ const ListItem = posed.li({
     },
   },
 });
+
 const Expand = posed.div({
   open: {
     height: 'auto',
@@ -53,53 +55,50 @@ const Expand = posed.div({
 
 const $b = BEM.block('canvas-list');
 class CanvasList extends Component {
-  state = {};
+  state = { open: false };
+
+  handleOpen = e => {
+    e.preventDefault();
+    this.setState({ open: true });
+  };
+
   render() {
     const { open } = this.state;
     const { currentCanvas, canvases } = this.props;
+
     return (
-      <div className={$b}>
-        <ul className={$b.element('list')}>
-          <PoseGroup>
-            {canvases.map(canvas => (
-              <ListItem
-                onDoubleClick={e => {
-                  e.preventDefault();
-                  this.setState({ open: true });
-                }}
-                data-key={canvas.id}
-                key={canvas.id}
-                className={$b.element('item').modifiers({
-                  current: canvas.id === currentCanvas,
-                })}
-                pose={open ? 'open' : 'closed'}
-              >
-                <div
-                  onDoubleClick={e => {
-                    e.preventDefault();
-                  }}
-                  className={$b.element('sticky-header').modifiers({ open })}
+      <ReorderableList className={$b} items={canvases}>
+        {(canvas, props) => (
+          <div {...props}>
+            <ListItem
+              key={`${canvas.id}-list-item`}
+              onDoubleClick={this.handleOpen}
+              data-key={canvas.id}
+              className={$b.element('item').modifiers({
+                isCurrent: canvas.id === currentCanvas,
+              })}
+              pose={open ? 'open' : 'closed'}
+            >
+              <div className={$b.element('sticky-header').modifiers({ open })}>
+                <span className={$b.element('label')}>{canvas.label}</span>
+                <p className={$b.element('summary')}>
+                  {canvas.summary || 'no summary added'}
+                </p>
+                <Close
+                  className={$b.element('close')}
+                  initialPose="closed"
+                  onClick={() => this.setState({ open: false })}
                 >
-                  <span className={$b.element('label')}>{canvas.label}</span>
-                  <p className={$b.element('summary')}>
-                    {canvas.summary || 'no summary added'}
-                  </p>
-                  <Close
-                    className={$b.element('close')}
-                    initialPose="closed"
-                    onClick={() => this.setState({ open: false })}
-                  >
-                    Finish editing
-                  </Close>
-                </div>
-                <Expand initialPose="closed" style={{ overflow: 'hidden' }}>
-                  <MetadataEditor id={canvas.id} />
-                </Expand>
-              </ListItem>
-            ))}
-          </PoseGroup>
-        </ul>
-      </div>
+                  Finish editing
+                </Close>
+              </div>
+              <Expand initialPose="closed" style={{ overflow: 'hidden' }}>
+                <MetadataEditor id={canvas.id} />
+              </Expand>
+            </ListItem>
+          </div>
+        )}
+      </ReorderableList>
     );
   }
 }

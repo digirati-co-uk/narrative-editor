@@ -28,6 +28,7 @@
     "react-pose": "^3.3.0",
     "react-redux": "^5.0.7",
     "redux-persist": "^5.10.0",
+    "system-font-css": "^2.0.2",
     "uuid": "^3.3.2",
     "yarn": "^1.9.4"
   },
