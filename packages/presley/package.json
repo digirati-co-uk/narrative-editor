@@ -17,6 +17,7 @@
     "redux-actions": "^2.6.1",
     "redux-localstorage": "^1.0.0-rc5",
     "redux-persist": "^5.10.0",
+    "redux-reset": "^0.3.0",
     "reselect": "^3.0.1",
     "uuid": "^3.3.2"
   }

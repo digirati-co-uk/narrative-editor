@@ -13,7 +13,7 @@ import ExportPage from '../ExportPage/ExportPage';
 import createHashSource, { pushHashPath } from 'hash-source';
 import PreviewPage from '../PreviewPage/PreviewPage';
 import ImportScreen from '../importScreen/ImportScreen';
-import { tileSource, canvas, metadata } from '@narrative-editor/presley';
+import { tileSource, canvas, metadata, reset } from '@narrative-editor/presley';
 import uuid from 'uuid/v1';
 import './NarrativeEditor.scss';
 import BEM from '@fesk/bem-js/lib/index';
@@ -48,7 +48,7 @@ class NarrativeEditor extends Component {
   };
 
   render() {
-    const { currentResource, changeTileSource } = this.props;
+    const { currentResource, changeTileSource, startAgain } = this.props;
     if (!currentResource) {
       return (
         <ImportScreen
@@ -72,6 +72,14 @@ class NarrativeEditor extends Component {
               </li>
               <li className={$b.element('navigation-item')}>
                 <Link to="/export">Export</Link>
+              </li>
+              <li
+                className={$b
+                  .element('navigation-item')
+                  .modifier('start-again')}
+                onClick={startAgain}
+              >
+                Start again?
               </li>
             </ul>
           </header>
@@ -103,6 +111,7 @@ const bindActionCreators = {
   createCanvas: canvas.createCanvas,
   updateLabel: metadata.updateLabel,
   canvasUpdateLabel: canvas.canvasUpdateLabel,
+  startAgain: reset,
 };
 
 export default connect(

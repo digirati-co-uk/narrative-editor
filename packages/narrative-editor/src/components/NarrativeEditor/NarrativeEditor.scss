@@ -63,6 +63,9 @@ body {
     display: inline;
     margin-right: 30px;
     font-size: 0.8em;
+    &--start-again {
+      cursor: pointer;
+    }
     a {
       display: inline-block;
       line-height: 20px;
