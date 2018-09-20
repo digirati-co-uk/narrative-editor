@@ -14,7 +14,7 @@ class OverviewPage extends Component {
     return (
       <div className={$b}>
         <div className={$b.element('viewer')}>
-          <CanvasPanelPreview maxHeight={800} />
+          <CanvasPanelPreview />
         </div>
         <div className={$b.element('annotations')}>
           <h2 className={$b.element('title')}>Canvases</h2>
@@ -28,15 +28,7 @@ class OverviewPage extends Component {
             Add points of interest to your manifest that will be highlighted in
             your narrative.
           </p>
-          <AnnotationList />
-        </div>
-        <div className={$b.element('metadata')}>
-          <h2 className={$b.element('title')}>Manifest Metadata</h2>
-          <p className={$b.element('subtext')}>
-            Edit some basic information to describe your resource. This may be
-            picked up and used in viewers along with your narrative.
-          </p>
-          <MetadataEditor scroll={true} />
+          <AnnotationList navigate={this.props.navigate} />
         </div>
       </div>
     );

@@ -5,6 +5,7 @@ import {
   Location,
   LocationProvider,
   Link,
+  navigate,
 } from '@reach/router';
 import { connect } from 'react-redux';
 import EditAnnotationPage from '../EditAnnotationPage/EditAnnotationPage';
@@ -18,6 +19,7 @@ import uuid from 'uuid/v1';
 import './NarrativeEditor.scss';
 import BEM from '@fesk/bem-js/lib/index';
 import posed, { PoseGroup } from 'react-pose';
+import ManifestPage from '../ManifestPage/ManifestPage';
 
 const hashSource = createHashSource();
 const history = createHistory(hashSource);
@@ -68,6 +70,9 @@ class NarrativeEditor extends Component {
                 <Link to="/">Overview</Link>
               </li>
               <li className={$b.element('navigation-item')}>
+                <Link to="/manifest">Manifest</Link>
+              </li>
+              <li className={$b.element('navigation-item')}>
                 <Link to="/preview">Preview</Link>
               </li>
               <li className={$b.element('navigation-item')}>
@@ -85,11 +90,12 @@ class NarrativeEditor extends Component {
           </header>
           <main style={{ overflow: 'hidden' }}>
             <PosedRouter>
-              <OverviewPage path="/" />
+              <OverviewPage navigate={history.navigate} path="/" />
+              <ManifestPage path="/manifest" />
               <EditAnnotationPage
                 path="edit-annotation/:annotationId"
                 onUpdateAnnotation={() => {
-                  window.location.hash = '/';
+                  history.navigate('/');
                 }}
               />
               <ExportPage path="export" />

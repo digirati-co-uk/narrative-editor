@@ -4,25 +4,36 @@ import BEM from '@fesk/bem-js';
 import './AnnotationList.scss';
 import { annotations } from '@narrative-editor/presley';
 import uuid from 'uuid/v1';
-import { Link, navigate } from '@reach/router';
+import { Link } from '@reach/router';
 import AnnotationThumbnail from '../AnnotationThumbnail/AnnotationThumbnail';
 import ReorderableList from '../ReorderableList/ReorderableList';
+import EditIcon from '../EditIcon/EditIcon';
+import DeleteIcon from '../DeleteIcon/DeleteIcon';
 
 const $b = BEM.block('annotation-list');
+
 class AnnotationList extends Component {
   goToAnnotation = id => e => {
     e.preventDefault();
-    window.location.hash = `/edit-annotation/${btoa(id)}`;
+    this.props.navigate(`/edit-annotation/${btoa(id)}`);
   };
 
   createNewAnnotation = () => {
     const { addAnnotation } = this.props;
     const id = uuid();
     addAnnotation(id, { id, label: 'Untitled annotation' });
+    this.props.navigate(`/edit-annotation/${btoa(id)}`);
+  };
+
+  removeAnnotation = id => () => {
+    const { removeAnnotation } = this.props;
+    if (window.confirm('Are you sure you want to delete this annotation?')) {
+      removeAnnotation(id);
+    }
   };
 
   render() {
-    const { annotationList, addAnnotation, updateAnnotationOrder } = this.props;
+    const { annotationList, updateAnnotationOrder } = this.props;
 
     return (
       <ReorderableList
@@ -49,6 +60,18 @@ class AnnotationList extends Component {
             onDoubleClick={this.goToAnnotation(annotation.id)}
             className={$b.element('item').modifiers({ isDragging })}
           >
+            <div
+              className={$b.element('edit-icon')}
+              onClick={this.goToAnnotation(annotation.id)}
+            >
+              <EditIcon />
+            </div>
+            <div
+              className={$b.element('delete-icon')}
+              onClick={this.removeAnnotation(annotation.id)}
+            >
+              <DeleteIcon />
+            </div>
             <div className={$b.element('thumbnail')}>
               <AnnotationThumbnail id={annotation.id} />
             </div>
@@ -80,6 +103,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   addAnnotation: annotations.addAnnotation,
   updateAnnotationOrder: annotations.updateAnnotationOrder,
+  removeAnnotation: annotations.removeAnnotation,
 };
 
 export default connect(

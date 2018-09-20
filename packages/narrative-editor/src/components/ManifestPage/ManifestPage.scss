@@ -1,4 +1,4 @@
-.overview-page {
+.manifest-page {
   position: relative;
   display: flex;
   height: calc(100vh - 50px);
@@ -10,7 +10,7 @@
     position: relative;
   }
 
-  &__annotations {
+  &__metadata {
     height: 100%;
     overflow-y: auto;
     position: relative;

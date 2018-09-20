@@ -34,7 +34,7 @@ class CanvasPanelPreview extends Component {
       <Manifest jsonLd={this.props.manifest}>
         <CanvasProvider startCanvas={this.props.manifest.items[0].id}>
           <SingleTileSource>
-            <Viewport maxHeight={600}>
+            <FullPageViewport position="absolute" interactive={true}>
               {maxHeight ? (
                 <OpenSeadragonViewport
                   viewportController={true}
@@ -76,7 +76,7 @@ class CanvasPanelPreview extends Component {
                   </AnnotationProvider>
                 )}
               </AnnotationListProvider>
-            </Viewport>
+            </FullPageViewport>
           </SingleTileSource>
         </CanvasProvider>
       </Manifest>

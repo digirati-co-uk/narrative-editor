@@ -919,6 +919,14 @@
     screenfull "^3.3.2"
     whatwg-fetch "^2.0.3"
 
+"@canvas-panel/full-page-plugin@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@canvas-panel/full-page-plugin/-/full-page-plugin-0.0.8.tgz#71bb3e3f508a697349845ac04eef6050b8c5bb1b"
+  dependencies:
+    "@canvas-panel/core" "^0.0.9"
+    babel-preset-es2015-native-modules "^6.9.4"
+    react-dom "^16.3.2"
+
 "@emotion/is-prop-valid@^0.6.5":
   version "0.6.7"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.6.7.tgz#1767d39c29ba786b7afc3d8d727a2896995f01eb"
@@ -2920,7 +2928,13 @@ babel-preset-env@^1.6.0, babel-preset-env@^1.6.1:
     invariant "^2.2.2"
     semver "^5.3.0"
 
-babel-preset-es2015@^6.9.0:
+babel-preset-es2015-native-modules@^6.9.4:
+  version "6.9.4"
+  resolved "https://registry.yarnpkg.com/babel-preset-es2015-native-modules/-/babel-preset-es2015-native-modules-6.9.4.tgz#ad2e0ff3a2cd879c1d8fc994ab33b4b80d2b5057"
+  dependencies:
+    babel-preset-es2015 latest
+
+babel-preset-es2015@^6.9.0, babel-preset-es2015@latest:
   version "6.24.1"
   resolved "https://registry.yarnpkg.com/babel-preset-es2015/-/babel-preset-es2015-6.24.1.tgz#d44050d6bc2c9feea702aaf38d727a0210538939"
   dependencies:
@@ -3169,6 +3183,10 @@ better-assert@~1.0.0:
   resolved "https://registry.yarnpkg.com/better-assert/-/better-assert-1.0.2.tgz#40866b9e1b9e0b55b481894311e68faffaebc522"
   dependencies:
     callsite "1.0.0"
+
+bezier-easing@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/bezier-easing/-/bezier-easing-2.1.0.tgz#c04dfe8b926d6ecaca1813d69ff179b7c2025d86"
 
 big.js@^3.1.3:
   version "3.2.0"

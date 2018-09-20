@@ -48,6 +48,7 @@ body {
     right: 0;
     //border-bottom: 1px solid rgba(0,0,0,.1);
     box-shadow: 1px 0 1px 0px rgba(0, 0, 0, 0.4);
+    z-index: 99;
   }
   &__title {
     font-size: 1em;
@@ -57,7 +58,9 @@ body {
     margin: 0;
   }
   &__navigation {
+    position: relative;
     list-style: none;
+    z-index: 98;
   }
   &__navigation-item {
     display: inline;

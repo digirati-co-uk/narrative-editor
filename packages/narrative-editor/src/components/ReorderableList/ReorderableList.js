@@ -21,15 +21,22 @@ class ReorderableList extends Component {
   static defaultProps = {
     renderEmptyState: () => null,
     renderAddNew: () => null,
+    isDragDisabled: false,
   };
 
   render() {
     const { id } = this.state;
-    const { items, className, renderEmptyState, renderAddNew } = this.props;
+    const {
+      items,
+      className,
+      renderEmptyState,
+      renderAddNew,
+      isDragDisabled,
+    } = this.props;
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <PoseGroup>
-          <Droppable key={1} droppableId={id}>
+          <Droppable key={id} droppableId={id} isDropDisabled={isDragDisabled}>
             {(provided, snapshot) => (
               <div className={className} ref={provided.innerRef}>
                 {items.length === 0 ? (
@@ -41,6 +48,7 @@ class ReorderableList extends Component {
                         key={item.id}
                         draggableId={item.id}
                         index={index}
+                        isDragDisabled={isDragDisabled}
                       >
                         {(dProvided, dSnapshot) =>
                           this.props.children(

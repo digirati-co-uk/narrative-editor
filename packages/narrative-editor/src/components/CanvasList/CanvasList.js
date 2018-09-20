@@ -5,6 +5,7 @@ import './CanvasList.scss';
 import posed from 'react-pose';
 import MetadataEditor from '../MetadataEditor/MetadataEditor.canvas';
 import ReorderableList from '../ReorderableList/ReorderableList';
+import EditIcon from '../EditIcon/EditIcon';
 
 const Close = posed.button({
   open: {
@@ -67,39 +68,45 @@ class CanvasList extends Component {
     const { currentCanvas, canvases } = this.props;
 
     return (
-      <ReorderableList className={$b} items={canvases}>
-        {(canvas, props, { isDragging }) => (
-          <div {...props}>
-            <ListItem
-              key={`${canvas.id}-list-item`}
-              onDoubleClick={this.handleOpen}
-              data-key={canvas.id}
-              className={$b.element('item').modifiers({
-                isCurrent: canvas.id === currentCanvas,
-                isDragging,
-              })}
-              pose={open ? 'open' : 'closed'}
-            >
-              <div className={$b.element('sticky-header').modifiers({ open })}>
-                <span className={$b.element('label')}>{canvas.label}</span>
-                <p className={$b.element('summary')}>
-                  {canvas.summary || 'no summary added'}
-                </p>
-                <Close
-                  className={$b.element('close')}
-                  initialPose="closed"
-                  onClick={() => this.setState({ open: false })}
-                >
-                  Finish editing
-                </Close>
+      <div className={$b}>
+        {' '}
+        {canvases.map(canvas => (
+          <ListItem
+            key={`${canvas.id}-list-item`}
+            onDoubleClick={this.handleOpen}
+            data-key={canvas.id}
+            className={$b.element('item').modifiers({
+              isCurrent: canvas.id === currentCanvas,
+              isDragging: false,
+              isOpen: open,
+            })}
+            pose={open ? 'open' : 'closed'}
+          >
+            <div className={$b.element('sticky-header').modifiers({ open })}>
+              <div
+                className={$b.element('edit-icon')}
+                onClick={this.handleOpen}
+              >
+                <EditIcon />
               </div>
-              <Expand initialPose="closed" style={{ overflow: 'hidden' }}>
-                <MetadataEditor id={canvas.id} />
-              </Expand>
-            </ListItem>
-          </div>
-        )}
-      </ReorderableList>
+              <span className={$b.element('label')}>{canvas.label}</span>
+              <p className={$b.element('summary')}>
+                {canvas.summary || 'no summary added'}
+              </p>
+              <Close
+                className={$b.element('close')}
+                initialPose="closed"
+                onClick={() => this.setState({ open: false })}
+              >
+                Finish editing
+              </Close>
+            </div>
+            <Expand initialPose="closed" style={{ overflow: 'hidden' }}>
+              <MetadataEditor id={canvas.id} />
+            </Expand>
+          </ListItem>
+        ))}
+      </div>
     );
   }
 }

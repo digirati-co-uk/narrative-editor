@@ -31,6 +31,43 @@
     pointer-events: none;
     user-select: none;
   }
+
+  &__edit-icon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.4s;
+    &:after {
+      opacity: 0;
+      content: 'edit';
+      position: absolute;
+      top: 0px;
+      right: 25px;
+      color: #0074d9;
+      padding: 2px;
+      border-radius: 2px;
+      font-size: 12px;
+      transition: opacity 0.4s;
+    }
+    &:hover {
+      &:after {
+        opacity: 1;
+      }
+    }
+    svg {
+      height: 16px;
+      fill: #0074d9;
+    }
+  }
+  &:hover &__edit-icon {
+    opacity: 1;
+  }
+  &__sticky-header--open &__edit-icon {
+    display: none;
+  }
+
   &__item {
     font-size: 15px;
     margin: 0;
@@ -40,6 +77,7 @@
     border: 2px solid #ddd;
     padding: 10px 15px 15px;
     overflow-y: auto;
+    z-index: 10;
 
     &--isDragging {
       border: 2px solid #0074d9;
@@ -53,5 +91,11 @@
   &__summary {
     color: #999;
     font-size: 11px;
+  }
+
+  &__placeholder {
+    &--open {
+      height: 100px;
+    }
   }
 }
