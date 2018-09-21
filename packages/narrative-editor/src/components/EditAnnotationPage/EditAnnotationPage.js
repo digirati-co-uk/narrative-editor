@@ -23,10 +23,11 @@ class EditAnnotationPage extends Component {
     const { manifestJson, annotation } = this.props;
     const { annotationId } = this.state;
 
-    const target =
-      typeof annotation.target === 'string'
+    const target = annotation.target
+      ? typeof annotation.target === 'string'
         ? annotation.target
-        : annotation.target.id;
+        : annotation.target.id
+      : null;
 
     return (
       <div>
