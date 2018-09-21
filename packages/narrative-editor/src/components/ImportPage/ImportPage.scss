@@ -4,16 +4,61 @@
   height: 100vh;
   background: #2e3133;
   color: #fff;
-  padding: 40px;
+  border-bottom: 20px solid #fff;
+  flex-direction: column;
 
   &__inner {
     max-width: 800px;
     width: 100%;
     margin: 0 auto;
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
   }
 
   &__heading {
     font-weight: 300;
-    font-size: 4em;
+    font-size: 2.8em;
+    margin-bottom: 1.2em;
+  }
+
+  &__body {
+    flex: 1;
+    display: flex;
+  }
+
+  &__footer {
+    width: 100%;
+    align-self: flex-end;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &-logos {
+      margin: auto 0;
+      flex: 1;
+      padding: 0 50px;
+    }
+
+    &-menu {
+      align-self: flex-end;
+      margin: auto 0;
+      padding: 0 50px;
+    }
+  }
+
+  &__testing {
+    margin: 1em 0;
+    font-weight: 300;
+    font-size: 1.2em;
+    ul {
+      list-style: none;
+    }
+    li {
+      margin-bottom: 8px;
+    }
   }
 }

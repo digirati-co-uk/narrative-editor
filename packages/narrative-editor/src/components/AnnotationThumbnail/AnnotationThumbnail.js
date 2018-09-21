@@ -10,6 +10,8 @@ const $b = BEM.block('annotation-thumbnail');
 class AnnotationThumbnail extends Component {
   state = { imageService: null, selector: null, bigly: false };
 
+  cache = {};
+
   componentWillMount() {
     if (this.props.imageService) {
       console.log(this.props.imageService);

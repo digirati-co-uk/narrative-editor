@@ -1,0 +1,33 @@
+.import-box {
+  border: 2px solid #fff;
+  color: #fff;
+  display: flex;
+  border-radius: 3px;
+  align-content: center;
+  flex-direction: row;
+
+  &__input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-size: 1.5em;
+    padding: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+
+    &:focus {
+      outline: none;
+    }
+
+    &-box {
+      flex: 1;
+    }
+  }
+
+  &__status-icon {
+    align-self: flex-end;
+    height: 30px;
+    display: flex;
+    margin: auto 15px;
+  }
+}

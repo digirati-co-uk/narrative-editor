@@ -4,6 +4,7 @@ import * as tileSourceSelector from './tileSource';
 import * as annotationsSelector from './annotations';
 
 export const getRoot = state => state.metadata;
+export const getId = createSelector(getRoot, metadata => metadata.id);
 export const getLabel = createSelector(getRoot, metadata => metadata.label);
 export const getSummary = createSelector(getRoot, metadata => metadata.summary);
 export const getRequiredStatement = createSelector(
@@ -27,18 +28,23 @@ const filerP2Id = ({ ...obj }) => {
   return obj;
 };
 
-const getId = obj => obj['@id'] || obj.id;
+const getResourceId = obj => obj['@id'] || obj.id;
 
 export const presentation3Manifest = (state, props = {}) => {
-  const idPrefix =
-    props.idPrefix || 'https://digirati.com/narrative-editor/1.0/';
-
   const currentCanvas = canvasSelector.currentCanvas(state);
   const tileSource = tileSourceSelector.currentTileSource(state);
 
+  const idPrefix = getResourceId(state)
+    ? getResourceId(state)
+    : props.idPrefix || 'https://digirati.com/narrative-editor/1.0/';
+
+  const tileSourceService = Array.isArray(tileSource.service)
+    ? tileSource.service[0]
+    : tileSource.service;
+
   return {
     '@context': ['http://iiif.io/api/presentation/3/context.json'],
-    id: `${idPrefix}manifest1`,
+    id: idPrefix,
     type: 'Manifest',
     label: t(getLabel(state)),
     summary: t(getSummary(state)),
@@ -49,7 +55,7 @@ export const presentation3Manifest = (state, props = {}) => {
     })),
     items: [
       {
-        id: idPrefix + getId(currentCanvas),
+        id: idPrefix + getResourceId(currentCanvas),
         type: 'Canvas',
         label: t(canvasSelector.getLabel(state)),
         summary: t(canvasSelector.getSummary(state)),
@@ -62,34 +68,34 @@ export const presentation3Manifest = (state, props = {}) => {
         width: tileSource.width,
         annotations: [
           {
-            id: idPrefix + getId(currentCanvas) + '/annoPage2',
+            id: idPrefix + getResourceId(currentCanvas) + '/annoPage2',
             type: 'AnnotationPage',
             items: annotationsSelector.getAnnotations(state),
           },
         ],
         items: [
           {
-            id: idPrefix + getId(currentCanvas) + '/annoPage1',
+            id: idPrefix + getResourceId(currentCanvas) + '/annoPage1',
             type: 'AnnotationPage',
             items: [
               filerP2Id({
-                id: idPrefix + getId(currentCanvas) + '/anno1',
+                id: idPrefix + getResourceId(currentCanvas) + '/anno1',
                 body: filerP2Id({
                   ...tileSource,
-                  id: getId(tileSource),
+                  id: getResourceId(tileSource),
                   type: 'Image',
-                  service: tileSource.service
+                  service: tileSourceService
                     ? [
                         filerP2Id({
-                          ...tileSource.service,
-                          id: getId(tileSource.service),
+                          ...tileSourceService,
+                          id: getResourceId(tileSourceService),
                         }),
                       ]
                     : null,
                 }),
                 motivation: 'painting',
                 type: 'Annotation',
-                target: idPrefix + getId(currentCanvas),
+                target: idPrefix + getResourceId(currentCanvas),
               }),
             ],
           },

@@ -4,6 +4,7 @@ import { reorderArray } from '../utility';
 import uuid from 'uuid/v1';
 
 // Constants
+const UPDATE_ID = 'UPDATE_ID';
 const UPDATE_LABEL = 'UPDATE_LABEL';
 const UPDATE_SUMMARY = 'UPDATE_SUMMARY';
 const ADD_METADATA_PAIR = 'ADD_METADATA_PAIR';
@@ -13,6 +14,7 @@ const REORDER_METADATA_PAIR = 'REORDER_METADATA_PAIR';
 const UPDATE_REQUIRED_STATEMENT = 'UPDATE_REQUIRED_STATEMENT';
 
 const DEFAULT_STATE = {
+  id: null,
   label: null,
   summary: null,
   metadata: [],
@@ -20,6 +22,7 @@ const DEFAULT_STATE = {
 };
 
 const {
+  updateId,
   updateLabel,
   updateSummary,
   addMetadataPair,
@@ -28,6 +31,7 @@ const {
   reorderMetadataPair,
   updateRequiredStatement,
 } = createActions({
+  [UPDATE_ID]: id => ({ id }),
   [UPDATE_LABEL]: label => ({ label }),
   [UPDATE_SUMMARY]: summary => ({ summary }),
   [ADD_METADATA_PAIR]: (label, value) => ({ id: uuid(), label, value }),
@@ -39,6 +43,11 @@ const {
 
 const reducer = handleActions(
   {
+    [updateId]: (state, { payload: { id } }) =>
+      update(state, {
+        id: { $set: id },
+      }),
+
     [updateLabel]: (state, { payload: { label } }) =>
       update(state, { label: { $set: label } }),
 
@@ -80,6 +89,7 @@ const reducer = handleActions(
 );
 
 export {
+  updateId,
   updateLabel,
   updateSummary,
   addMetadataPair,
