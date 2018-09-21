@@ -13,7 +13,7 @@ import OverviewPage from '../OverviewPage/OverviewPage';
 import ExportPage from '../ExportPage/ExportPage';
 import createHashSource, { pushHashPath } from 'hash-source';
 import PreviewPage from '../PreviewPage/PreviewPage';
-import ImportScreen from '../importScreen/ImportScreen';
+import ImportPage from '../ImportPage/ImportPage';
 import { tileSource, canvas, metadata, reset } from '@narrative-editor/presley';
 import uuid from 'uuid/v1';
 import './NarrativeEditor.scss';
@@ -49,11 +49,19 @@ class NarrativeEditor extends Component {
     this.props.canvasUpdateLabel(canvasId, 'Untitled canvas');
   };
 
+  startAgain = () => {
+    if (window.confirm('Are you sure you want to discard your work?')) {
+      this.props.purge().then(() => {
+        this.props.startAgain();
+      });
+    }
+  };
+
   render() {
-    const { currentResource, changeTileSource, startAgain } = this.props;
+    const { currentResource, changeTileSource, startAgain, purge } = this.props;
     if (!currentResource) {
       return (
-        <ImportScreen
+        <ImportPage
           default
           route="import"
           onImageSelectedCallback={this.onImageSelected}
@@ -82,7 +90,7 @@ class NarrativeEditor extends Component {
                 className={$b
                   .element('navigation-item')
                   .modifier('start-again')}
-                onClick={startAgain}
+                onClick={this.startAgain}
               >
                 Start again?
               </li>

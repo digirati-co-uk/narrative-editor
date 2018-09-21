@@ -1,0 +1,19 @@
+.import-page {
+  display: flex;
+  flex: 1;
+  height: 100vh;
+  background: #2e3133;
+  color: #fff;
+  padding: 40px;
+
+  &__inner {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__heading {
+    font-weight: 300;
+    font-size: 4em;
+  }
+}

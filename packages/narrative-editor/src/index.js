@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== 'production') {
 render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <NarrativeEditor />
+      <NarrativeEditor purge={() => persistor.purge()} />
     </PersistGate>
   </Provider>,
   document.querySelector('#app')
