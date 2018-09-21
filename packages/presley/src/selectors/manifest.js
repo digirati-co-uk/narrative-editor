@@ -55,7 +55,7 @@ export const presentation3Manifest = (state, props = {}) => {
     })),
     items: [
       {
-        id: idPrefix + getResourceId(currentCanvas),
+        id: getResourceId(currentCanvas),
         type: 'Canvas',
         label: t(canvasSelector.getLabel(state)),
         summary: t(canvasSelector.getSummary(state)),
@@ -68,18 +68,18 @@ export const presentation3Manifest = (state, props = {}) => {
         width: tileSource.width,
         annotations: [
           {
-            id: idPrefix + getResourceId(currentCanvas) + '/annoPage2',
+            id: getResourceId(currentCanvas) + '/annoPage2',
             type: 'AnnotationPage',
             items: annotationsSelector.getAnnotations(state),
           },
         ],
         items: [
           {
-            id: idPrefix + getResourceId(currentCanvas) + '/annoPage1',
+            id: getResourceId(currentCanvas) + '/annoPage1',
             type: 'AnnotationPage',
             items: [
               filerP2Id({
-                id: idPrefix + getResourceId(currentCanvas) + '/anno1',
+                id: getResourceId(currentCanvas) + '/anno1',
                 body: filerP2Id({
                   ...tileSource,
                   id: getResourceId(tileSource),
@@ -95,7 +95,7 @@ export const presentation3Manifest = (state, props = {}) => {
                 }),
                 motivation: 'painting',
                 type: 'Annotation',
-                target: idPrefix + getResourceId(currentCanvas),
+                target: getResourceId(currentCanvas),
               }),
             ],
           },

@@ -12,11 +12,13 @@ class ImportBox extends Component {
   };
 
   render() {
+    const { value } = this.props;
     return (
       <div className={$b}>
         <div className={$b.element('input-box')}>
           <input
             type="text"
+            value={value}
             onChange={this.handleChange}
             className={$b.element('input')}
           />

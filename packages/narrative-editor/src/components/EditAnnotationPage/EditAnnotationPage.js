@@ -23,6 +23,11 @@ class EditAnnotationPage extends Component {
     const { manifestJson, annotation } = this.props;
     const { annotationId } = this.state;
 
+    const target =
+      typeof annotation.target === 'string'
+        ? annotation.target
+        : annotation.target.id;
+
     return (
       <div>
         <AnnotationEditor
@@ -32,7 +37,7 @@ class EditAnnotationPage extends Component {
           currentCanvas={manifestJson.items[0].id}
           captureModel={pointOfInterest['@id']}
           captureModelJson={pointOfInterest}
-          selector={annotation ? parseSelectorTarget(annotation.target) : null}
+          selector={annotation ? parseSelectorTarget(target) : null}
           input={
             annotation
               ? {
@@ -46,10 +51,15 @@ class EditAnnotationPage extends Component {
           }
           // selector={{ x: 1000, y: 1000, width: 300, height: 300 }}
           onCreateAnnotation={resp => {
+            console.log(resp);
             const p3Annotation = {
               ...resp.annotation,
               id: annotationId,
               type: 'Annotation',
+              label:
+                resp.annotation.label === 'unknown'
+                  ? null
+                  : resp.annotation.label,
               body: resp.annotation.body
                 ? {
                     id: resp.annotation.body['@id'],

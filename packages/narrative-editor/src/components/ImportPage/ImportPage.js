@@ -11,6 +11,8 @@ class ImportPage extends Component {
   state = { status: null, type: null, resource: null };
 
   handleChange = value => {
+    this.setState({ url: value });
+
     if (!value) {
       return this.setState({ status: null, type: null, resource: null });
     }
@@ -62,27 +64,52 @@ class ImportPage extends Component {
       });
   };
 
+  goTo = url => () => {
+    this.setState({ url });
+    this.handleChange(url);
+  };
+
   render() {
     const { onChooseCanvas, onChooseManifest } = this.props;
-    const { status, type, resource } = this.state;
+    const { status, type, resource, url } = this.state;
     return (
       <div className={$b}>
         <div className={$b.element('inner')}>
           <h1 className={$b.element('heading')}>Narrative editor</h1>
-          <ImportBox onChange={this.handleChange} status={status} />
+          <ImportBox value={url} onChange={this.handleChange} status={status} />
           <div className={$b.element('body')}>
             {!status ? (
               <div className={$b.element('testing')}>
                 Try a few of these out for testing.
                 <ul>
-                  <li>
+                  <li
+                    onClick={this.goTo(
+                      'https://framemark.vam.ac.uk/collections/2013GU2911/info.json'
+                    )}
+                  >
                     https://framemark.vam.ac.uk/collections/2013GU2911/info.json
                   </li>
-                  <li>https://stephenwf.github.io/ocean-liners.json</li>
-                  <li>
+                  <li
+                    onClick={this.goTo(
+                      'https://stephenwf.github.io/ocean-liners.json'
+                    )}
+                  >
+                    https://stephenwf.github.io/ocean-liners.json
+                  </li>
+                  <li
+                    onClick={this.goTo(
+                      'https://view.nls.uk/manifest/7446/74464117/manifest.json'
+                    )}
+                  >
                     https://view.nls.uk/manifest/7446/74464117/manifest.json
                   </li>
-                  <li>https://wellcomelibrary.org/iiif/b28481331/manifest</li>
+                  <li
+                    onClick={this.goTo(
+                      'https://wellcomelibrary.org/iiif/b28481331/manifest'
+                    )}
+                  >
+                    https://wellcomelibrary.org/iiif/b28481331/manifest
+                  </li>
                 </ul>
               </div>
             ) : null}

@@ -14,7 +14,6 @@ class AnnotationThumbnail extends Component {
 
   componentWillMount() {
     if (this.props.imageService) {
-      console.log(this.props.imageService);
       fetch(`${this.props.imageService}/info.json`)
         .then(r => r.json())
         .then(resp => {
