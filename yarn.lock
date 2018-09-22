@@ -902,29 +902,49 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@canvas-panel/core@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@canvas-panel/core/-/core-0.0.9.tgz#9efd394c7c716e7c3179197e57a5e05ad7b0e8c5"
+"@canvas-panel/core@0.1.0-pr.561f98a5\n":
+  version "0.1.0-pr.561f98a5"
+  resolved "https://registry.yarnpkg.com/@canvas-panel/core/-/core-0.1.0-pr.561f98a5.tgz#685f2be88ef0e03ee052ba69ca0d1f1510a865a1"
   dependencies:
     "@fesk/bem-js" "^1.0.0"
     "@iiif/manifold" "^1.2.19"
-    "@stephenwf-forks/manifesto.js" "^2.2.10"
+    "@stephenwf-forks/manifesto.js" "2.2.25"
     core-js "^2.5.3"
     create-react-context "^0.2.0"
+    mobile-detect "^1.4.2"
     openseadragon "^2.3.1"
     react "^16.3.2"
     react-dom "^16.3.2"
     react-draggable "^3.0.5"
     react-measure "^2.0.2"
     screenfull "^3.3.2"
-    whatwg-fetch "^2.0.3"
+    whatwg-fetch "^3.0.0"
 
-"@canvas-panel/full-page-plugin@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@canvas-panel/full-page-plugin/-/full-page-plugin-0.0.8.tgz#71bb3e3f508a697349845ac04eef6050b8c5bb1b"
+"@canvas-panel/core@0.1.0-pr.a1d87f29":
+  version "0.1.0-pr.a1d87f29"
+  resolved "https://registry.yarnpkg.com/@canvas-panel/core/-/core-0.1.0-pr.a1d87f29.tgz#3bd104125976de8f7b71e8b913dfe491d60b1b2d"
   dependencies:
-    "@canvas-panel/core" "^0.0.9"
+    "@fesk/bem-js" "^1.0.0"
+    "@iiif/manifold" "^1.2.19"
+    "@stephenwf-forks/manifesto.js" "2.2.25"
+    core-js "^2.5.3"
+    create-react-context "^0.2.0"
+    mobile-detect "^1.4.2"
+    openseadragon "^2.3.1"
+    react "^16.3.2"
+    react-dom "^16.3.2"
+    react-draggable "^3.0.5"
+    react-measure "^2.0.2"
+    screenfull "^3.3.2"
+    whatwg-fetch "^3.0.0"
+
+"@canvas-panel/full-page-plugin@0.1.0-pr.a1d87f29":
+  version "0.1.0-pr.a1d87f29"
+  resolved "https://registry.yarnpkg.com/@canvas-panel/full-page-plugin/-/full-page-plugin-0.1.0-pr.a1d87f29.tgz#50bb791d79ba3c28a7bdf219698a7ac758bc4ac2"
+  dependencies:
+    "@canvas-panel/core" "0.1.0-pr.a1d87f29"
     babel-preset-es2015-native-modules "^6.9.4"
+    bezier-easing "^2.1.0"
     react-dom "^16.3.2"
 
 "@emotion/is-prop-valid@^0.6.5":
@@ -1286,7 +1306,7 @@
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
 
-"@stephenwf-forks/manifesto.js@^2.2.10", "@stephenwf-forks/manifesto.js@^2.2.25":
+"@stephenwf-forks/manifesto.js@2.2.25", "@stephenwf-forks/manifesto.js@^2.2.25":
   version "2.2.25"
   resolved "https://registry.yarnpkg.com/@stephenwf-forks/manifesto.js/-/manifesto.js-2.2.25.tgz#69a7251479648c4078dc439c33dcbb2384916567"
   dependencies:
@@ -11211,6 +11231,10 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
+mobile-detect@^1.4.2:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/mobile-detect/-/mobile-detect-1.4.3.tgz#e436a3839f5807dd4d3cd4e081f7d3a51ffda2dd"
+
 mocha@4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/mocha/-/mocha-4.1.0.tgz#7d86cfbcf35cb829e2754c32e17355ec05338794"
@@ -16630,6 +16654,10 @@ whatwg-fetch@2.0.3:
 whatwg-fetch@>=0.10.0, whatwg-fetch@^2.0.3:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
+
+whatwg-fetch@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.0.0.tgz#fc804e458cc460009b1a2b966bc8817d2578aefb"
 
 whatwg-mimetype@^2.0.0, whatwg-mimetype@^2.1.0:
   version "2.1.0"

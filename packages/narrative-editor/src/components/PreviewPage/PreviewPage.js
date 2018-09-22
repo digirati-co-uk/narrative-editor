@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CanvasPanelPreview from '../CanvasPanelPreview/CanvasPanelPreview';
+import CanvasPanelFullPagePreview from '../CanvasPanelFullPagePreview/CanvasPanelFullPagePreview';
 
 class PreviewPage extends Component {
   render() {
@@ -7,7 +7,7 @@ class PreviewPage extends Component {
       <div>
         <div style={{ position: 'relative', height: 'auto' }}>
           <div style={{ height: 800 }}>
-            <CanvasPanelPreview maxHeight={800} />
+            <CanvasPanelFullPagePreview maxHeight={800} />
           </div>
         </div>
       </div>

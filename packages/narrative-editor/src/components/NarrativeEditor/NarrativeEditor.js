@@ -31,7 +31,7 @@ const hashSource = createHashSource();
 const history = createHistory(hashSource);
 const RouteContainer = posed.div({
   enter: { opacity: 1, delay: 100 },
-  exit: { opacity: 0, y: '50px', transition: { duration: 100 } },
+  exit: { opacity: 0, transition: { duration: 100 } },
 });
 const PosedRouter = ({ children }) => (
   <Location>
@@ -204,7 +204,7 @@ class NarrativeEditor extends Component {
               </li>
             </ul>
           </header>
-          <main style={{ overflow: 'hidden' }}>
+          <main style={{ overflow: 'hidden', height: '100vh' }}>
             <PosedRouter>
               <OverviewPage navigate={history.navigate} path="/" />
               <ManifestPage path="/manifest" />

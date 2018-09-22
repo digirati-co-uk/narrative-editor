@@ -28,7 +28,7 @@
     "@annotation-studio/plugin-resource-editor": "1.0.0-pr.c651f7d0",
     "@annotation-studio/plugin-viewer": "1.0.0-pr.c651f7d0",
     "@annotation-studio/redux": "1.0.0-pr.c651f7d0",
-    "@canvas-panel/core": "^0.0.9",
+    "@canvas-panel/core": "0.1.0-pr.561f98a5\n",
     "@fesk/react-bem": "^1.0.2",
     "@stephenwf-forks/manifesto.js": "^2.2.25",
     "immutability-helper": "^2.3.0",

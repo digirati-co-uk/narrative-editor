@@ -13,8 +13,8 @@
     "coverage:watch": "jest --coverage --watch"
   },
   "dependencies": {
-    "@canvas-panel/core": "^0.0.9",
-    "@canvas-panel/full-page-plugin": "^0.0.8",
+    "@canvas-panel/core": "0.1.0-pr.a1d87f29",
+    "@canvas-panel/full-page-plugin": "0.1.0-pr.a1d87f29",
     "@fesk/bem-js": "^1.0.1",
     "@narrative-editor/annotation-studio": "0.1.0",
     "@narrative-editor/annotation-studio-editor": "0.1.0",
