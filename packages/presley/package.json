@@ -1,0 +1,24 @@
+{
+  "name": "@narrative-editor/presley",
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "fesk-start",
+    "build": "fesk-build",
+    "watch": "fesk-watch"
+  },
+  "devDependencies": {
+    "@fesk/scripts": "^1.1.1"
+  },
+  "dependencies": {
+    "immutability-helper": "^2.7.1",
+    "redux": "^4.0.0",
+    "redux-actions": "^2.6.1",
+    "redux-localstorage": "^1.0.0-rc5",
+    "redux-persist": "^5.10.0",
+    "redux-reset": "^0.3.0",
+    "reselect": "^3.0.1",
+    "uuid": "^3.3.2"
+  }
+}

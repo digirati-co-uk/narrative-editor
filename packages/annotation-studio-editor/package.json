@@ -1,0 +1,28 @@
+{
+  "name": "@narrative-editor/annotation-studio-editor",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "fesk-start",
+    "build": "fesk-build",
+    "watch": "fesk-watch"
+  },
+  "devDependencies": {
+    "@fesk/scripts": "^1.1.1"
+  },
+  "dependencies": {
+    "@annotation-studio/bridge": "1.0.0-pr.c651f7d0",
+    "@annotation-studio/components": "1.0.0-pr.c651f7d0",
+    "@annotation-studio/plugin-core": "1.0.0-pr.c651f7d0",
+    "@annotation-studio/plugin-json-preview": "1.0.0-pr.c651f7d0",
+    "@annotation-studio/plugin-resource-editor": "1.0.0-pr.c651f7d0",
+    "@annotation-studio/plugin-viewer": "1.0.0-pr.c651f7d0",
+    "@annotation-studio/redux": "1.0.0-pr.c651f7d0",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "react-intl": "^2.4.0",
+    "react-intl-redux": "^0.7.0",
+    "react-measure": "1.4.7"
+  }
+}

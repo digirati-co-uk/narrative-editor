@@ -21,7 +21,7 @@ class App extends React.Component {
       manifestJson: this.createNewManifestFromImage(iiifImageJson),
     });
   };
-  // preslely.js
+  // presyalely.js
   createNewManifestFromImage = iiifImageJson => {
     const imageId =
       iiifImageJson.service['@id'] || iiifImageJson.service['@id'];

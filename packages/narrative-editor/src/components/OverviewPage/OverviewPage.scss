@@ -1,0 +1,33 @@
+.overview-page {
+  position: relative;
+  display: flex;
+  height: calc(100vh - 50px);
+  flex-direction: row;
+
+  &__viewer {
+    display: flex;
+    flex: 1;
+    position: relative;
+  }
+
+  &__annotations {
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+    width: 400px;
+    flex: 0 0 400px;
+    padding: 0 10px 20px;
+  }
+
+  &__title {
+    font-weight: 300;
+    font-size: 1.4em;
+    line-height: 1.9em;
+    margin: 10px 0 0;
+  }
+  &__subtext {
+    color: #999;
+    font-size: 0.8em;
+    margin-bottom: 25px;
+  }
+}

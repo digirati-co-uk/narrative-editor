@@ -1,0 +1,56 @@
+.input-warning-box {
+  flex: 1;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__message {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 1em 0;
+  }
+
+  &__choice {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 1em 0 1em 20px;
+    text-align: right;
+    cursor: pointer;
+    svg {
+      fill: #fff;
+      margin: auto;
+      transform: translateY(3px);
+    }
+  }
+
+  &__notice {
+    margin-top: 2em;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  &__thumbnail {
+    padding: 5px;
+    border: 2px solid transparent;
+
+    &--selected {
+      border: 2px solid #0d78d6;
+      border-radius: 2px;
+    }
+
+    &-image {
+      background-size: cover;
+      height: 100px;
+      width: 100px;
+    }
+
+    &-container {
+      display: flex;
+      align-content: start;
+      flex-wrap: wrap;
+      flex: 1;
+      overflow-y: auto;
+    }
+  }
+}

@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`spaces/canvas canvas can be created 1`] = `
+Object {
+  "canvas": Object {
+    "current": "id-123",
+    "list": Object {
+      "id-123": Object {
+        "id": "id-123",
+        "label": null,
+        "metadata": Array [],
+        "requiredStatement": null,
+        "summary": null,
+      },
+    },
+    "order": Array [
+      "id-123",
+    ],
+  },
+}
+`;
+
+exports[`spaces/canvas canvas can be recovered 1`] = `
+Object {
+  "canvas": Object {
+    "current": "id-3",
+    "list": Object {
+      "id-1": Object {
+        "id": "id-1",
+        "label": null,
+        "metadata": Array [],
+        "requiredStatement": null,
+        "summary": null,
+      },
+      "id-2": Object {
+        "id": "id-2",
+        "label": null,
+        "metadata": Array [],
+        "requiredStatement": null,
+        "summary": null,
+      },
+      "id-3": Object {
+        "id": "id-3",
+        "label": null,
+        "metadata": Array [],
+        "requiredStatement": null,
+        "summary": null,
+      },
+    },
+    "order": Array [
+      "id-1",
+      "id-3",
+      "id-2",
+    ],
+  },
+}
+`;
+
+exports[`spaces/canvas canvas can be removed 1`] = `
+Object {
+  "canvas": Object {
+    "current": "id-3",
+    "list": Object {
+      "id-1": Object {
+        "id": "id-1",
+        "label": null,
+        "metadata": Array [],
+        "requiredStatement": null,
+        "summary": null,
+      },
+      "id-2": Object {
+        "id": "id-2",
+        "label": null,
+        "metadata": Array [],
+        "requiredStatement": null,
+        "summary": null,
+      },
+      "id-3": Object {
+        "id": "id-3",
+        "label": null,
+        "metadata": Array [],
+        "requiredStatement": null,
+        "summary": null,
+      },
+    },
+    "order": Array [
+      "id-1",
+      "id-3",
+    ],
+  },
+}
+`;
+
+exports[`spaces/canvas canvas that does not exist cannot be recovered 1`] = `
+Object {
+  "canvas": Object {
+    "current": null,
+    "list": Object {
+      "id-1": Object {
+        "id": "id-1",
+        "label": null,
+        "metadata": Array [],
+        "requiredStatement": null,
+        "summary": null,
+      },
+    },
+    "order": Array [],
+  },
+}
+`;
+
+exports[`spaces/canvas multiple canvases can be created 1`] = `
+Object {
+  "canvas": Object {
+    "current": "id-2",
+    "list": Object {
+      "id-1": Object {
+        "id": "id-1",
+        "label": null,
+        "metadata": Array [],
+        "requiredStatement": null,
+        "summary": null,
+      },
+      "id-2": Object {
+        "id": "id-2",
+        "label": null,
+        "metadata": Array [],
+        "requiredStatement": null,
+        "summary": null,
+      },
+    },
+    "order": Array [
+      "id-1",
+      "id-2",
+    ],
+  },
+}
+`;

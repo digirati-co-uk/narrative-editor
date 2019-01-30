@@ -1,0 +1,24 @@
+.annotation-thumbnail {
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  background: #fff;
+  transition: transform 0.2s;
+
+  &--bigly:hover {
+    transform: scale(2);
+    border: none;
+    box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 60px;
+  }
+}

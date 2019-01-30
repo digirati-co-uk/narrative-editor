@@ -7,9 +7,8 @@ cache:
 notifications:
   email: false
 node_js:
-- 8
+  - 8
 script:
-- "./node_modules/.bin/lerna bootstrap"
-- "yarn build-all"
-after_success:
-- "./deploy.sh"
+  - "yarn build-all"
+#after_success:
+#- "./deploy.sh"

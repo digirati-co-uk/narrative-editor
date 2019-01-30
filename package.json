@@ -7,6 +7,7 @@
   "devDependencies": {
     "@fesk/module-release": "^0.0.2",
     "babel-eslint": "^8.1.0",
+    "babel-jest": "^23.4.2",
     "eslint": "^3.10.2",
     "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-flow": "^2.29.1",
@@ -14,6 +15,7 @@
     "eslint-plugin-prettier": "^2.4.0",
     "flow-bin": "^0.61.0",
     "husky": "^0.14.3",
+    "jest": "^23.5.0",
     "lerna": "^2.11.0",
     "lint-staged": "^6.0.0",
     "prettier": "^1.9.2",
@@ -25,7 +27,9 @@
   "scripts": {
     "precommit": "lint-staged",
     "postinstall": "lerna link",
-    "test": "echo \"No tests yet\";",
+    "test": "jest --coverage",
+    "test:coverage": "jest --verbose --coverage",
+    "test:watch": "jest --no-cache --coverage --watchAll",
     "build-all": "lerna run build",
     "release": "fesk-release --increment=patch",
     "merge": "fesk-merge",
@@ -40,6 +44,11 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "<rootDir>/jest.transform.js"
+    }
   },
   "license": "MIT"
 }

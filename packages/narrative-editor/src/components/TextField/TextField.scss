@@ -1,0 +1,20 @@
+.text-field {
+  &__label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  &__input {
+    padding: 10px;
+    width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 3px;
+    margin-bottom: 10px;
+
+    &:focus {
+      border: 2px solid #0074d9;
+      outline: none;
+    }
+  }
+}

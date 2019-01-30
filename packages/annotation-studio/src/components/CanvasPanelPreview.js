@@ -6,7 +6,6 @@ import {
   OpenSeadragonViewer,
   AnnotationProvider,
   AnnotationListProvider,
-  AnnotationRepresentation,
   CanvasRepresentation,
   Annotation,
 } from '@canvas-panel/core';

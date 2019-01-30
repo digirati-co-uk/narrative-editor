@@ -1,0 +1,75 @@
+.status-icon {
+  display: flex;
+
+  &--error &__ball {
+    &--icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #c44646;
+    }
+
+    &-icon {
+      text-align: center;
+      margin: auto;
+    }
+  }
+
+  &__ball {
+    &--icon {
+      display: flex;
+      transition: background 0.3s;
+    }
+    svg {
+      margin: auto;
+      fill: #fff;
+      width: 20px;
+    }
+  }
+
+  &--success &__ball {
+    &--icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #0d78d6;
+    }
+
+    &-icon {
+      text-align: center;
+      margin: auto;
+    }
+  }
+
+  &--warning &__ball {
+    &--icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #c49046;
+    }
+
+    &-icon {
+      text-align: center;
+      margin: auto;
+    }
+  }
+
+  &--loading &__ball {
+    height: 8px;
+    width: 8px;
+    background: #2a87d0;
+    border-radius: 50%;
+    margin: auto;
+
+    &-icon {
+      opacity: 0;
+    }
+
+    &-container {
+      width: 40px;
+      display: flex;
+      align-content: space-evenly;
+    }
+  }
+}

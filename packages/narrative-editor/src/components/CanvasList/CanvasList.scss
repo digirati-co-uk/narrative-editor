@@ -1,0 +1,101 @@
+.canvas-list {
+  background: #eeeeee;
+  padding: 10px;
+  &__list {
+    margin: 0;
+    padding: 0;
+  }
+  &__close {
+    background: #0074d9;
+    color: #fff;
+    border-radius: 2px;
+    border: none;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+  }
+  &__sticky-header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 5;
+    padding: 5px;
+    &--open {
+      padding-bottom: 45px;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 10px;
+    }
+  }
+  &__label,
+  &__summary {
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &__edit-icon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.4s;
+    &:after {
+      opacity: 0;
+      content: 'edit';
+      position: absolute;
+      top: 0px;
+      right: 25px;
+      color: #0074d9;
+      padding: 2px;
+      border-radius: 2px;
+      font-size: 12px;
+      transition: opacity 0.4s;
+    }
+    &:hover {
+      &:after {
+        opacity: 1;
+      }
+    }
+    svg {
+      height: 16px;
+      fill: #0074d9;
+    }
+  }
+  &:hover &__edit-icon {
+    opacity: 1;
+  }
+  &__sticky-header--open &__edit-icon {
+    display: none;
+  }
+
+  &__item {
+    font-size: 15px;
+    margin: 0;
+    list-style: none;
+    background: #fff;
+    border-radius: 3px;
+    border: 2px solid #ddd;
+    padding: 10px 15px 15px;
+    overflow-y: auto;
+    z-index: 10;
+
+    &--isDragging {
+      border: 2px solid #0074d9;
+      box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    //&--current {
+    //  border: 2px solid #0074d9;
+    //}
+  }
+  &__summary {
+    color: #999;
+    font-size: 11px;
+  }
+
+  &__placeholder {
+    &--open {
+      height: 100px;
+    }
+  }
+}

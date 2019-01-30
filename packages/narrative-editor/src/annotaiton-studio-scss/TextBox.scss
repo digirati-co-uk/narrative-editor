@@ -1,0 +1,84 @@
+.input-text-box {
+  padding: 10px;
+  &__htmlfield {
+    height: 220px;
+    border-width: 2px;
+    margin-bottom: 37px;
+  }
+  &__input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    font-weight: normal;
+    font-size: 12px;
+    margin: 5px 0;
+    background-color: #fff;
+    border-radius: 3px;
+
+    &--textarea {
+      height: 120px;
+    }
+
+    &--datepicker {
+      opacity: 0;
+      padding: 14px 10px;
+
+      &:after {
+        opacity: 0;
+      }
+      cursor: pointer;
+      &:focus {
+        background: #fff;
+        opacity: 0;
+        cursor: text;
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &:focus {
+      border-color: #0074d9;
+      outline: none;
+    }
+  }
+
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+
+  .react-datepicker__input-container {
+    z-index: 2;
+    width: 100%;
+
+    & + .input-text-box__preview {
+      min-height: 46px;
+    }
+  }
+
+  .input-text-box__input--datepicker {
+    width: 100%;
+  }
+
+  &__choice {
+    width: 100%;
+    padding: 14px 10px;
+    border: 2px solid #ccc;
+    margin: 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: -48px;
+  }
+
+  &__label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 4px;
+    font-weight: normal;
+  }
+
+  &__description {
+    color: #888;
+    font-size: 0.75em;
+  }
+}

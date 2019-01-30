@@ -1,0 +1,70 @@
+.metadata-pairs {
+  padding: 10px;
+  background: #eee;
+  overflow-y: auto;
+  position: relative;
+
+  &--isDraggingOver {
+  }
+
+  &__metadata-pair {
+    position: relative;
+    background: #fff;
+    padding: 10px;
+    border: 2px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    &--isDragging {
+      border: 2px solid #0074d9;
+      box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.1);
+    }
+    &:after {
+      clear: both;
+      display: table;
+      content: '';
+    }
+  }
+
+  &__view {
+    &-label {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    &-value {
+      font-size: 11px;
+    }
+  }
+
+  &__add-inline {
+    width: 100%;
+    background: #0074d9;
+    color: #fff;
+    border-radius: 2px;
+    border: none;
+    padding: 10px;
+  }
+
+  &__remove {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    border-radius: 2px;
+    background: orange;
+    color: #fff;
+    cursor: pointer;
+    &:hover {
+      background: orangered;
+    }
+  }
+
+  &__finish-editing {
+    background: #0074d9;
+    color: #fff;
+    border-radius: 2px;
+    border: none;
+    padding: 10px;
+    float: right;
+  }
+}

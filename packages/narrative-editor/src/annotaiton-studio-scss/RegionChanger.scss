@@ -1,0 +1,24 @@
+.region-changer {
+  color: #000;
+  background: transparent;
+  border: none;
+  border-left: 3px solid darken(#546a7b, 10%);
+  padding: 5px;
+  margin: 10px 3px;
+  margin-left: 10px;
+  font-size: 12px;
+  border-radius: 0;
+  line-height: 1.4em;
+
+  &__change-button {
+    cursor: pointer;
+    font-weight: bold;
+    color: #0074d9;
+    padding-left: 5px;
+  }
+
+  &--confirmed {
+    //background: #1fac78;
+    border-left-color: darken(#1fac78, 10%);
+  }
+}
