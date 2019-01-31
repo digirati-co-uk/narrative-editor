@@ -18,7 +18,7 @@ Library of React components for editing IIIF resources for building up narrative
 ![Narrative editor](editor.png 'Narrative editor structure.')
 
 ```
-Copyright 2017 Digirati Limited
+Copyright 2019 Digirati Limited
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this
 software and associated documentation files (the "Software"), to deal in the Software
